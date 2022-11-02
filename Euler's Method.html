@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Math Without Anxiety</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>"Euler's Method" (and why we really shouldn't call it that) </h1>
+									</header>
+
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+
+                                    <h2>When do we care about this?</h2>
+                                    <p>This is a beginner's level idea for how we can numerically approximate solutions to IVP's.  </p>
+                                    
+                                    <h2>How do we do it?</h2>
+                                    <p>We start with the initial condition, \( (x_0,y_0) \) and then moving forward through the slope field given by \( y' = f(x,y) \). We take tiny steps and hope that we land on points close to the solution.</p>
+                                    
+                                    <p>It is a bit like trying to draw a curve with tiny straight lines, like we did when we were kids.  Because that's almost exactly what we're doing.</p>
+                                    
+                                    <h2>Video: Visual and Numerical Approach.  40min.</h2>
+                                    <p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/BwSsorYHY7g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>
+                                    
+                                    <p>You can skip all the stuff about Python if that's not something you're into.</p>
+                                    
+                                    <h3>What do we need to remember?</h3>
+                                    <p>You need to remember that we call the function \(y=f(x)\) a solution to the DE  \( y' = f(x,y) \) and an <strong>integral curve</strong> is the geometric stand-in for a solution.</p>
+                                    
+                                    <p>You should also refresh yourself on what the tangent line is if you forgot...</p>
+                                    
+                                    
+                                    <h3>Why did you say we shouldn't call it "Euler's Method"?</h3>
+                                    <p>Well, everyone does.  But Euler would have hated it.  He came up with it as a pseudo-method in order to solve a larger problem.  Unto itself, he never intended it to be thought of as a legit method to solve DEs.  Because it's really not.  BUT it is a great illustrative idea.</p>
+                                    
+									<h3>Post Video Exercises</h3>
+                                    <p></p>
+                                    
+                                </section>
+
+						</div>
+					</div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+          <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
