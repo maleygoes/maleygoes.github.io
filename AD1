@@ -6,10 +6,14 @@
 -->
 <html>
 	<head>
-		<title>Math Without Anxiety</title>
+		<title>Calculus Without Anxiety</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		  <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 	</head>
 	<body class="is-preload">
 
@@ -24,77 +28,24 @@
 								<header id="header">
 									<a href="index.html" class="logo"><strong>Math Without Anxiety</strong></a>
 									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 									</ul>
 								</header>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Math Without Anxiety</h1>
-											<p>Notes by a professor who cares</p>
-										</header>
-										<p>I'm an Associate Professor of Mathematics, and Math Anxiety (MA) used to challenge me until I found a way to work with it.  I am hoping to pass on this to anyone who will benefit.</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-								</section>
-
-							<!-- Section -->
+							<!-- Content -->
 								<section>
-									<header class="major">
-										<h2>Topics</h2>
+									<header class="main">
+										<h1>Derivative Tests Without Confusion </h1>
 									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Algebra</h3>
-												<p>The basics you will need to understand functions and beyond.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>PreCalculus / Functions</h3>
-												<p>The rest of the toolbox before you take calculus.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Calc I</h3>
-												<p>The math of change.  How to make curved things look straight.</p>
-											</div>
-										</article>
-                                        <article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Multivariable Calculus</h3>
-												<p>Calc I and II, but in 3D (or more!)</p>
-											</div>
-										</article>
-										
-                                        <article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Differential Equations</h3>
-												<p>Math about evolving systems. Predicting the future.</p>
-											</div>
-										</article>
-									</div>
-								</section>
 
-							
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+
+									<p>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]</p>
+                                </section>
+
+						</div>
+					</div>
 
 				<!-- Sidebar -->
 					<div id="sidebar">
@@ -114,7 +65,7 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="AD1.html">Page Test</a></li>
+										<li><a href="generic.html">Page Test</a></li>
 										<li><a href="elements.html">Elements</a></li>
 										<li>
 											<span class="opener">Submenu</span>
