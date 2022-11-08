@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Runge Kutta Methods</h1>
+									</header>
+
+									
+                                    <h2>Why We Care</h2>
+                                    <p>Well, this is the industry standard, so that's pretty neat.  It is rare that we get to see the actual tool used in the field in a classroom.<br>  Is it the most efficient? No.  But it is very very accurate.  And it is based on the methods we have looked at so far!</p>
+                                    
+                                    <h2>What we'll learn / Objectives</h2>
+                                    <ol>
+                                        <li>How We Can Improve on 'Improved' Euler's Method</li>
+                                        <li>How to program a spreadsheet to calculate this for a 1st Order DE </li>
+                                    </ol>
+                                    
+                                    
+                                    
+                                    <h2>What you'll need to remember</h2>
+                                    <ul>
+                                        <li>Euler's Method</li>
+                                        <li>Improved Euler's Method</li>
+                                        <li>Simpson's Rule</li>
+                                        
+                                    </ul>
+                                    
+                                    
+                                    <h2>The actual idea</h2>
+                                   
+                                    <p><center>Part 1<br><iframe width="800" height="660" src="https://www.youtube.com/embed/Mi7HEmCU62w" title="MAT 274 3 3 part 1 Runge Kutta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>
+                                    
+                                    <p><center>Part 2 <br> <iframe width="800" height="660" src="https://www.youtube.com/embed/SgKHreJqM3I" title="MAT 274 3 3 part 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+                                                                    
+                                    <p><a href="https://drive.google.com/file/d/1M6DYLgZqHQpzzWd4mUISTK3HXBkicyyd/view?usp=sharing" target="_blank">Lecture Notes RK Method PDF</a><br>
+                                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a>
+                                    </p>
+                                    </center>
+<!--
+                                    <ul>
+                                        <li></li>
+                                        <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a></li>
+                                        <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a></li>
+                                    
+                                    </ul>
+-->
+                                    
+                                    <h2>Pro Tips</h2>
+                                    <p>Don't get caught up in the notation.  Just remember the process of what we're doing (taking a weighted average of slopes).</p>
+                                    
+                                    
+<!--
+                                    <h2>Get Your Hands Dirty</h2>
+                                    <p><a href="https://docs.google.com/spreadsheets/d/15fJdtOE1dqXZfUhP28k8598hPr5guxwOhwDzuZbTtNg/edit?usp=sharing">Now Try Your Own with h=0.025</a>  (Make your own copy.)</p>
+-->
+                                   
+
+
+
+                                    
+                                    
+									<h2>Exercises for Understanding</h2>
+                                    <p>
+                                        <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Elementary_Differential_Equations_with_Boundary_Value_Problems_(Trench)/03%3A_Numerical_Methods/3.03%3A_The_Runge-Kutta_Method/3.3E%3A_The_Runge-Kutta_Method_(Exercises)" target="_blank">[3.3] #1,2,4,8,15 (RK4 only, ignore semilinear).   Read #28 (optional).  [7.1] #1.  GHW5 Assigned</a> </p>
+                                    
+                                    <h2>Taking It Further</h2>
+                                    <p>This method was essentially the main goal of this sub-unit.  RK4 is what is used in the field to get solutions to ODEs.  If they're not using RK4, they are using a variant that is based on RK4.  So you can rest in confidence that you're studying something *highly* relevant.</p>
+                                    
+                                    <h3>Supplemental Tools</h3>
+                                    <ul>
+                                        <li><a href="images/a_note_on_runge_kutta_method.pdf">I think this is cool. You probably will not.</a>  It is a critique of RK method in a governmental scientific journal, showing its limitations. From about 70 years ago.</li>
+                                    </ul>
+                                    
+                                    
+                                </section>
+
+						</div>
+					</div>
+        </div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+
+	</body>
+</html>
