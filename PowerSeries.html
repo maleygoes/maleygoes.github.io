@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Power Series Solutions</h1>
+									</header>
+
+									
+                                    <h2>Why We Care</h2>
+                                    <p>You should have heard me say a lot by now, that unless ODEs are built a certain way, we are just guessing at what we can do to solve them.<br> If we remember the impact or potentiality that Power Series had on doing a GREAT job approximating series from Calc II, we know that using them to approximate "nice enough" functions that solve DE's would be a pretty good idea.</p>
+                                    
+                                    <h2>What we'll learn / Objectives</h2>
+                                    <ol>
+                                        <li>Definition of Power Series</li>
+                                        <li>Convergence vs Divergence of Series</li>
+                                        <li>Review Ratio Test for convergence</li>
+                                        <li>Finding Radius of Convergence for P.Series</li>
+                                    </ol>
+                                    
+                                    
+                                    
+                                    <h2>What you'll need to remember</h2>
+                                    <p>I do a lot of review here, but as much of what you can review, the better:</p>
+                                    <ul>
+                                        <li>Series Notation</li>
+                                        <li>Ratio Test from Calc II</li>
+                                        <li>Taylor Series Approximations from Calc II</li>
+                                        
+                                    </ul>
+                                    
+                                    
+                                    <h2>The actual idea</h2>
+                                   
+                                    <p><center><iframe width="880" height="660" src="https://www.youtube.com/embed/g-bs1FQHc5E" title="MAT 274 7.1 lecture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+                                                                    
+                                    <a href="https://drive.google.com/file/d/16LzLJdE9JvC1CnoLlF_XA3ti1-2P4AW2/view"> Lecture Notes 7.1</a>
+                                    </center></p>
+<!--
+                                    <ul>
+                                        <li></li>
+                                        <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a></li>
+                                        <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a></li>
+                                    
+                                    </ul>
+-->
+                                    
+                                    <h2>Pro Tips</h2>
+                                    <p>The more you can refresh yourself on what Series notation actually means, the more this will make sense.</p>
+                                    
+                                    
+
+                                    <h2>Get Your Hands Dirty</h2>
+                                    <p>This will just be to refresh ourselves on notation:</p>
+                                    <ul>
+                                    <li>For the sum \( \displaystyle\sum_{n=0}^K \dfrac{x^K}{K!} \) write out all the terms in the series if \( k=4. \)</li>
+                                                    
+                                        <div class="soln"><details>
+                                                    <summary>Solution</summary>
+                                            <p>\( \frac{1}{1}+\frac{x}{1}+\frac{x^2}{2}+\frac{x^3}{6}+\frac{x^4}{24} \)</p>
+                                                </details></div>
+                                    <li> What is the 8th term in the series?</li>
+                                        
+                                                    <div class="soln"><details>
+                                                        <summary>Solution</summary>
+                                                    <p>\( \dfrac{x^7}{7!} \)</p>
+                                                        </details></div>
+                                        
+                                    </ul>
+                                    
+
+                                   
+
+
+
+                                    
+                                    
+									<h2>Exercises for Understanding</h2>
+                                    <p>
+                                        <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Elementary_Differential_Equations_with_Boundary_Value_Problems_(Trench)/07%3A_Series_Solutions_of_Linear_Second_Order_Equations/7.02%3A_Review_of_Power_Series/7.2E%3A_Review_of_Power_Series_(Exercises)" target="_blank">[7.1] #1, 11-15 odds.  The instructions here are bad.  "Rewrite the expression using a power series" is better.  As we did in-class examples.</a> </p>
+                                    
+<!--
+                                    <h2>Taking It Further</h2>
+                                    <p>This method was essentially the main goal of this sub-unit.  RK4 is what is used in the field to get solutions to ODEs.  If they're not using RK4, they are using a variant that is based on RK4.  So you can rest in confidence that you're studying something *highly* relevant.</p>
+-->
+                                    
+<!--
+                                    <h3>Extra Things</h3>
+                                    <ul>
+                                        <li><a href="images/a_note_on_runge_kutta_method.pdf">I think this is cool. You probably will not.</a>  It is a critique of RK method in a governmental scientific journal, showing its limitations. From about 70 years ago.</li>
+                                    </ul>
+-->
+                                    
+                                    
+                                </section>
+
+						</div>
+					</div>
+        </div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+
+	</body>
+</html>
