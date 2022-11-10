@@ -60,12 +60,12 @@
                                    
                                     <p><center>Part 1<br><iframe width="800" height="660" src="https://www.youtube.com/embed/Mi7HEmCU62w" title="MAT 274 3 3 part 1 Runge Kutta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>
                                     
-                                    <p><center>Part 2 <br> <iframe width="800" height="660" src="https://www.youtube.com/embed/SgKHreJqM3I" title="MAT 274 3 3 part 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+                                    <p><center>Part 2 <br> <iframe width="800" height="660" src="https://www.youtube.com/embed/SgKHreJqM3I" title="MAT 274 3 3 part 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                                     
                                     <p><a href="https://drive.google.com/file/d/1M6DYLgZqHQpzzWd4mUISTK3HXBkicyyd/view?usp=sharing" target="_blank">Lecture Notes RK Method PDF</a><br>
                                     <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFf1P4Hl4Iv9qCDQbp9p0ntkY2lIAILM-1RdQKJzICSgyKIUNdZ5DSEqeUYLRTsMuPs7yj6k2EIiZe/pubhtml?gid=40772462&single=true" target="_blank"> Spreadsheet used </a>
                                     </p>
-                                    </center>
+                                    </center></p>
 <!--
                                     <ul>
                                         <li></li>
@@ -79,6 +79,52 @@
                                     <p>Don't get caught up in the notation.  Just remember the process of what we're doing (taking a weighted average of slopes).</p>
                                     
                                     
+<!--                                    Commentary-->
+                                    <h2>Derivation and Commentary</h2>
+                                    <p>Where does this come from? Remember the Taylor Series expansion?</p> 
+                                    
+                                    <p>\[ y(x) \approx y(x_0) + y'(x_0)(x-x_0) + \frac{y''(x_0)}{2!}(x-x_0)^2 + ... \]</p>
+                                    
+                                    <p>If you let me make a substitution to help us out: remember that \( x-x_0 \) is supposed to be small, so we can call it h and make a substitution:  \( x-x_0 = h \).  So then \( x=x_0+h)  \) and now we get:</p>
+                                    
+                                    <p>\[ y(x) \approx y(x_0) + y'(x_0)(h) + \frac{y''(x_0)}{2!}(h)^2 + ... \]</p>
+                                    
+                                    <p>Now let's also remember that \( y'(x) = f(x,y) \) and we can substitute there.</p>
+                                    
+                                    <p> So now the first few terms of the expansion of \( y(x+h) \) Looks like: \[y(x+h) = y(x) + h*f(x,y) + \frac{h^2}{2} y''(x) + O(h^3) \]</p>
+                                    
+                                    <p> What should we do about the \( y''(x) \)?  Well, we can differentiate \( f(x,y) \) but since it is a multivariable function, you need to do the chain rule with partial derivatives.  (This is something we do in Calc III a lot.)</p>
+                                    
+                                    <p>That should look like \[ y''(x) = f_x(x,y) + f_y(x,y)*y'(x) \] which again is \[ y''(x) = f_x(x,y) + f_y(x,y)*f(x,y) \]</p>
+                                    
+                                    <p>And so now the Taylor Series is shaping up to be: \[ y(x+h) = y(x) = hf(x,y) + \frac{h^2}{2}(f_x(x,y) + f_y(x,y)*f(x,y))+O(h^3)\]</p>
+                                    
+                                    <p> The Runge-Kutta method is assuming the value of the slope over each step can be written as a linear combination of the function \( f(x,y) \)evaluated at certain points during the step.  So then we would assume it looks something like  \[ y(x+h)= y(x) + Ahk_1 + Bhk_2 \] where \( k_1=f(x,y) \) and \( k_2 = f(x + Ph, y + Qhk_1) \)</p>
+                                    
+                                    <p>Well, what the heck are A,B,P,Q going to be?  We will get there.  But first, we need to notice something. \( k_1 \) is just the slope field being evaluated at the first point, which we know.  but \( k_2 \) requires that we develop the Taylor expansion of \( f(x,y) \) about the point x.  Since it is multivariable, that means we gotta use the multivariable chain rule (just a couple steps though.).
+                                    
+                                    \[ k_2 = f(x,y) + f_x(x,y)Ph + f_y(x,y)Qhf(x,y) + O(h^2) \]
+                                    
+                                    
+                                    
+                                    </p>
+                                    
+                                    <p>So if we take that long expression, and sub it in for \( k_2 \) in our Runge-Kutta formula we're building: we get (brace for it)
+                                        
+                                        \[ y(x+h) = y(x) + (A+B)hf(x,y) + Bh^2Pf_x(x,y) + Bh^2Qf_y(x,y)f(x,y)+O(h^3) \]
+                                    
+                                    <strong>So if we compare to the Taylor Expansion above... that means...</strong><br>
+                                    
+                                    \( A+B = 1 \),  \( BP = \frac{1}{2} \), and \( BQ =\frac{1}{2} \)
+                                    
+                                    
+                                    And so the two equations agree up to the second order of h. </p>
+                                    
+                                    <p>The interesting thing, is that since we have 4 constants and only 3 conditions, that means we can mess with them.</p>
+                                    
+                                    <p>A=1/2, B=1/2, and P=Q=1 leads to the 'Heun method'.</p>
+                                    <p>OR Set A = 0, which leads to B=1 and P = Q = 1/2 leads to the midpoint method.</p>
+                                    <p>Want to make your own method?</p>
 <!--
                                     <h2>Get Your Hands Dirty</h2>
                                     <p><a href="https://docs.google.com/spreadsheets/d/15fJdtOE1dqXZfUhP28k8598hPr5guxwOhwDzuZbTtNg/edit?usp=sharing">Now Try Your Own with h=0.025</a>  (Make your own copy.)</p>
