@@ -76,9 +76,44 @@
                                     
                                     
                                     <h2>Get Your Hands Dirty</h2>
-                                  
+                                    <h3>Exercise 6 worked out:</h3>
+                                    <p> A rectangular box with a square bottom and closed top is to be made from 2 mateirals.  The material for the side costs $1.50 per square foot and the material for the top costs $3.00 per square foot.  If you are willing to spend $15 on the box, what is the largest volume it can contain? Justify your answer completely using Calculus.</p>
+                                    
+                                    <p> Let's notice that we are optimizing the <strong>Volume function</strong> and that our <strong>Constraint</strong> is the $15 on total cost.  So we are after these two equations, and we'll use the constraint to reduce the number of variables in the function we want to maximize.</p>
+                                    
+                                    <h4>Sketch</h4>
+                                    <p>Always sketch it out, even if its not pretty.  Note: Square bottom, closed top. Sometimes the top is off!</p>
                                      
-
+                                    <p><img src="images/ex6.png"></p>
+                                    
+                                    <h4>Constraint</h4>
+                                    <p>We know the sides, which there are 4, cost $1.50 per square foot.  The area of each side comes from our sketch of \( A_s=x*y \).  Top and Bottom?  Those cost $3 and have area \( A_{tb} = x^2 \).  So we can build a cost function from the cost of the top (price/sqft times area) plus the cost of the sides (remember there's 4 sides and 2 on the top and bottom) \( C = C_{tb} + C_s = (2)(3)(x^2) + (4)(1.5)(xy) = 6x^2 + 6xy \)</p>
+                                    
+                                    <p>We know this has a fixed amount of $15.  So we can solve for y (it is the easier of the two variables to solve for).
+                                        \[ \begin{gather}
+                                        15 = 6x^2 + 6xy \\
+                                        y = \frac{15-6x^2}{6x}
+                                        \end{gather}
+                                        \]
+                                        
+                                    <strong>We use the constraint to reduce the variables in the equation we want to optimize.</strong>
+                                    
+                                    </p>
+                                    
+                                    
+                                    <h4> Set up function to optimize </h4>
+                                    <p>So we want to optimize the *Volume*.  Volume of this box would be \[V = x*x*y = x^2y \].
+                                    Notice how it has two variables and we only know how to find maxes of single-variable functions.  HERE is where the CONSTRAINT comes into play.<br><br>
+                                        
+                                    Let's get rid of the y, with the equation for y that we have in terms of x.
+                                        
+                                        \[V = x^2y = x^2 \bigg( \frac{15-6x^2}{6x} \bigg) = \frac{15x^2}{6x}-\frac{6x^4}{6x} = \frac{5x}{2}-x^3\]
+                                    
+                                    </p>
+                                    
+                                    <p>Now I have a function, \( V(x) = \frac{5x}{2}-x^3 \) that I can apply the derivative tests, and find the maximum for.  I am going to skip this since we do have done it a lot in previous sections. <br> 
+                                        
+                                        In this case, it should be at the x-value = 0.913 which produces a volume of 1.521 cubic feet.</p>
 
 
                                     
