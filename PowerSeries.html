@@ -98,8 +98,37 @@
                                     
 
                                    
+<!--
+<h2>Walking Through Trying a Power Series Solution</h2>
+<p>Given \[ (1+3x^2)y''+3x^2y' - 2y \] how would we *try* a power series as a solution?<br>
 
+The idea is that we try for the solution, some \[ y= \sum_{n=0}^{\infty}a_nx^n \].  This would imply then that .
 
+\[\begin{gathered}
+	y' = \sum_{n=1}^{\infty}n\cdot a_nx^{n-1}\\
+	y'' = \sum_{n=2}^{\infty}n(n-1)a_nx^{n-2}
+   \end{gathered}
+\]
+
+</p>
+
+<p> So we rewrite the DE like this:
+\[
+	(1+3x^2) \bigg(\sum_{n=2}^{\infty} n(n-1)a_nx^{n-2} \bigg) + 3x^2 \bigg( \sum_{n=1}^{\infty} na_nx^{n-1} \bigg) - 2\bigg( \sum_{n=0}^{\infty} a_nx^n \bigg)
+
+\]
+
+    Now we can distribute the coefficient polynomials into the series.
+    
+    
+    
+\[
+	2a_2 + (1+3x^2) \bigg(\sum_{n=2}^{\infty} n(n-1)a_nx^{n-2} \bigg) + 3x^2 \bigg( \sum_{n=1}^{\infty} na_nx^{n-1} \bigg) - 2\bigg( \sum_{n=0}^{\infty} a_nx^n \bigg)
+
+\]
+    We perform an "index shift" which just means changing where we start and stop the series.  I will give a simple explanation in class and/or produce a remark below at some point.
+                                    </p>
+-->
 
                                     
                                     
