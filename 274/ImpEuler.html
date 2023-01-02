@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Improving Euler's Method Part 1</h1>
+									</header>
+
+									
+                                    <h2>Why We Care</h2>
+                                    <p>We need a way to approximate solutions... that is better than what a 6th grader could come up with. </p>
+                                    <p>Looking for an approximation that is simple but we can't let the error get out of control... what do we do?  </p>
+                                    
+                                    <h2>What we'll learn / Objectives</h2>
+                                    <ol>
+                                        <li>How We Can Improve on Euler's Method</li>
+                                        <li>The effect this has on the error of our approximation</li>
+                                    </ol>
+                                    
+                                    
+                                    
+                                    <h2>What you'll need to remember</h2>
+                                    <ul>
+                                        <li>The Trapezoid and Midpoint Rules from Calc II</li>
+                                        
+                                    </ul>
+                                    
+                                    <p>
+                                    <img src="https://imgs.search.brave.com/hXTLpU_OYMntRMTRh3KKo3cZjfXIrVLpMkObW4App34/rs:fit:500:400:1/g:ce/aHR0cDovL2kyLndw/LmNvbS9jaGVtaWNh/bHN0YXRpc3RpY2lh/bi5maWxlcy53b3Jk/cHJlc3MuY29tLzIw/MTQvMDEvbWlkcG9p/bnQtcnVsZS5wbmc"height="220px">
+                                   
+                                    
+                                    <img src="https://imgs.search.brave.com/mmSqeolJLeBP-_dPOfv4X2_KeLjrUUL3CYEYwbGpOaE/rs:fit:820:597:1/g:ce/aHR0cHM6Ly9pbWcu/ZmF2cG5nLmNvbS82/LzIvMjEvdHJhcGV6/b2lkYWwtcnVsZS1p/bnRlZ3JhbC1udW1l/cmljYWwtaW50ZWdy/YXRpb24tYXBwcm94/aW1hdGlvbi1wbmct/ZmF2cG5nLVBXdWVk/eUhIaXdCaWhkYkVB/UVBNWVNhWjAuanBn" height="220px"></p>
+                                    
+                                    <h2>The actual idea</h2>
+                                    <p><center><iframe width="1211" height="681" src="https://www.youtube.com/embed/UxYV0K9XxfQ" title="MAT 274 3 2 Lecture Imp Euler Method" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>
+                                                                    
+                                    <p><a href="https://drive.google.com/file/d/18ICrO3whLlURw2EEK3Y2wZzASe2ArOFU/view?usp=sharing" target="_blank">Lecture Notes Improving Euler's Method PDF</a></p>
+                                    
+                                    
+                                    <h2>Pro Tips</h2>
+                                    <p>Don't get caught up in the notation.  Just remember the process of what we're doing, which is really quite simple.  Go step by step.</p>
+                                    
+                                    
+                                    <h2>Get Your Hands Dirty</h2>
+                                    <p><a href="https://docs.google.com/spreadsheets/d/15fJdtOE1dqXZfUhP28k8598hPr5guxwOhwDzuZbTtNg/edit?usp=sharing">Walk through "Improved Euler Example" Tab</a>  (Make your own copy.)</p>
+                                   
+
+
+
+                                    
+                                    
+									<h2>Exercises for Understanding</h2>
+                                    <p>
+                                        <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Elementary_Differential_Equations_with_Boundary_Value_Problems_(Trench)/03%3A_Numerical_Methods/3.02%3A_The_Improved_Euler_Method_and_Related_Methods/3.2E%3A_The_Improved_Euler_Method_and_Related_Methods_(Exercises)" target="_blank">[3.2] #1,2,4,7,8,23,25.  Optional Read #32.</a> </p>
+                                    
+                                    <h2>Taking It Further</h2>
+                                    <p>This again is an intermediate step into what is really used in practice today.  Improved Euler is obviously an... improvement, but we can do a bit better.  (Similar to how we upgraded our numerical integration methods in Calc II...)</p>
+                                    
+                                    <h3>Supplemental Tools</h3>
+                                    <ul>
+                                        <li><a href="https://mathlets.org/mathlets/eulers-method/">MIT Mathlet on Euler's Method</a></li>
+                                        <li><a href="https://youtu.be/Wz1d0rHn_fU">How to use said applet</a></li>
+                                    </ul>
+                                    
+                                    
+                                </section>
+
+						</div>
+					</div>
+        </div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+
+	</body>
+</html>
