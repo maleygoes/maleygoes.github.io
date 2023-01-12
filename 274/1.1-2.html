@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Intro to Differential Equations, Basic Concepts</h1>
+									</header>
+
+
+
+
+								<p>On this first day of class, we will go over what a DE is, why we care about them, some examples, and some preliminary definitions.&nbsp; As well as what you will need to review in order to be successful in this course.</p>
+								<p><img alt="Review 6: Differential Equations: Math 234 - Review materials" src="https://canvas.wisc.edu/courses/245705/files/17278545/preview?verifier=nHxI7d1sTX04b38hSDBrYxK2iB7VvxneeyZqqvLn" width="294" height="245" style="display: block; margin-left: auto; margin-right: auto;"></p>
+								<span style="font-size: 12px;">**(example of a simple DE that we will work on all semester long)</span>
+								<h2>Why do we care about ODEs?</h2>
+								<p>First-order linear ordinary differential equations (ODEs) are a type of differential equation that have many simple yet powerful applications. Here are a few examples of applications of first-order linear ODEs:</p>
+								<ol >
+								<li>
+								<p>Chemical reactions: First-order linear ODEs are often used to model the rate of change of the concentration of a chemical reactant as a function of time. The rate of change is typically modeled by the derivative of the concentration with respect to time.</p>
+								</li>
+								<li>
+								<p>Radioactive decay: The rate of decay of a radioactive substance can be modeled by a first-order linear ODE. The solution to this ODE gives the amount of the substance remaining as a function of time.</p>
+								</li>
+								<li>
+								<p>Electrical circuits: First-order linear ODEs can be used to model the voltage or current in an electric circuit as a function of time. This can be used to predict how a circuit will behave under different conditions and to design new circuits.</p>
+								</li>
+								<li>
+								<p>Economics: Applications to economics are also used to model the behavior of consumer demand, price dynamics, market growth or decline etc. which is also based on first order linear differential equations.</p>
+								</li>
+								<li>
+								<p>Mechanical systems: Simple mechanical systems such as a mass-spring system or a system consisting of a sliding block on an inclined plane can be modeled using first-order linear ODEs. These equations are used to predict the position, velocity, and acceleration of the object over time.</p>
+								</li>
+								<li>
+								<p>Biological systems: First-order linear ODEs can be used to model population growth, which describes how the population of a certain species changes over time depending on the birth rate and death rate.</p>
+								</li>
+								</ol>
+								<p>These are just a few examples of the many simple applications of first-order linear ODEs, but it's important to note that this type of differential equation can be found in many fields and can be used to model a wide range of phenomena.&nbsp; Our first unit will be completely centered around these equations.</p>
+								<h2><strong>About this class</strong></h2>
+								<p>This class was recorded from a live class, and developed for online use.&nbsp; The rough structure of it is similar to math courses you have likely taken before (purposefully kept as a simple format):</p>
+								<p></p>
+								<p>(1) Watch the lecture <strong>video </strong><span style="text-decoration: underline;">while taking notes</span> and working through examples with the professor</p>
+								<p>(2) Complete <strong>practice problems</strong></p>
+								<p>(3) <strong>Ask questions</strong> to clarify, understand, and move on (using <strong>class Discussion Miro</strong>)</p>
+								<p>(3.5) Additional assignments to deepen understanding (like a <strong>graded HW</strong> or something else)</p>
+								<p>(4) Assessment of understanding (<strong>Quiz/Exam</strong>)</p>
+
+								<div class="col-12"><footer>
+								<p></p>
+								</footer></div>
+
+                                    
+                                    <h2>What we'll learn / Objectives</h2>
+                                    <ol>
+                                        <li>The basic definitions of Differential Equations</li>
+										<li>What is, and isn't an ODE</li>
+										<li>How to solve basic ODEs using calculus skills</li>
+                                    </ol>
+                                    
+                                    
+                                    
+                                    <h2>What you'll need to remember</h2>
+                                    <ul>
+                                        <li>Derivatives, Anti-Derivatives</li>
+										<li>Liebniz Notation: \(\frac{dy}{dx}=y'(x) \)</li>
+                                        
+                                    </ul>
+                                    
+                                    <p>
+<!--                                    <img src="https://imgs.search.brave.com/hXTLpU_OYMntRMTRh3KKo3cZjfXIrVLpMkObW4App34/rs:fit:500:400:1/g:ce/aHR0cDovL2kyLndw/LmNvbS9jaGVtaWNh/bHN0YXRpc3RpY2lh/bi5maWxlcy53b3Jk/cHJlc3MuY29tLzIw/MTQvMDEvbWlkcG9p/bnQtcnVsZS5wbmc"height="220px">-->
+                                   
+                                    
+<!--                                    <img src="https://imgs.search.brave.com/mmSqeolJLeBP-_dPOfv4X2_KeLjrUUL3CYEYwbGpOaE/rs:fit:820:597:1/g:ce/aHR0cHM6Ly9pbWcu/ZmF2cG5nLmNvbS82/LzIvMjEvdHJhcGV6/b2lkYWwtcnVsZS1p/bnRlZ3JhbC1udW1l/cmljYWwtaW50ZWdy/YXRpb24tYXBwcm94/aW1hdGlvbi1wbmct/ZmF2cG5nLVBXdWVk/eUhIaXdCaWhkYkVB/UVBNWVNhWjAuanBn" height="220px"></p>-->
+                                    
+                                    <h2>Lecture</h2>
+                                    <p><center>VIDEO TBD</center></p>
+                                                                    
+                                    <p><a href="" target="_blank">Lecture Notes PDF</a></p>
+                                    
+                                    
+                                    <h2>Pro Tips</h2>
+                                    <p>One of the big differences is noticing the solutions to our problems are functions, not values.  So we are often after a family of functions that behaves in a certain way.  This is more general (and powerful) than solving a "static" equation.</p>
+                                    
+                                    
+                                    <h2>Get Your Hands Dirty</h2>
+                                    <p> 
+									<ol>
+										<li>Is the function \(y = 2e^{-x}\) a solution to the differential equation \(dy/dx + 2y = 0\)?<br>Answer: Yes</li>
+										<li>Verify that \(y = x^2\) is a solution to the differential equation \(y' = 2x\).<br>Answer: Yes</li>
+										<li>Check if \(y = \cos(x)\) is a solution to the differential equation \(y'' + y = 0\)<br>Ans: Yes</li>
+										<li>Can you verify if \( y = xe^x \) is a solution to the differential equation \(y' + xy = x^2\) ?<br>Ans: No.</li>
+									</ol>
+									
+									
+									</p>
+
+									<h2>Exercises for Understanding</h2>
+                                    <p>
+                                        <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Elementary_Differential_Equations_with_Boundary_Value_Problems_(Trench)/01%3A_Introduction" target="_blank">[1.2] [1.2] #1, 2abcef, 3acegi, 4bdh, 5ab, 6a 7.  </a> </p>
+                                    
+                                   	<h2>Taking It further</h2>
+									<p>What is a system within your field of study that you're curious if ODEs would apply to?  (Take this to the Class Discussion Miro Board!)</p>
+                                    
+                                    
+                                </section>
+
+						</div>
+					</div>
+        </div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+
+	</body>
+</html>
