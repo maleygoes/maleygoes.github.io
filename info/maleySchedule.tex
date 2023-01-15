@@ -1,0 +1,67 @@
+
+
+\documentclass[11pt]{article} % Can also use 11pt for a larger overall font size
+
+\usepackage{schedule} % Use the calendar.sty style
+
+\usepackage[landscape, letter, margin=0.7cm]{geometry} % Page dimensions and margins
+\usepackage{url}
+\usepackage[default]{lato}
+\usepackage{calc}
+\usepackage{xcolor}
+
+
+\CellHeight{.8in}
+\CellWidth{1.5in}
+\TimeRange{9:00-16:00}
+\SubUnits{30}
+\BeginOn{Monday}
+\TextSize{\small}
+\FiveDay
+\TwelveHour
+\NewAppointment{meeting}{black}{white}
+\NewAppointment{class}{yellow}{black}
+\NewAppointment{oclass}{cyan}{black}
+\NewAppointment{office}{green}{blue}
+
+\begin{document}
+
+
+
+\begin{schedule}[Spring 2023]
+	\office{\textbf{Student/Office Hours}}{Remote}{M,W}{11:00-12:00}
+	\office{\textbf{Student/Office Hours}}{Remote}{M}{12:00-1:00}
+	\office{\textbf{Student/Office Hours}}{Main Campus \\ In-person}{Th}{11:00-12:30}
+	\office{\textbf{Student/Office Hours}}{Main Campus\\ In-person}{T}{11:00-12:30}
+	%\office{\textbf{Student/Office Hours}}{Email Replies}{M,F}{12:00-13:00}
+%	\office{\textbf{Office Hours}}{3239}{Th}{11:30-12:30}
+%	\office{\textbf{Office Hours}}{Remote}{W}{10:00-11:30}
+	%\class{Critical Reasoning}{SSL 290}{M,W,F}{13:00-13:50}
+	\meeting{\textbf{Faculty Meeting}}{2755/Remote}{T}{12:30-14:00}
+	\meeting{\textbf{Committee Meetings}}{}{Th}{12:30-14:00}
+
+%	\class{\textbf{MAT  \\ Intro to Functions}}{Online*}{T,Th}{10:00-11:30}
+	\oclass{\textbf{MAT 152 \\ Precalculus}}{Online*}{M,W}{9:00-10:40}
+	\oclass{\textbf{MAT 274 \\ Differential \\ Equations}}{Online*}{T,Th}{9:00-10:40}
+	\oclass{\textbf{MAT 271 \\ Single Variable \\ Calculus}}{Online*}{M,W}{13:00-14:40}
+	\class{\textbf{MAT 273 \\ Multi Variable  \\ Calculus}}{3214}{T,Th}{14:00-15:40}
+	\meeting{\textbf{Mindfulness for \\ Beginners}}{Remote}{W}{12:00-13:00}
+	\meeting{\textbf{Department Meetings}}{3202}{F}{13:00-14:30}
+	
+	
+\end{schedule}
+
+\begin{center}
+	{\small Email: Sean.Maley@flcc.edu\\
+Office: 3239 Main Campus\\
+Phone: 585 653 8551 (txt or vmail)\\
+Remote/WebEx address: \url{https://flcc.webex.com/meet/sean.maley}\\}
+*For sections marked ``Online" this is when I will be replying to posts and grading work - not a guarantee to meet in real-time (though possible). \\
+Please make an appointment or visit office hours.
+%\textbf{\textit{On Mon/Wed I am usually on Main Campus.  \\
+%		On Tues/Thurs I am usually on Victor Campus.}}
+\end{center}
+
+
+
+\end{document}
