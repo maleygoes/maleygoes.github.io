@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.7.29)  15 JAN 2023 08:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.7.29)  15 JAN 2023 08:26
 entering extended mode
 **./maleySchedule.tex
 (maleySchedule.tex
@@ -286,15 +286,10 @@ LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 32.
 LaTeX Font Info:    Font shape `OT1/lato-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 32.
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
-
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 58.
+(Font)              <7> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 58.
+(Font)              <5> on input line 59.
 [1
 
 {C:/Users/maley/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
@@ -302,7 +297,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Here is how much of TeX's memory you used:
  2885 strings out of 478870
  43878 string characters out of 2848836
- 368888 words of memory out of 3000000
+ 367888 words of memory out of 3000000
  20803 multiletter control sequences out of 15000+600000
  428772 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -312,7 +307,7 @@ ips/lato/a_y72t7m.enc}<C:/Users/maley/AppData/Local/Programs/MiKTeX/fonts/type1
 /typoland/lato/Lato-Bold.pfb><C:/Users/maley/AppData/Local/Programs/MiKTeX/font
 s/type1/typoland/lato/Lato-Regular.pfb><C:/Users/maley/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on maleySchedule.pdf (1 page, 70467 bytes).
+Output written on maleySchedule.pdf (1 page, 70461 bytes).
 PDF statistics:
  22 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
