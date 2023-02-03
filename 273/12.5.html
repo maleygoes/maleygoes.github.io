@@ -51,8 +51,27 @@
 									<h2>Homework / Practice Problems</h2>
 										<p>12.5 #1,3,4,9,12,13,17-27 odd,31,37,45,51-55 odd</p>
 									
-									
-	
+									   <h1>Testing please ignore</h1>
+									  <link rel="stylesheet" href="/path/to/mathquill.css"/>
+										<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+										<script src="/path/to/mathquill.js"></script>
+
+										<p>
+										  Solve <span id="problem">ax^2 + bx + c = 0</span>:
+										  <span id="answer">x=</span>
+										</p>
+
+										<script>
+										  var MQ = MathQuill.getInterface(2);
+										  MQ.StaticMath($('#problem')[0]);
+										  var answer = MQ.MathField($('#answer')[0], {
+											handlers: {
+											  edit: function() {
+												checkAnswer(answer.latex());
+											  }
+											}
+										  });
+										</script>
 									
 
 										<!--
