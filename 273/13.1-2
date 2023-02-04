@@ -27,26 +27,24 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Lines and Planes R3 </h1>
+										<h1>Quadric Surfaces </h1>
 									</header>
 									
 									<h2>What we'll learn</h2>
 									<ol>
-										<li>Equations for Planes in R3</li>
-										<li>Different Representations for lines in space AKA Space Curves </li>
-									
+										<li>Equations and graphs of Quadric Surfaces... essentially parabolas and such and their variations in 3D</li>								
 									</ol>
 									
 									
 									<h2>Lecture Video, Main Ideas with Examples</h2>
 										
-										<p><center>Again, please ignore any mention of assignments, due dates, etc.  Those are given in class and the LMS.<br>  <iframe width="880" height="660" src="https://www.youtube.com/embed/jtsMA3DIcPY" title="mat 273 12.5 lecture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center></p>
+										<p><center>Again, please ignore any mention of assignments, due dates, etc.  Those are given in class and the LMS.<br>  <iframe width="880" height="660" src="https://www.youtube.com/embed/O-0t_hCGk7o" title="MAT 273 Quadric Surfaces 12.6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center></p>
 
 									<h2> Post Lecture Problems </h2>
 										<p>Found inside course hub -- to get some immediate practice and feedback.</p>
 									
 									<h2>Homework / Practice Problems</h2>
-										<p>12.5 #1,3,4,9,12,13,17-27 odd,31,37,45,51-55 odd</p>
+										<p>12.6 #1-19 odd, 21-28 all, 31-37 odd, 47</p>
 									
 									   
 									
