@@ -51,6 +51,31 @@
 		<section xml:id="deriv-04">
 		<title>Section 4</title>
 		
+			<subsection><title>Why Do We Care?</title>
+			
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+			
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+			
+			</subsection>
+			
+			<subsection><title>Pro-Tips</title>
+			
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+			
+			</exercises>
+		
+		
 		</section>
 		
 		<section xml:id="interp-deriv">
@@ -60,21 +85,32 @@
 			 
 			 
 			<introduction>
-				The idea is now that we know what the definition is, we can start to apply it to solve actual problems.  Once you start wrapping your head around this, and it will take some time, but you start to see why Calculus is so important.
 				
-				<title>Why Do We Care?</title>
+				
+			<title>Why Do We Care?</title>
 					<ul>
 						<li>Knowing what the derivative *means* in context is how we can solve problems</li>				
 					</ul>
+					
+					The idea is now that we know what the definition is, we can start to apply it to solve actual problems.  Once you start wrapping your head around this, and it will take some time, but you start to see why Calculus is so important.
+					
 			</introduction>
 			
 			
 			<objectives><title>What will we learn?</title>
-			
+				 <ul>
+					<li>Interpreting the Derivative as the slope of the tangent line</li>
+					<li>Interpreting the Derivative as the IROC</li>
+					<li>Interpreting the Derivative as Sensitivity</li>
+				 
+				 </ul>
+				 
 				
 			 
 			 </objectives>
-			<remark>
+			
+			<alert> <p>HI this is an alert</p></alert>
+			<note>
 				<title>What Will We Need To Remember?</title>
 					<ul>
 						<li>That <m>f'(x)=\frac{dy}{dx}=\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}</m> is an IROC</li>
@@ -82,7 +118,7 @@
 						<li>Tangent means parallel slope and touching the curve just once.</li>
 					</ul>
 			
-			</remark>
+			</note>
 		
 		<p>There are 3 main ways we can view the derivative.  Geometrically (as a graphical object), Physically (as an instantaneous rate of change) and as a Sensitivity.</p>
 		
@@ -93,7 +129,7 @@
 				
 				<p>This generalizes to all sorts of applied or physical functions (where it makes sense*).  I'll unpack this a bit more in the <strong>sensitivity</strong> section.</p>
 				
-				<remark><p>Units of the derivative function will be the units of the difference quotient.  <m>\frac{\text{Units of y}}{\text{Units of x or t}}</m></p></remark>
+				<insight><p>Units of the derivative function will be the units of the difference quotient.  <m>\frac{\text{Units of y}}{\text{Units of x or t}}</m></p></insight>
 				
 				<p>For example if a car is burning gas <m>G</m> gallons as a function of thousands of RPMs, <m>r,</m>then <m>G'(r) = \frac{dr}{dt}</m>represents the rate of gallons burned per thousand RPMs.</p>
 			
@@ -115,23 +151,45 @@
       <title>Derivative Rules</title>
 
       <section xml:id="derivative-rules">
-        <title>Rules For Basic Function Derivatives</title>
         
-		<p>One of the major goals, now that we know what the derivative is, is to be able to find the derivative for all the functions we know.  We start with some basic ones, using the definition, and we'll unpack them as we go.</p>
 		
-		<remark><p>We will use the limit definition of the derivative for a general function, <m>f'(x)=\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</m> and algebraically work them into simpler rules.  That's the whole idea.</p></remark>
+		<title>Rules For Basic Function Derivatives</title>
+        		
+			<subsection><title>Why Do We Care?</title>
+				 <p>One of the major goals, now that we know what the derivative is, is to be able to find the derivative for all the functions we know.  We start with some basic ones, using the definition, and we'll unpack them as we go.</p>
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			   <p>After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</p>
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+				<p>We will use the limit definition of the derivative for a general function, <m>f'(x)=\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</m> and algebraically work them into simpler rules.  That's the whole idea.</p>
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+				  <p>Here's a 30ish minute lecture video walking through some of these.</p>
+					<video play-at="select" youtube="kgP7r3yvsd8"></video>
+			</subsection>
+			
+			<subsection><title>Pro-Tips</title>
+				<p>You will be asked to do this for a basic function on the final.  But these are not worth memorizing.  What is worth memorizing is the definition, and what it really means in its **3 interpretations** as a rate, slope, and sensitivity.</p>
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-1-elem-rules.html#QSl">2.1 Exercises #1-13</url></li>
+					<li><url href="https://maleymath.discourse.group/t/2-1-basic-derivative-rules/26">2.1 Thread on Practice Problems</url></li>
+				 </ul>
+				 
+				 
+			</exercises>
 		
 		
-		<p>Here's a 30ish minute lecture video walking through some of these.</p>
-		<video play-at="select" youtube="kgP7r3yvsd8"></video>
 		
-		<subsection>What's our aim here</subsection>
 		
-		<p>After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</p>
+			
 		
-		<exercises>
-		<p>See Module in Brightspace for Critical Practice assignment here.</p>
-		</exercises>
 		
 		
 		
