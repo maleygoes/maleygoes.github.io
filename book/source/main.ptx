@@ -54,11 +54,35 @@
 		</section>
 		
 		<section xml:id="interp-deriv">
+				
 		<title>Interpreting The Derivative</title>
-		
-		<introduction>
-			Intro here.
-		</introduction>
+			 
+			 
+			 
+			<introduction>
+				The idea is now that we know what the definition is, we can start to apply it to solve actual problems.  Once you start wrapping your head around this, and it will take some time, but you start to see why Calculus is so important.
+				
+				<title>Why Do We Care?</title>
+					<ul>
+						<li>Knowing what the derivative *means* in context is how we can solve problems</li>				
+					</ul>
+			</introduction>
+			
+			
+			<objectives><title>What will we learn?</title>
+			
+				
+			 
+			 </objectives>
+			<remark>
+				<title>What Will We Need To Remember?</title>
+					<ul>
+						<li>That <m>f'(x)=\frac{dy}{dx}=\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}</m> is an IROC</li>
+						<li>This IROC is also the slope of the tangent line at any point</li>
+						<li>Tangent means parallel slope and touching the curve just once.</li>
+					</ul>
+			
+			</remark>
 		
 		<p>There are 3 main ways we can view the derivative.  Geometrically (as a graphical object), Physically (as an instantaneous rate of change) and as a Sensitivity.</p>
 		
