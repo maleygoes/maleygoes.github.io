@@ -12,7 +12,7 @@
     </latax-image-preamble>
   </docinfo>
 
-  <book xml:id="my-great-book">
+  <book xml:id="calc-book">
     <title>Community Calculus</title>
     <subtitle>Helping Each Other Learn Big Ideas</subtitle>
 
@@ -28,24 +28,64 @@
         </date>
       </titlepage>
 
-      <colophon>
-
-        <website>
-          <name>
-            <c>example.org</c>
-          </name>
-          <address>https://example.org</address>
-        </website>
-
-        <copyright>
-          <year>2020<ndash />2023</year>
-          <holder>You</holder>
-          <shortlicense> 
-            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
-          </shortlicense>
-        </copyright>
-      </colophon>
+      
     </frontmatter>
+
+	<chapter xml:id="create-deriv">
+	<title>Creating The Derivative</title>
+		<section xml:id="deriv-01">
+		<title>Section 1</title>
+		
+		</section>
+		
+		<section xml:id="deriv-02">
+		<title>Section 2</title>
+		
+		</section>
+		
+		<section xml:id="deriv03">
+		<title>Section 3</title>
+		
+		</section>
+		
+		<section xml:id="deriv-04">
+		<title>Section 4</title>
+		
+		</section>
+		
+		<section xml:id="interp-deriv">
+		<title>Interpreting The Derivative</title>
+		
+		<introduction>
+			Intro here.
+		</introduction>
+		
+		<p>There are 3 main ways we can view the derivative.  Geometrically (as a graphical object), Physically (as an instantaneous rate of change) and as a Sensitivity.</p>
+		
+		<subsection>
+			<title>Physical/Applied Interpretation</title>
+			
+				<p>For an object in motion whose position is given by <m>y=s(t)</m> we know that the derivative <m>y'=\frac{ds}{dt}=s'(t)</m> represents the instantaneous velocity at t.</p>
+				
+				<p>This generalizes to all sorts of applied or physical functions (where it makes sense*).  I'll unpack this a bit more in the <strong>sensitivity</strong> section.</p>
+				
+				<remark><p>Units of the derivative function will be the units of the difference quotient.  <m>\frac{\text{Units of y}}{\text{Units of x or t}}</m></p></remark>
+				
+				<p>For example if a car is burning gas <m>G</m> gallons as a function of thousands of RPMs, <m>r,</m>then <m>G'(r) = \frac{dr}{dt}</m>represents the rate of gallons burned per thousand RPMs.</p>
+			
+				
+		
+		</subsection>
+		
+		<conclusion> Conclusion here.</conclusion>
+		
+		
+		<exercises><title>Community Practice</title>
+		<p><url href="https://activecalculus.org/single/sec-1-5-units.html#tXk">Exercises #1-8 for Critical Practice. Dropbox in Brightspace.</url></p>
+		<p><url href="https://maleymath.discourse.group/t/1-5-interpreting-the-derivative/20?u=profmaley">Practice Discussion Here</url></p>
+		</exercises>
+		</section>
+	</chapter>
 
     <chapter xml:id="deriv-rules">
       <title>Derivative Rules</title>
