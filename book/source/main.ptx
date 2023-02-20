@@ -31,7 +31,7 @@
       
     </frontmatter>
 
-	<chapter xml:id="create-deriv">
+	<!--<chapter xml:id="create-deriv">
 	<title>Creating The Derivative</title>
 		<section xml:id="deriv-01">
 		<title>Section 1</title>
@@ -146,9 +146,10 @@
 		</exercises>
 		</section>
 	</chapter>
+	-->
 
     <chapter xml:id="deriv-rules">
-      <title>Derivative Rules</title>
+      <title>Computing Derivatives</title>
 
       <section xml:id="derivative-rules">
         
@@ -186,6 +187,46 @@
 			</exercises>
 		
       </section>
+	  
+	   <section xml:id="sine-cosine-rules">
+        
+		
+		<title>Sine and Cosine Derivatives</title>
+        		
+			<subsection><title>Why Do We Care?</title>
+				 <p>Sine and cosine model virtually everything that fluctuates.  They are fundamental functions and so understanding their derivatives will be key to solving problems involving circular motion, periodic relationships, signals and waves, etc.</p>
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			   <p>The derivative formulas for Sine, Cosine, and Tangent, and where they come from.</p>
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+				<p>Remember that "vanilla" Sine graph starts at the midline-->Max-->midline-->min-->midline.</p>
+				<p>Remember that "vanilla" Cosine graph starts at the Max-->midline-->min-->midline-->Max</p>
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+				  <p>Here's a 15 minute lecture video unpacking these derivatives.</p>
+					<video play-at="select" youtube="or7I8HvHCOI"></video>
+			</subsection>
+			
+			<subsection><title>Pro-Tips</title>
+				<p>Memorizing these is important, <m>\frac{d}{dx}\sin(x)=\cos(x)</m> and <m>\frac{d}{dx}\cos(x)=-\sin(x)</m>...but only after that you can make sense of why it is the way it is. </p>
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="Exercises 2.2.3 
+https://activecalculus.org/single/sec-2-2-sin-cos.html#gZy">2.2 Exercises #1-8</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+			</exercises>
+		
+      </section>
+	  
 	  
 	  
 	  

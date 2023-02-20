@@ -8,7 +8,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Computing Derivatives</title>
+<title>Interpreting The Derivative</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="frontmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="calc-book.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="derivative-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="deriv-04.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="create-deriv.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="deriv-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -189,43 +189,88 @@ window.MathJax = {
 <div class="ptx-page">
 <div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
 <li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="create-deriv.html" class="internal"><span class="codenumber">1</span> <span class="title">Creating The Derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="deriv-01.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Section 1</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-02.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Section 2</span></a></div></li>
+<li><div class="toc-item"><a href="deriv03.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 3</span></a></div></li>
+<li>
+<div class="toc-item"><a href="deriv-04.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Section 4</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="deriv-04.html#subsection-1" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Why Do We Care?</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-04.html#subsection-2" class="internal"><span class="codenumber">1.4.2</span> <span class="title">What Will We Learn?</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-04.html#subsection-3" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Things To Recall</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-04.html#subsection-4" class="internal"><span class="codenumber">1.4.4</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-04.html#subsection-5" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Pro-Tips</span></a></div></li>
+<li><div class="toc-item"><a href="deriv-04.html#exercises-1" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li>
 <li class="active">
-<div class="toc-item"><a href="deriv-rules.html" class="internal"><span class="codenumber">1</span> <span class="title">Computing Derivatives</span></a></div>
+<div class="toc-item"><a href="interp-deriv.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Interpreting The Derivative</span></a></div>
 <ul class="structural">
-<li>
-<div class="toc-item"><a href="derivative-rules.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Rules For Basic Function Derivatives</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-1" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Why Do We Care?</span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-2" class="internal"><span class="codenumber">1.1.2</span> <span class="title">What Will We Learn?</span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-3" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Things To Recall</span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-4" class="internal"><span class="codenumber">1.1.4</span> <span class="title">The Main Idea</span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-5" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Pro-Tips</span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#exercises-1" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sine-cosine-rules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sine and Cosine Derivatives</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-6" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Why Do We Care?</span></a></div></li>
-<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-7" class="internal"><span class="codenumber">1.2.2</span> <span class="title">What Will We Learn?</span></a></div></li>
-<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-8" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Things To Recall</span></a></div></li>
-<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-9" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Main Idea</span></a></div></li>
-<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-10" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Pro-Tips</span></a></div></li>
-<li><div class="toc-item"><a href="sine-cosine-rules.html#exercises-2" class="internal"><span class="codenumber">1.2.6</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+<li><div class="toc-item"><a href="interp-deriv.html#subsection-6" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Physical/Applied Interpretation</span></a></div></li>
+<li><div class="toc-item"><a href="interp-deriv.html#exercises-2" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Community Practice</span></a></div></li>
 </ul>
 </li>
 </ul>
+</li>
+<li>
+<div class="toc-item"><a href="deriv-rules.html" class="internal"><span class="codenumber">2</span> <span class="title">Derivative Rules</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="derivative-rules.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Rules For Basic Function Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-7" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Why Do We Care?</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-8" class="internal"><span class="codenumber">2.1.2</span> <span class="title">What Will We Learn?</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-9" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Things To Recall</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-10" class="internal"><span class="codenumber">2.1.4</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-11" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Pro-Tips</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#exercises-3" class="internal"><span class="codenumber">2.1.6</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="deriv-rules"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">1</span> <span class="title">Computing Derivatives</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="interp-deriv"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Interpreting The Derivative</span>
 </h2>
-<nav class="summary-links"><ul>
-<li><a href="derivative-rules.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Rules For Basic Function Derivatives</span></a></li>
-<li><a href="sine-cosine-rules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sine and Cosine Derivatives</span></a></li>
-</ul></nav></section></div>
+<section class="introduction" id="introduction-1"><h3 class="heading">Why Do We Care?<span></span>
+</h3> <ul class="disc"><li id="li-1"><div class="para" id="p-derived-li-1">Knowing what the derivative *means* in context is how we can solve problems</div></li></ul> The idea is now that we know what the definition is, we can start to apply it to solve actual problems.  Once you start wrapping your head around this, and it will take some time, but you start to see why Calculus is so important.</section><article class="objectives goal-like" id="objectives-1"><h3 class="heading">
+<span class="type">Objectives:</span><span class="space"> </span><span class="title">What will we learn?</span>
+</h3>
+<ul class="disc">
+<li id="li-2"><div class="para" id="p-derived-li-2">Interpreting the Derivative as the slope of the tangent line</div></li>
+<li id="li-3"><div class="para" id="p-derived-li-3">Interpreting the Derivative as the IROC</div></li>
+<li id="li-4"><div class="para" id="p-derived-li-4">Interpreting the Derivative as Sensitivity</div></li>
+</ul></article><em class="alert"><div class="para" id="p-1">HI this is an alert</div></em><article class="note remark-like" id="note-1"><h3 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">What Will We Need To Remember?</span>
+</h3> <ul class="disc">
+<li id="li-5"><div class="para" id="p-derived-li-5">That <span class="process-math">\(f'(x)=\frac{dy}{dx}=\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}\)</span> is an IROC</div></li>
+<li id="li-6"><div class="para" id="p-derived-li-6">This IROC is also the slope of the tangent line at any point</div></li>
+<li id="li-7"><div class="para" id="p-derived-li-7">Tangent means parallel slope and touching the curve just once.</div></li>
+</ul></article><div class="para" id="p-2">There are 3 main ways we can view the derivative.  Geometrically (as a graphical object), Physically (as an instantaneous rate of change) and as a Sensitivity.</div>
+<section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.1</span> <span class="title">Physical/Applied Interpretation</span>
+</h3>
+<div class="para" id="p-3">For an object in motion whose position is given by <span class="process-math">\(y=s(t)\)</span> we know that the derivative <span class="process-math">\(y'=\frac{ds}{dt}=s'(t)\)</span> represents the instantaneous velocity at t.</div>
+<div class="para" id="p-4">This generalizes to all sorts of applied or physical functions (where it makes sense*).  I'll unpack this a bit more in the sensitivity section.</div>
+<article class="insight remark-like" id="insight-1"><h4 class="heading">
+<span class="type">Insight</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-5">Units of the derivative function will be the units of the difference quotient.  <span class="process-math">\(\frac{\text{Units of y}}{\text{Units of x or t}}\)</span>
+</div></article><div class="para" id="p-6">For example if a car is burning gas <span class="process-math">\(G\)</span> gallons as a function of thousands of RPMs, <span class="process-math">\(r,\)</span>then <span class="process-math">\(G'(r) = \frac{dr}{dt}\)</span>represents the rate of gallons burned per thousand RPMs.</div></section><section class="conclusion" id="conclusion-1">Conclusion here.</section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.5.2</span> <span class="title">Community Practice</span>
+</h3>
+<div class="para" id="p-7">
+<a class="external" href="https://activecalculus.org/single/sec-1-5-units.html#tXk" target="_blank">Exercises #1-8 for Critical Practice. Dropbox in Brightspace.</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a>
+</div>
+<div class="para" id="p-8">
+<a class="external" href="https://maleymath.discourse.group/t/1-5-interpreting-the-derivative/20?u=profmaley" target="_blank">Practice Discussion Here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a>
+</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn"><code class="code-inline tex2jax_ignore">activecalculus.org/single/sec-1-5-units.html#tXk</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">maleymath.discourse.group/t/1-5-interpreting-the-derivative/20?u=profmaley</code></div></div>
+</div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="frontmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="derivative-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="deriv-04.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="deriv-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div class="ptx-page-footer">
