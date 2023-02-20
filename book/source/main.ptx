@@ -217,8 +217,7 @@
 			
 			<exercises><title>Get Your Hands Dirty</title>
 				 <ul>
-					<li><url href="Exercises 2.2.3 
-https://activecalculus.org/single/sec-2-2-sin-cos.html#gZy">2.2 Exercises #1-8</url></li>
+					<li><url href="https://activecalculus.org/single/sec-2-2-sin-cos.html#gZy">2.2 Exercises #1-8</url></li>
 					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
 				 </ul>
 				 
@@ -227,7 +226,45 @@ https://activecalculus.org/single/sec-2-2-sin-cos.html#gZy">2.2 Exercises #1-8</
 		
       </section>
 	  
-	  
+	  <section xml:id="prod-quot-rules">
+        
+		
+		<title>Product and Quotient Rules for Derivatives</title>
+        		
+			<subsection><title>Why Do We Care?</title>
+				 <p>As we learn to differentiate all the functions we know, we also need to understand that they come in *combinations* like sums, differences, products, quotients (and eventually, compositions, but that's a bit later).</p>
+				 
+				 <p>More interesting problems or situations are typically not just one function, but a combination.  So that's why this is important to understand.</p>
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			   <p>How to differentiate products and quotients of functions, i.e. <m>\frac{d}{dx}f(x)g(x)</m> and <m>\frac{d}{dx}\frac{f(x)}{g(x)}</m>.</p>
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+				<p>That since both f(x) and g(x) are changing, that the derivative is not just simply f'(x)g'(x), which is a very common mistake.</p>
+				<p>It is more nuanced than this, and we go over this idea in the video.</p>
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+				  <p>Here's a 15 minute lecture video introducing these rules.  Practice is going to be indispensable here (as it always is).</p>
+					<video play-at="select" youtube="oO1yeuyO9MM"></video>
+			</subsection>
+			
+			<subsection><title>Pro-Tips</title>
+				<p>Remember (fg)' is not f'g'! Both functions are changing, think of the rectangle.</p>
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-3-prod-quot.html#Frr">2.3 Exercises #1-14</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+			</exercises>
+		
+      </section>
 	  
 	  
 	  

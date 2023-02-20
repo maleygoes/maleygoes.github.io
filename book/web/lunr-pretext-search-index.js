@@ -26,6 +26,15 @@ var ptx_lunr_docs = [
   "number": "1.2",
   "title": "Sine and Cosine Derivatives",
   "body": " Sine and Cosine Derivatives  Why Do We Care?  Sine and cosine model virtually everything that fluctuates. They are fundamental functions and so understanding their derivatives will be key to solving problems involving circular motion, periodic relationships, signals and waves, etc.   What Will We Learn?  The derivative formulas for Sine, Cosine, and Tangent, and where they come from.   Things To Recall  Remember that \"vanilla\" Sine graph starts at the midline-->Max-->midline-->min-->midline.  Remember that \"vanilla\" Cosine graph starts at the Max-->midline-->min-->midline-->Max   The Main Idea  Here's a 15 minute lecture video unpacking these derivatives.    Pro-Tips  Memorizing these is important, and ...but only after that you can make sense of why it is the way it is.   Get Your Hands Dirty   2.2 Exercises #1-8  Discourse Q+A    "
+},
+{
+  "id": "prod-quot-rules",
+  "level": "1",
+  "url": "prod-quot-rules.html",
+  "type": "Section",
+  "number": "1.3",
+  "title": "Product and Quotient Rules for Derivatives",
+  "body": " Product and Quotient Rules for Derivatives  Why Do We Care?  As we learn to differentiate all the functions we know, we also need to understand that they come in *combinations* like sums, differences, products, quotients (and eventually, compositions, but that's a bit later).  More interesting problems or situations are typically not just one function, but a combination. So that's why this is important to understand.   What Will We Learn?  How to differentiate products and quotients of functions, i.e. and .   Things To Recall  That since both f(x) and g(x) are changing, that the derivative is not just simply f'(x)g'(x), which is a very common mistake.  It is more nuanced than this, and we go over this idea in the video.   The Main Idea  Here's a 15 minute lecture video introducing these rules. Practice is going to be indispensable here (as it always is).    Pro-Tips  Remember (fg)' is not f'g'! Both functions are changing, think of the rectangle.   Get Your Hands Dirty   2.3 Exercises #1-14  Discourse Q+A    "
 }
 ]
 
