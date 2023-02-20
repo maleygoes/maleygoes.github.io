@@ -162,6 +162,9 @@
 			
 			<subsection><title>What Will We Learn?</title>
 			   <p>After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</p>
+			   
+				
+			   
 			</subsection>
 		
 			<subsection><title>Things To Recall</title>
@@ -171,6 +174,20 @@
 			<subsection><title>The Main Idea</title>
 				  <p>Here's a 30ish minute lecture video walking through some of these.</p>
 					<video play-at="select" youtube="kgP7r3yvsd8"></video>
+			</subsection>
+			
+			<subsection><title>Summary Of Rules So Far</title>
+			
+			<ul>
+					  <li>Power Rule: <m>\frac{d}{dx} x^n = nx^{n-1}</m></li>
+					  <li>Constant Rule: <m>\frac{d}{dx} c = 0</m></li>
+					  <li>Sum Rule: <m>\frac{d}{dx} [f(x) + g(x)] = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)</m></li>
+					  <li>Difference Rule: <m>\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)</m></li>
+			  
+				</ul>	
+			
+			
+			
 			</subsection>
 			
 			<subsection><title>Pro-Tips</title>
@@ -250,6 +267,23 @@
 				  <p>Here's a 15 minute lecture video introducing these rules.  Practice is going to be indispensable here (as it always is).</p>
 					<video play-at="select" youtube="oO1yeuyO9MM"></video>
 			</subsection>
+			
+			<subsection><title>Summary Of Rules So Far</title>
+			
+						<ul>
+						  <li>Power Rule: <m>\frac{d}{dx} x^n = nx^{n-1}</m></li>
+						  <li>Constant Rule: <m>\frac{d}{dx} c = 0</m></li>
+						  <li>Sum Rule: <m>\frac{d}{dx} [f(x) + g(x)] = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)</m></li>
+						  <li>Difference Rule: <m>\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)</m></li>
+						  <li>Product Rule: <m>\frac{d}{dx} [f(x)g(x)] = f(x)\frac{d}{dx} g(x) + g(x)\frac{d}{dx} f(x)</m></li>
+						  <li>Quotient Rule: <m>\frac{d}{dx} \left[\frac{f(x)}{g(x)}\right] = \frac{g(x)\frac{d}{dx} f(x) - f(x)\frac{d}{dx} g(x)}{g(x)^2}</m></li>
+						  
+						</ul>
+			
+			
+			
+			</subsection>
+			
 			
 			<subsection><title>Pro-Tips</title>
 				<p>Remember (fg)' is not f'g'! Both functions are changing, think of the rectangle.</p>
