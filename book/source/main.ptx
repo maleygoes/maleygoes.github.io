@@ -277,10 +277,7 @@
 						  <li>Difference Rule: <m>\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)</m></li>
 						  <li>Product Rule: <m>\frac{d}{dx} [f(x)g(x)] = f(x)\frac{d}{dx} g(x) + g(x)\frac{d}{dx} f(x)</m></li>
 						  <li>Quotient Rule: <m>\frac{d}{dx} \left[\frac{f(x)}{g(x)}\right] = \frac{g(x)\frac{d}{dx} f(x) - f(x)\frac{d}{dx} g(x)}{g(x)^2}</m></li>
-						  
 						</ul>
-			
-			
 			
 			</subsection>
 			
@@ -309,6 +306,29 @@
 		
       </section>
 	  
+	  
+	  <section>
+		<title>Derivatives of Other Trig Functions</title>
+		
+		<p>Now that we are armed with the derivatives of <m>\sin(x), \cos(x)</m>, the natural place to extend this idea would be to Tangent since <m>\tan(x)=\sin(x)/\cos(x)</m>.  We will also look at the cotangent, secant, and cosecant functions as well.</p>
+	  
+	   <subsection><title>OER Video Walkthrough</title>
+			   <p>This is not by me but I think this instructor does a good job.</p>
+			  <video play-at="select" youtube="dOOlmwIltZ8"></video>
+		</subsection>
+		
+		<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-4-other-trig.html#ZgR">2.4 Exercises #1-8</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+		</exercises>
+	  </section>
+	  
+	  
+	  
 	  <section xml:id="chain-rule">
 	  
 			 <title> The Chain Rule </title>
@@ -324,6 +344,44 @@
 				<p> Thus, the derivative of <m>h(x)</m> is <m>h'(x) = 6(2x+1)^2</m>. </p>
 				<p> The Chain Rule is essential -- we can differentiate complex functions that would otherwise be difficult or impossible to differentiate using basic differentiation rules. </p>
 	  
+		<subsection><title>The Main Idea</title>
+				  <p>Here's a 25 minute lecture video on the Chain Rule.  This is one of the most misunderstood rules in calculus, so please make sure you ask questions when you get stuck!</p>
+					<video play-at="select" youtube="k8Hx429Ej2A"></video>
+		</subsection>
+	  
+	  
+	  <subsection>
+		<title>OER Supplemental Videos</title>
+		
+			<ul>
+				<li><url href="https://youtu.be/HxVn6kRD5NM">CR Mini Lecture</url></li>
+				<li><url href="https://youtu.be/QDc1UmLWhug">Worked Example</url></li>
+				<li><url href="https://youtu.be/4y39u0DmrPY">Worked Example w/ Trig</url></li>
+				<li><url href="https://youtu.be/zexX6t_zbCg">Worked Example w/ Exponentials</url></li>
+				<li><url href="https://youtu.be/1B06Pk3W6Pc">Worked Example w/ Mixing Rules** Hugely Important.</url></li>
+				<li><url href="https://youtu.be/pwm50foAx6A">Worked Example w/ Graphing.  Commonly Requested.</url></li>
+				
+			
+			</ul>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </subsection>
+	  
+	   <exercises><title>Get Your Hands Dirty</title>
+			   <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-5-chain.html#dJG">2.5 Exercises #1-11</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+	   
+	   
+	   </exercises>
 	  
 	  </section>
 	  
