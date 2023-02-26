@@ -307,7 +307,7 @@
       </section>
 	  
 	  
-	  <section>
+	  <section xml:id="other-trig">
 		<title>Derivatives of Other Trig Functions</title>
 		
 		<p>Now that we are armed with the derivatives of <m>\sin(x), \cos(x)</m>, the natural place to extend this idea would be to Tangent since <m>\tan(x)=\sin(x)/\cos(x)</m>.  We will also look at the cotangent, secant, and cosecant functions as well.</p>
