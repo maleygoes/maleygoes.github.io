@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+    <latax-image-preamble>
+      \usepackage{tikz}
+    </latax-image-preamble>
+  </docinfo>
+
+  <book xml:id="mat-271-book">
+    <title>Community Calculus</title>
+    <subtitle>Working through big ideas together online.</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Sean Maley, M.A.</personname>
+          <department>Associate Professor of Mathematics</department>
+          <institution>Finger Lakes Community College</institution>
+        </author>
+        
+      </titlepage>
+
+      <colophon>
+
+        <!-- <website>
+          <name>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website> -->
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>Sean Maley</holder>
+          <shortlicense> 
+            All rights reserved.
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="building-derivative">
+      <title>Unit 1: Building The Derivative</title>
+
+      <section xml:id="tangent-velocity-limits">
+        <title>Tangent and Velocity Problems, Intro to Limits</title>
+        
+          <subsection> <title>To do this week:</title>
+          
+            <ol>
+              <li>Course Intro, Outline, Preview Activities</li>
+              <li>1.4 Tangent And Velocity Problems: What is the problem calculus is trying to solve?</li>
+              <li>Community Reading (Hypothes.is)</li>
+              <li>Exercises: WebAssign</li>
+              <li>1.5 The Limit of a function</li>
+              <li>Community Reading</li>
+              <li>Exercises: WebAssign</li>
+              <li>Community Problem 0 Posted</li>
+              <li>Q &amp; A 0: Thread</li>
+            </ol>
+
+          </subsection>
+       
+      </section>
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>

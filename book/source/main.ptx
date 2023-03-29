@@ -434,6 +434,33 @@
  </section>
 	  
 
+<section>
+	<title>Derivatives of Implicit Functions</title>
+
+	<p>We are used to having functions defined explicitly, meaning we can write them with y on one side, and all x terms on the other side.</p>
+
+	<p>But we can very regularly run into functions that are a bit more intricate.  The circle is the easiest example of this.  There is no easy way to break <m> x^2 + y^2 = 16 </m> into a single function of <m>y=</m> some stuff involving x.  You'd need to take the square root, and this splits it into two parts -- the top and bottom.  </p>
+
+	<p>So in our quest to differentiate all the functions we know, we need to handle this in a particular way.  What we actually use here is our knowledge of the <em>Chain Rule</em>.  Whenever we differentiate an "inner function" we know we need to multiply by the "inner derivative."  So we just take this into account, and use the derivative as an operation on the whole equation in problems like this. </p>
+
+
+	<p>Everyone uses the circle, because its a good simple example, so I'll use a slightly different equation. Let's say the equation is <m> \cos(x)+\sin(y) = 3 </m>. And we want to find the derivative.  It's tough because <m> y </m> is inside the sine function.  But if we differentiated, the chain rule would actually produce a factor of <m>dy/dx</m> that we could use to solve for. </p>
+
+	<p>So we would start with: 
+
+		<me> \frac{d}{dx} \left( \cos(x) + \sin(y)  \right) = \frac{d}{dx} (3)</me>
+		<me> -\sin(x) + \cos(y)*\frac{dy}{dx} = 0 </me>
+
+	Here its very important that we see how the CHAIN RULE was applied on <m>\sin(y)</m> where it became <m>\cos(y)*\frac{dy}{dx}</m>.
+
+	Then what we'd do is isolate the <m>\frac{dy}{dx}</m> onto one side, and everything else to the other side.  After that,  we'll have a formula for the derivative! </p>
+
+		<me> \cos(y)*\frac{dy}{dx} = \sin(x) </me>
+		<me> </me>
+
+
+
+</section>
 
 	  
     </chapter>
