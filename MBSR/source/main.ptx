@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+     
+    </macros>
+    <latax-image-preamble>
+      \usepackage{tikz}
+    </latax-image-preamble>
+  </docinfo>
+
+  <book xml:id="mbsr-book">
+    <title>Introduction to Mindfulness Based Stress Reduction (MBSR)</title>
+    <subtitle>Unlocking your innate capacity to heal.</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Sean Maley, M.A.</personname>
+          <department>Qualified MBSR Teacher (Brown University)</department>
+          <institution>SUNY Finger Lakes</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <!--<colophon>
+
+        <website>
+          <name>
+            <c>mbsr.tools</c>
+          </name>
+          <address>https://mbsr.tools</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>You</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>  -->
+    </frontmatter>
+
+    <chapter xml:id="week-1">
+      <title>Week 1</title>
+
+		<section>	<title>Potential Benefits</title>
+		
+		<p>MBSR stands for Mindfulness-Based Stress Reduction, a program developed by Jon Kabat-Zinn in 1979. The program combines mindfulness meditation and yoga to help individuals manage stress, anxiety, and other mental health concerns.</p> 
+		
+		<p>As we will see, achieving goals or grasping at outcomes runs counter to mindful living, and therefore the healing process. But, when the course is followed and the practices are taken sincerely, many participants do experience very positive outcomes.  Just know if you go seeking these things, seemingly paradoxically, that in fact might be the very mindset holding you back.</p>
+		
+		
+		<p>Some potential benefits of MBSR are:</p>
+			
+			<ul>
+			  <li><strong>Reduced Stress:</strong> MBSR has been shown to reduce stress in individuals who practice it regularly. Participants in MBSR programs have reported feeling more relaxed, calm, and better able to cope with stressful situations.</li>
+			  <li><strong>Improved Mental Health:</strong> MBSR has been found to be effective in reducing symptoms of depression, anxiety, and other mental health conditions. It can help individuals develop greater awareness of their thoughts and emotions, leading to a greater sense of self-awareness and self-regulation.</li>
+			  <li><strong>Improved Physical Health:</strong> MBSR has been found to have physical health benefits as well. It has been associated with reduced blood pressure, improved sleep quality, and improved immune system function.</li>
+			  <li><strong>Increased Emotional Resilience:</strong> MBSR can help individuals develop greater emotional resilience, which refers to the ability to adapt to challenging or difficult situations. By developing mindfulness skills, individuals can learn to stay present and non-judgmental during difficult times, which can help them to bounce back from adversity more quickly.</li>
+			</ul>
+		
+		<p>MBSR has been found to be a helpful tool for managing stress and promoting overall health and wellbeing. It is important to note that MBSR is not a replacement for medical treatment and individuals with mental health concerns should consult with a healthcare provider before beginning any new treatment program.</p>
+		
+		
+		</section>
+
+	<section><title>Potential Risks</title>
+	
+	 <p>While MBSR can be beneficial for many people, there are some potential risks to be aware of:</p>
+		<ul>
+		  <li><strong>Unpleasant emotions:</strong> During mindfulness meditation, individuals may become more aware of unpleasant thoughts or emotions. While this can be uncomfortable, it is a natural part of the process and can help individuals learn to better manage difficult feelings.</li>
+		  <li><strong>Increased anxiety:</strong> In some cases, individuals with anxiety may find that mindfulness meditation initially increases their symptoms. This is usually temporary and can be managed with support from a qualified MBSR instructor or mental health professional.  It is common that we have unwanted emotions that we are suppressing actively, and once we relax, these may find their way to the surface.</li>
+		  <li><strong>Religious or cultural conflicts:</strong> Some individuals may have concerns that MBSR is based on religious or cultural practices that conflict with their personal beliefs. It is important to note that MBSR is secular and does not require any particular spiritual or cultural background.</li>
+		  <li><strong>Social Risks: </strong> As one of the outcomes is a changed relationship to stressors, people may be temporarily upset or uncomfortable with our new ways of responding.  Also there may be pressure around creating space for practices, which is unavoidable as time is often very limited for most of us busy folk.</li>
+		  <li><strong>Not a substitute for medical treatment:</strong> While MBSR can be helpful for managing stress and anxiety, it is not a substitute for medical treatment. Individuals with mental health concerns should consult with a healthcare provider before beginning any new treatment program.</li>
+		</ul>
+	<p>MBSR is generally considered safe and beneficial for most individuals. However, it is important to work with a qualified MBSR instructor and to be aware of any potential risks or concerns before beginning the program.</p>
+	
+	
+	</section>
+
+      <section xml:id="intro">
+	  
+        <title>Introduction and Orientation</title>
+			<p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>

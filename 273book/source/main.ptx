@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+    <latax-image-preamble>
+      \usepackage{tikz}
+    </latax-image-preamble>
+  </docinfo>
+
+  <book xml:id="my-great-book">
+    <title>My Great Book</title>
+    <subtitle>An example to get you started</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>You</personname>
+          <department>Your department</department>
+          <institution>Your institution</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <website>
+          <name>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>You</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="chapter-title">
+      <title>Chapter title</title>
+
+      <section xml:id="limits-multi">
+        <title>Multivariable limits</title>
+        <p>In calculus 1, we learn about limits of functions of a single variable. For example, we might be interested in finding the limit of a function <m>f(x)</m> as <m>x</m> approaches some value <m>a</m>, denoted by</p>
+
+			<p><m>\lim_{x \to a} f(x)</m></p>
+			<p>This limit tells us what value <m>f(x)</m> approaches as <m>x</m> gets arbitrarily close to <m>a</m>.</p>
+
+			<p>In calculus 3, we extend this idea to functions of multiple variables. For example, we might be interested in finding the limit of a function <m>f(x, y)</m> as <m>(x, y)</m> approaches some point <m>(a, b)</m>, denoted by:</p>
+
+			<p><m>\lim_{(x,y) \to (a,b)} f(x,y)</m></p>
+			<p>This limit tells us what value <m>f(x,y)</m> approaches as the point <m>(x,y)</m> gets arbitrarily close to the point <m>(a,b)</m>.</p>
+
+			<p>However, there's a catch: unlike in calculus 1, where we only had to worry about approaching a point from one direction (either the left or the right), in calculus 3 we have to consider all possible directions from which the point can be approached.</p>
+
+			<p>To see why this is important, consider the function <m>f(x, y) = \frac{xy}{x^2 + y^2}</m>. If we try to evaluate the limit of <m>f(x,y)</m> as <m>(x,y)</m> approaches the origin, we might naively think that the limit is 0, since the numerator approaches 0 faster than the denominator as <m>x</m> and <m>y</m> both approach 0.</p>
+
+			<p>However, if we approach the origin along the path <m>y = mx</m>, where <m>m</m> is some constant, we get:</p>
+
+			<p><m>f(x, mx) = \frac{mx^2}{x^2 + m^2 x^2} = \frac{m}{1+m^2}</m></p>
+			<p>which does not approach 0 as <m>x</m> approaches 0 if <m>m</m> is nonzero.</p>
+
+			<p>This means that the limit of <m>f(x,y)</m> as <m>(x,y)</m> approaches the origin does not exist, even though it might seem like it should. In calculus 3, we need to consider all possible directions of approach to determine whether or not a limit exists.</p>
+      </section>
+	
+	
+		<section xml:id="partial-derivs"><title>Partial Derivatives</title>
+		
+		<subsection><title>Application Example</title>
+		
+		<p>Problem: A telecommunications company is testing the speed of its internet service in different regions of a city. The speed at a location <m>(x,y)</m> is given by the function <m>f(x,y) = xy + \frac{20000}{(x-100)^2 + y^2 + 25}</m> (in megabits per second). Where should the company place a new tower to maximize the speed of the service?</p>
+
+		<p>Solution: To find the location that maximizes the speed of the service, we need to find the critical points of the function <m>f(x,y)</m> and then determine whether they are maximum or minimum points. Taking partial derivatives of <m>f(x,y)</m>, we have:</p>
+
+		<p><m>f_x = y - \frac{40000(x-100)}{((x-100)^2 + y^2 + 25)^2}</m></p>
+		<p><m>f_y = x - \frac{40000y}{((x-100)^2 + y^2 + 25)^2}</m></p>
+		<p>Setting these partial derivatives equal to zero and solving for <m>x</m> and <m>y</m>, we obtain the following critical point:   </p>
+
+		<p><m>x = 100, y = 0</m></p>
+		<p>To determine whether this is a maximum or minimum point, we need to compute the second partial derivatives of <m>f(x,y)</m>:  </p>
+
+		<p><m>f_{xx} = -\frac{80000(x-100)^3 - 240000(x-100)y^2 + 100000y^2 + 75000}{((x - 100)^3 + 2(x-100)y^2 + y^4 + 50(x-100)^2 + 125((x-100)^2 + y^2 + 25)^3}</m></p>
+		<p><m>f_{xy} = 1 - \frac{80000(x-100)y}{((x-100)^2 + y^2 + 25)^3}</m></p>
+		<p><m>f_{yy} = -\frac{80000y^3 - 240000(x-100)^2 y + 100000(x-100)^2 + 75000}{((x-100)^2 + y^2 + 25)^3}</m></p>
+
+		<p>At the critical point <m>(100,0)</m>, we have <m>f_{xx}(100,0) = -5/2</m>, <m>f_{xy}(100,0) = 1</m>, and <m>f_{yy}(100,0) = -5/2</m>. Therefore, the second partial derivatives test shows that the critical point is a saddle point.</p>
+
+		<p>Since the function <m>f(x,y)</m> is continuous and has no boundary, the extreme value theorem tells us that if there is a maximum or minimum point, it must occur at a critical point. Since the critical point we found is a saddle point, there is no maximum or minimum point.</p>
+
+		<p>Therefore, the company cannot improve the speed of its internet service by placing a tower in the region.</p>
+
+
+
+
+
+		
+		
+		</subsection>
+		
+		
+		
+		
+		</section>
+
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>

@@ -31,7 +31,7 @@
       
     </frontmatter>
 
-	<chapter xml:id="create-deriv">
+	<!--<chapter xml:id="create-deriv">
 	<title>Creating The Derivative</title>
 		<section xml:id="deriv-01">
 		<title>Section 1</title>
@@ -146,9 +146,10 @@
 		</exercises>
 		</section>
 	</chapter>
+	-->
 
     <chapter xml:id="deriv-rules">
-      <title>Derivative Rules</title>
+      <title>Computing Derivatives</title>
 
       <section xml:id="derivative-rules">
         
@@ -161,6 +162,9 @@
 			
 			<subsection><title>What Will We Learn?</title>
 			   <p>After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</p>
+			   
+				
+			   
 			</subsection>
 		
 			<subsection><title>Things To Recall</title>
@@ -170,6 +174,20 @@
 			<subsection><title>The Main Idea</title>
 				  <p>Here's a 30ish minute lecture video walking through some of these.</p>
 					<video play-at="select" youtube="kgP7r3yvsd8"></video>
+			</subsection>
+			
+			<subsection><title>Summary Of Rules So Far</title>
+			
+				<ul>
+					  <li>Power Rule: <m>\frac{d}{dx} x^n = nx^{n-1}</m></li>
+					  <li>Constant Rule: <m>\frac{d}{dx} c = 0</m></li>
+					  <li>Sum Rule: <m>\frac{d}{dx} [f(x) + g(x)] = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)</m></li>
+					  <li>Difference Rule: <m>\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)</m></li>
+			  
+				</ul>	
+			
+			
+			
 			</subsection>
 			
 			<subsection><title>Pro-Tips</title>
@@ -187,8 +205,263 @@
 		
       </section>
 	  
+	   <section xml:id="sine-cosine-rules">
+        
+		
+		<title>Sine and Cosine Derivatives</title>
+        		
+			<subsection><title>Why Do We Care?</title>
+				 <p>Sine and cosine model virtually everything that fluctuates.  They are fundamental functions and so understanding their derivatives will be key to solving problems involving circular motion, periodic relationships, signals and waves, etc.</p>
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			   <p>The derivative formulas for Sine, Cosine, and Tangent, and where they come from.</p>
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+				<p>Remember that "vanilla" Sine graph starts at the midline-->Max-->midline-->min-->midline.</p>
+				<p>Remember that "vanilla" Cosine graph starts at the Max-->midline-->min-->midline-->Max</p>
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+				  <p>Here's a 15 minute lecture video unpacking these derivatives.</p>
+					<video play-at="select" youtube="or7I8HvHCOI"></video>
+			</subsection>
+			
+			<subsection><title>Pro-Tips</title>
+				<p>Memorizing these is important, <m>\frac{d}{dx}\sin(x)=\cos(x)</m> and <m>\frac{d}{dx}\cos(x)=-\sin(x)</m>...but only after that you can make sense of why it is the way it is. </p>
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-2-sin-cos.html#gZy">2.2 Exercises #1-8</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+			</exercises>
+		
+      </section>
+	  
+	  <section xml:id="prod-quot-rules">
+        
+		
+		<title>Product and Quotient Rules for Derivatives</title>
+        		
+			<subsection><title>Why Do We Care?</title>
+				 <p>As we learn to differentiate all the functions we know, we also need to understand that they come in *combinations* like sums, differences, products, quotients (and eventually, compositions, but that's a bit later).</p>
+				 
+				 <p>More interesting problems or situations are typically not just one function, but a combination.  So that's why this is important to understand.</p>
+			</subsection>
+			
+			<subsection><title>What Will We Learn?</title>
+			   <p>How to differentiate products and quotients of functions, i.e. <m>\frac{d}{dx}f(x)g(x)</m> and <m>\frac{d}{dx}\frac{f(x)}{g(x)}</m>.</p>
+			</subsection>
+		
+			<subsection><title>Things To Recall</title>
+				<p>That since both f(x) and g(x) are changing, that the derivative is not just simply f'(x)g'(x), which is a very common mistake.</p>
+				<p>It is more nuanced than this, and we go over this idea in the video.</p>
+			</subsection>
+			
+			<subsection><title>The Main Idea</title>
+				  <p>Here's a 15 minute lecture video introducing these rules.  Practice is going to be indispensable here (as it always is).</p>
+					<video play-at="select" youtube="oO1yeuyO9MM"></video>
+			</subsection>
+			
+			<subsection><title>Summary Of Rules So Far</title>
+			
+						<ul>
+						  <li>Power Rule: <m>\frac{d}{dx} x^n = nx^{n-1}</m></li>
+						  <li>Constant Rule: <m>\frac{d}{dx} c = 0</m></li>
+						  <li>Sum Rule: <m>\frac{d}{dx} [f(x) + g(x)] = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)</m></li>
+						  <li>Difference Rule: <m>\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)</m></li>
+						  <li>Product Rule: <m>\frac{d}{dx} [f(x)g(x)] = f(x)\frac{d}{dx} g(x) + g(x)\frac{d}{dx} f(x)</m></li>
+						  <li>Quotient Rule: <m>\frac{d}{dx} \left[\frac{f(x)}{g(x)}\right] = \frac{g(x)\frac{d}{dx} f(x) - f(x)\frac{d}{dx} g(x)}{g(x)^2}</m></li>
+						</ul>
+			
+			</subsection>
+			
+			
+			<subsection><title>Pro-Tips</title>
+				<p>Remember (fg)' is not f'g'! Both functions are changing, think of the rectangle.</p>
+			</subsection>
+			
+			<subsection><title>Supplemental OER Videos/ Worked Examples</title>
+						 <video play-at="select" youtube="kNhYfmC_UPU"></video>
+						 <video play-at="select" youtube="mkrnp3ew0WA"></video>
+						 <video play-at="select" youtube="HxFjkYjabwQ"></video>
+						 
+			
+			
+			</subsection>
+			
+			<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-3-prod-quot.html#Frr">2.3 Exercises #1-14</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+			</exercises>
+		
+      </section>
 	  
 	  
+	  <section xml:id="other-trig">
+		<title>Derivatives of Other Trig Functions</title>
+		
+		<p>Now that we are armed with the derivatives of <m>\sin(x), \cos(x)</m>, the natural place to extend this idea would be to Tangent since <m>\tan(x)=\sin(x)/\cos(x)</m>.  We will also look at the cotangent, secant, and cosecant functions as well.</p>
+	  
+	   <subsection><title>OER Video Walkthrough</title>
+			   <p>This is not by me but I think this instructor does a good job.</p>
+			  <video play-at="select" youtube="dOOlmwIltZ8"></video>
+		</subsection>
+		
+		<exercises><title>Get Your Hands Dirty</title>
+				 <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-4-other-trig.html#ZgR">2.4 Exercises #1-8</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+				 
+				 
+		</exercises>
+	  </section>
+	  
+	  
+	  
+	  <section xml:id="chain-rule">
+	  
+			 <title> The Chain Rule </title>
+				<p> The Chain Rule is a fundamental concept in calculus that allows us to differentiate composite functions. Composite functions are functions that are formed by nesting one function inside another. For example, consider the function <m>f(x) = \sin(x^2)</m>. This is a composite function, since the input <m>x</m> is being passed through two functions: first, the squaring function <m>x^2</m>, and then the sine function <m>\sin(x)</m>. </p>
+				<p> The Chain Rule provides a method for finding the derivative of a composite function. Let <m>f</m> and <m>g</m> be functions such that <m>y=f(g(x))</m>. Then, the Chain Rule states that the derivative of <m>y</m> with respect to <m>x</m> is given by: </p>
+				<p> <m>\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}</m></p>
+				<p> where <m>u = g(x)</m>. In other words, we first take the derivative of the outer function with respect to the inner function, <m>\frac{dy}{du}</m>, and then multiply by the derivative of the inner function with respect to <m>x</m>, <m>\frac{du}{dx}</m>. This process allows us to find the derivative of even the most complicated composite functions. </p>
+				<p> Let's look at an example to see the Chain Rule in action. Suppose we have the function <m>h(x) = (2x+1)^3</m>. This is a composite function, since it can be written as <m>h(x) = f(g(x))</m>, where <m>f(x) = x^3</m> and <m>g(x) = 2x+1</m>. To find the derivative of <m>h(x)</m>, we first find the derivatives of <m>f(x)</m> and <m>g(x)</m> separately: </p>
+				<p> <m>f'(x) = 3x^2</m> </p>
+				<p> <m>g'(x) = 2</m> </p>
+				<p> Then, we apply the Chain Rule: </p>
+				<p> <m>h'(x) = f'(g(x)) \cdot g'(x) = 3(2x+1)^2 \cdot 2</m> </p>
+				<p> Thus, the derivative of <m>h(x)</m> is <m>h'(x) = 6(2x+1)^2</m>. </p>
+				<p> The Chain Rule is essential -- we can differentiate complex functions that would otherwise be difficult or impossible to differentiate using basic differentiation rules. </p>
+	  
+		<subsection><title>The Main Idea</title>
+				  <p>Here's a 25 minute lecture video on the Chain Rule.  This is one of the most misunderstood rules in calculus, so please make sure you ask questions when you get stuck!</p>
+					<video play-at="select" youtube="k8Hx429Ej2A"></video>
+		</subsection>
+	  
+	  
+	  <subsection>
+		<title>OER Supplemental Videos</title>
+		
+			<ul>
+				<li><url href="https://youtu.be/HxVn6kRD5NM">CR Mini Lecture</url></li>
+				<li><url href="https://youtu.be/QDc1UmLWhug">Worked Example</url></li>
+				<li><url href="https://youtu.be/4y39u0DmrPY">Worked Example w/ Trig</url></li>
+				<li><url href="https://youtu.be/zexX6t_zbCg">Worked Example w/ Exponentials</url></li>
+				<li><url href="https://youtu.be/1B06Pk3W6Pc">Worked Example w/ Mixing Rules** Hugely Important.</url></li>
+				<li><url href="https://youtu.be/pwm50foAx6A">Worked Example w/ Graphing.  Commonly Requested.</url></li>
+				
+			
+			</ul>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </subsection>
+	  
+	   <exercises><title>Get Your Hands Dirty</title>
+			   <ul>
+					<li><url href="https://activecalculus.org/single/sec-2-5-chain.html#dJG">2.5 Exercises #1-11</url></li>
+					<li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+				 </ul>
+	   
+	   
+	   </exercises>
+	  
+	  </section>
+	  
+	  <section xml:id="inverse-derivs">
+	  
+		<title> Derivatives of Inverse Functions (Ln , ArcTrig, etc.) </title>
+		<p>
+			If we care about functions, we care about inverses.  If you do something, you care about un-doing it.  If we analyze outputs, we will probably need to analyze inputs at some point.  Therefore, differentiating inverse functions is just something we gotta know how to do.  One of these becomes one of the most common derivatives you see in Calc 3, Diff Eq.
+		</p>
+
+
+ 
+   <subsection><title>The Main Idea</title>
+		<p>
+			VIDEO LECTURE TBD
+		</p>
+   </subsection>
+ 
+ 
+ <subsection>
+   <title>OER Supplemental Videos</title>
+   
+	   <ul>
+		   <li><url href="https://youtu.be/chdkxtt8XQo">Quick Review</url> </li>
+		   <li><url href="https://youtu.be/jhBhSerqbyU">Natural Log</url> </li>
+		   <li><url href="https://youtu.be/pEEQNdttZsw">ArcSine</url> </li>
+		   
+	   
+	   </ul>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </subsection>
+ 
+  <exercises><title>Get Your Hands Dirty</title>
+		  <ul>
+			   <li><url href="https://activecalculus.org/single/sec-2-6-inverse.html">2.6 Exercises #1-12</url></li>
+			   <li><url href="https://maleymath.discourse.group/">Discourse Q+A</url></li>
+			</ul>
+  
+  
+  </exercises>
+ 
+ </section>
+	  
+
+<section>
+	<title>Derivatives of Implicit Functions</title>
+
+	<p>We are used to having functions defined explicitly, meaning we can write them with y on one side, and all x terms on the other side.</p>
+
+	<p>But we can very regularly run into functions that are a bit more intricate.  The circle is the easiest example of this.  There is no easy way to break <m> x^2 + y^2 = 16 </m> into a single function of <m>y=</m> some stuff involving x.  You'd need to take the square root, and this splits it into two parts -- the top and bottom.  </p>
+
+	<p>So in our quest to differentiate all the functions we know, we need to handle this in a particular way.  What we actually use here is our knowledge of the <em>Chain Rule</em>.  Whenever we differentiate an "inner function" we know we need to multiply by the "inner derivative."  So we just take this into account, and use the derivative as an operation on the whole equation in problems like this. </p>
+
+
+	<p>Everyone uses the circle, because its a good simple example, so I'll use a slightly different equation. Let's say the equation is <m> \cos(x)+\sin(y) = 3 </m>. And we want to find the derivative.  It's tough because <m> y </m> is inside the sine function.  But if we differentiated, the chain rule would actually produce a factor of <m>dy/dx</m> that we could use to solve for. </p>
+
+	<p>So we would start with: 
+
+		<me> \frac{d}{dx} \left( \cos(x) + \sin(y)  \right) = \frac{d}{dx} (3)</me>
+		<me> -\sin(x) + \cos(y)*\frac{dy}{dx} = 0 </me>
+
+	Here its very important that we see how the CHAIN RULE was applied on <m>\sin(y)</m> where it became <m>\cos(y)*\frac{dy}{dx}</m>.
+
+	Then what we'd do is isolate the <m>\frac{dy}{dx}</m> onto one side, and everything else to the other side.  After that,  we'll have a formula for the derivative! </p>
+
+		<me> \cos(y)*\frac{dy}{dx} = \sin(x) </me>
+		<me> </me>
+
+
+
+</section>
+
 	  
     </chapter>
 

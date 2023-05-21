@@ -66,7 +66,7 @@ window.MathJax = {
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="my-great-book.html"><span class="title">Community Calculus:</span> <span class="subtitle">Helping Each Other Learn Big Ideas</span></a></h1>
+<h1 class="heading"><a href="calc-book.html"><span class="title">Community Calculus:</span> <span class="subtitle">Helping Each Other Learn Big Ideas</span></a></h1>
 <p class="byline">Sean Maley, M.A.</p>
 </div>
 <div id="searchresultsplaceholder" style="display: none">
@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="deriv-rules.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="deriv-rules.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="deriv-rules.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="deriv-rules.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sine-cosine-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -190,34 +190,109 @@ window.MathJax = {
 <div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
 <li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li>
-<div class="toc-item"><a href="deriv-rules.html" class="internal"><span class="codenumber">1</span> <span class="title">Derivative Rules</span></a></div>
-<ul class="structural"><li class="active">
+<div class="toc-item"><a href="deriv-rules.html" class="internal"><span class="codenumber">1</span> <span class="title">Computing Derivatives</span></a></div>
+<ul class="structural">
+<li class="active">
 <div class="toc-item"><a href="derivative-rules.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Rules For Basic Function Derivatives</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="derivative-rules.html#subsection-1" class="internal"><span class="codenumber">1.1.1</span> <span class="title"></span></a></div></li>
-<li><div class="toc-item"><a href="derivative-rules.html#exercises-1" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-1" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Why Do We Care?</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-2" class="internal"><span class="codenumber">1.1.2</span> <span class="title">What Will We Learn?</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-3" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Things To Recall</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-4" class="internal"><span class="codenumber">1.1.4</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-5" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Summary Of Rules So Far</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#subsection-6" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Pro-Tips</span></a></div></li>
+<li><div class="toc-item"><a href="derivative-rules.html#exercises-1" class="internal"><span class="codenumber">1.1.7</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sine-cosine-rules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sine and Cosine Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-7" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Why Do We Care?</span></a></div></li>
+<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-8" class="internal"><span class="codenumber">1.2.2</span> <span class="title">What Will We Learn?</span></a></div></li>
+<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-9" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Things To Recall</span></a></div></li>
+<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-10" class="internal"><span class="codenumber">1.2.4</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="sine-cosine-rules.html#subsection-11" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Pro-Tips</span></a></div></li>
+<li><div class="toc-item"><a href="sine-cosine-rules.html#exercises-2" class="internal"><span class="codenumber">1.2.6</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="prod-quot-rules.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Product and Quotient Rules for Derivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-12" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Why Do We Care?</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-13" class="internal"><span class="codenumber">1.3.2</span> <span class="title">What Will We Learn?</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-14" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Things To Recall</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-15" class="internal"><span class="codenumber">1.3.4</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-16" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Summary Of Rules So Far</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-17" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Pro-Tips</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#subsection-18" class="internal"><span class="codenumber">1.3.7</span> <span class="title">Supplemental OER Videos/ Worked Examples</span></a></div></li>
+<li><div class="toc-item"><a href="prod-quot-rules.html#exercises-3" class="internal"><span class="codenumber">1.3.8</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Derivatives of Other Trig Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-4.html#subsection-19" class="internal"><span class="codenumber">1.4.1</span> <span class="title">OER Video Walkthrough</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#exercises-4" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chain-rule.html" class="internal"><span class="codenumber">1.5</span> <span class="title">The Chain Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="chain-rule.html#subsection-20" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The Main Idea</span></a></div></li>
+<li><div class="toc-item"><a href="chain-rule.html#subsection-21" class="internal"><span class="codenumber">1.5.2</span> <span class="title">OER Supplemental Videos</span></a></div></li>
+<li><div class="toc-item"><a href="chain-rule.html#exercises-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Get Your Hands Dirty</span></a></div></li>
+</ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="derivative-rules"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="derivative-rules"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Rules For Basic Function Derivatives</span>
 </h2>
-<div class="para" id="p-1">One of the major goals, now that we know what the derivative is, is to be able to find the derivative for all the functions we know.  We start with some basic ones, using the definition, and we'll unpack them as we go.</div>
-<article class="remark remark-like" id="remark-1"><h3 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-2">We will use the limit definition of the derivative for a general function, <span class="process-math">\(f'(x)=\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\)</span> and algebraically work them into simpler rules.  That's the whole idea.</div></article><div class="para" id="p-3">Here's a 30ish minute lecture video walking through some of these.</div>
-<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/kgP7r3yvsd8?&amp;modestbranding=1&amp;rel=0"></iframe></div>
 <section class="subsection" id="subsection-1"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title"></span>
-</h3></section><div class="para" id="p-4">After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</div>
-<section class="exercises" id="exercises-1"><h3 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">1.1.2</span> <span class="title">Exercises</span>
+<span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title">Why Do We Care?</span>
 </h3>
-<div class="para" id="p-5">See Module in Brightspace for Critical Practice assignment here.</div></section></section></div>
+<div class="para" id="p-1">One of the major goals, now that we know what the derivative is, is to be able to find the derivative for all the functions we know.  We start with some basic ones, using the definition, and we'll unpack them as we go.</div></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title">What Will We Learn?</span>
+</h3>
+<div class="para" id="p-2">After we generate "rules" for each function we know, then we will be able to use them to solve problems without needing the big ugly limit definition anymore</div></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title">Things To Recall</span>
+</h3>
+<div class="para" id="p-3">We will use the limit definition of the derivative for a general function, <span class="process-math">\(f'(x)=\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\)</span> and algebraically work them into simpler rules.  That's the whole idea.</div></section><section class="subsection" id="subsection-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.4</span> <span class="title">The Main Idea</span>
+</h3>
+<div class="para" id="p-4">Here's a 30ish minute lecture video walking through some of these.</div>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/kgP7r3yvsd8?&amp;modestbranding=1&amp;rel=0"></iframe></div></section><section class="subsection" id="subsection-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.5</span> <span class="title">Summary Of Rules So Far</span>
+</h3>
+<ul class="disc">
+<li id="li-1"><div class="para" id="p-derived-li-1">Power Rule: <span class="process-math">\(\frac{d}{dx} x^n = nx^{n-1}\)</span>
+</div></li>
+<li id="li-2"><div class="para" id="p-derived-li-2">Constant Rule: <span class="process-math">\(\frac{d}{dx} c = 0\)</span>
+</div></li>
+<li id="li-3"><div class="para" id="p-derived-li-3">Sum Rule: <span class="process-math">\(\frac{d}{dx} [f(x) + g(x)] = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)\)</span>
+</div></li>
+<li id="li-4"><div class="para" id="p-derived-li-4">Difference Rule: <span class="process-math">\(\frac{d}{dx} [f(x) - g(x)] = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)\)</span>
+</div></li>
+</ul></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.6</span> <span class="title">Pro-Tips</span>
+</h3>
+<div class="para" id="p-5">You will be asked to do this for a basic function on the final.  But these are not worth memorizing.  What is worth memorizing is the definition, and what it really means in its **3 interpretations** as a rate, slope, and sensitivity.</div></section><section class="exercises" id="exercises-1"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.1.7</span> <span class="title">Get Your Hands Dirty</span>
+</h3>
+<ul class="disc">
+<li id="li-5"><div class="para" id="p-derived-li-5">
+<a class="external" href="https://activecalculus.org/single/sec-2-1-elem-rules.html#QSl" target="_blank">2.1 Exercises #1-13</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a>
+</div></li>
+<li id="li-6"><div class="para" id="p-derived-li-6">
+<a class="external" href="https://maleymath.discourse.group/t/2-1-basic-derivative-rules/26" target="_blank">2.1 Thread on Practice Problems</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a>
+</div></li>
+</ul></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn"><code class="code-inline tex2jax_ignore">activecalculus.org/single/sec-2-1-elem-rules.html#QSl</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">maleymath.discourse.group/t/2-1-basic-derivative-rules/26</code></div></div>
+</div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="deriv-rules.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="deriv-rules.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sine-cosine-rules.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div class="ptx-page-footer">

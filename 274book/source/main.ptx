@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+    <latax-image-preamble>
+      \usepackage{tikz}
+    </latax-image-preamble>
+  </docinfo>
+
+  <book xml:id="my-great-book">
+    <title>My Great Book</title>
+    <subtitle>An example to get you started</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>You</personname>
+          <department>Your department</department>
+          <institution>Your institution</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <website>
+          <name>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>You</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="first-order">
+      <title>First Order Equations</title>
+      <section xml:id="sec-first-order">
+        <title>First Order Equations, Definitions</title>
+        
+      
+      <p>On this first day of class, we will go over what a DE is, why we care about them, some examples, and some preliminary definitions.As well as what you will need to review in order to be successful in this course.</p>
+								
+								<example><title>Why do we care about ODEs?</title>
+                
+                
+								<p>First-order linear ordinary differential equations (ODEs) are a type of differential equation that have many simple yet powerful applications. Here are a few examples of applications of first-order linear ODEs:</p>
+								<!-- <ol >
+								<li>
+								<p>Chemical reactions: First-order linear ODEs are often used to model the rate of change of the concentration of a chemical reactant as a function of time. The rate of change is typically modeled by the derivative of the concentration with respect to time.</p>
+								</li>
+								<li>
+								<p>Radioactive decay: The rate of decay of a radioactive substance can be modeled by a first-order linear ODE. The solution to this ODE gives the amount of the substance remaining as a function of time.</p>
+								</li>
+								<li>
+								<p>Electrical circuits: First-order linear ODEs can be used to model the voltage or current in an electric circuit as a function of time. This can be used to predict how a circuit will behave under different conditions and to design new circuits.</p>
+								</li>
+								<li>
+								<p>Economics: Applications to economics are also used to model the behavior of consumer demand, price dynamics, market growth or decline etc. which is also based on first order linear differential equations.</p>
+								</li>
+								<li>
+								<p>Mechanical systems: Simple mechanical systems such as a mass-spring system or a system consisting of a sliding block on an inclined plane can be modeled using first-order linear ODEs. These equations are used to predict the position, velocity, and acceleration of the object over time.</p>
+								</li>
+								<li>
+								<p>Biological systems: First-order linear ODEs can be used to model population growth, which describes how the population of a certain species changes over time depending on the birth rate and death rate.</p>
+								</li>
+								</ol>
+								<p>These are just a few examples of the many simple applications of first-order linear ODEs, but it's important to note that this type of differential equation can be found in many fields and can be used to model a wide range of phenomena. Our first unit will be completely centered around these equations.</p>
+								
+              
+								<p>This class was recorded from a live class, and developed for online use. The rough structure of it is similar to math courses you have likely taken before (purposefully kept as a simple format):</p>
+								<p></p>
+								<p>(1) Watch the lecture <em>video </em>while taking notes and working through examples with the professor</p>
+								<p>(2) Complete <em>practice problems</em></p>
+								<p>(3) <em>Ask questions</em> to clarify, understand, and move on (using <em>the class Discussion Miro</em>). I expect this to be where I interact with you the <em>*majority*</em> of this class.</p>
+								<p>(3.5) Additional assignments to deepen understanding (like a <em>graded HW</em> or something else)</p>
+								<p>(4) Assessment of understanding (<em>Quiz/Exam</em>)</p> -->
+
+              </example>
+
+                                    
+                                   
+                                    
+                                   
+                                    <!-- <ol>
+                                        <li>The basic definitions of Differential Equations</li>
+										<li>What is, and isn't an ODE</li>
+										<li>How to solve basic ODEs using calculus skills</li>
+                                    </ol> -->
+                                    
+                                    
+                                
+                                    
+                                  
+                                What you'll need to remember
+                                  
+                                    <!-- <ul>
+                                        <li>Derivatives, Anti-Derivatives</li>
+										                  <li>Liebniz Notation: <m>\frac{dy}{dx}=y'(x) </m></li>
+                                        
+                                    </ul> -->
+                                    
+                                  
+                                    
+                                    
+                                    
+                                    Lecture
+                                    <video play-at="select" youtube="A56ewLLEWrI"></video>
+                                                                    
+                                    <p><url href="https://drive.google.com/file/d/1bIXilEyxZcyWgR6hbY9sBs0WLmMlcDFP/view?usp=share_link" >Lecture Notes PDF</url></p>
+                                    
+                                  <!--  -->
+                                    <!-- <title>Pro Tips</title> -->
+                                    
+                                    
+                                    <p>One of the big differences is noticing the solutions to our problems are functions, not values.  So we are often after a family of functions that behaves in a certain way.  This is more general (and powerful) than solving a "static" equation.</p>
+                                    
+                                  <!--  -->
+                                    <!-- <title>Get Your Hands Dirty</title> -->
+                                    
+                                    
+                                    <p> 
+									<ol>
+										<li>Is the function <m>y = 2e^{-x}</m> a solution to the differential equation <m>dy/dx + 2y = 0</m>?Answer: Yes</li>
+										<li>Verify that <m>y = x^2</m> is a solution to the differential equation <m>y' = 2x</m>.Answer: Yes</li>
+										<li>Check if <m>y = \cos(x)</m> is a solution to the differential equation <m>y'' + y = 0</m>Ans: Yes</li>
+										<li>Can you verify if <m> y = xe^x </m> is a solution to the differential equation <m>y' + xy = x^2</m> ?Ans: No.</li>
+									</ol>
+									
+									
+									</p>
+                <!--  -->
+									<exercise><title>Exercises for Understanding</title>
+                  
+                  
+                                    <p>
+                                        <a href="https://math.libretexts.org/Bookshelves/Differential_Equations/Book%3A_Elementary_Differential_Equations_with_Boundary_Value_Problems_(Trench)/01%3A_Introduction" target="_blank">[1.2] [1.2] #1, 2abcef, 3acegi, 4bdh, 5ab, 6a 7.  </a> </p>
+
+                  </exercise>
+                                    
+                                   	
+                                    
+                                    
+              
+              
+                    <!-- <title>Taking It further</title> -->
+                    
+                    
+									<p>What is a system within your field of study that you're curious if ODEs would apply to?  (Take this to the Class Discussion Miro Board!)</p>
+                             
+                                    
+            </section>
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>
