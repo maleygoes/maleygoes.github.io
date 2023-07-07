@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+    <latex-image-preamble>
+      \usepackage{tikz}
+    </latex-image-preamble>
+  </docinfo>
+
+  <book xml:id="my-great-book">
+    <title>Community Calculus</title>
+    <subtitle>Learning Big Ideas Together</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Sean Maley</personname>
+          <department>Associate Professor of Mathematics</department>
+          <institution>SUNY Finger Lakes</institution>
+        </author>
+        <date>
+          2023
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <website>
+          <name>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>Sean Maley</holder>
+          <shortlicense> 
+            All rights reserved. 
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="chapter1">
+      <title>Introduction to Calculus</title>
+
+      <section xml:id="section1.1">
+        <title>The Origins of Calculus</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section1.2">
+        <title>The Fundamental Concepts</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section1.3">
+        <title>Applications of Calculus in Real Life</title>
+        <p>Content Coming...</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter2">
+      <title>Differentiation</title>
+
+      <section xml:id="section2.1">
+        <title>Limits and Continuity</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section2.2">
+        <title>Differentiation Rules</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section2.3">
+        <title>Derivatives of Basic Functions</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="exponential-functions-lesson">
+        <title>Exponential Functions Derivatives</title>
+          <subsection>
+            <title>Why do I need to know this?</title>
+            <p>Exponential functions are everywhere, as they represent anything that grows in proportion to the present amount. They are also pivotal in Differential equations which are really what describe reality as we know it physically.</p>
+          </subsection>
+          <subsection>
+            <title>What will we learn?</title>
+            <p>By the end of this lesson, you will be able to confidently calculate the derivative of exponential functions of the form <m>f(x) = a^x</m> and <m>f(x)=e^x</m>, where <m>a</m> is a constant positive number. You will gain a deep understanding of how the derivative describes the behavior of these functions.</p>
+          </subsection>
+          <subsection>
+            <title>What will I need to recall in order to learn?</title>
+            <p>Before we dive into exponential function derivatives, recall how the derivative represents the rate of change <em>and</em> the slope of a function at a given point. You may wish to review the <em>limit definition of the derivative</em>.</p>
+          </subsection>
+          <subsection>
+            <title>The Main Idea</title>
+            <p>In this section, we'll explore the properties and behavior of exponential functions. We'll discuss how exponential functions grow or decay exponentially and examine their unique characteristics. We'll also introduce the concept of the derivative and its connection to the rate of change.</p>
+            <subsection>
+              <title>Lecture Video</title>
+              <p><strong>Start at 13:45 and watch until 20:30.</strong></p>
+              <video youtube="kgP7r3yvsd8?t=805"></video>
+            </subsection>
+            
+          </subsection>
+
+          <subsection>
+            <title>Worked Example</title>
+            <p>Find the derivative of <m>f(\theta) = e^{\tan(\theta)}</m></p>
+            <p>To find the derivative of <m>f(\theta) = e^{\tan(\theta)}</m>, we will use the chain rule.</p>
+            <p>Let's start by noticing the inner function, we can call it <m>u = \tan(\theta)</m>. Now, our function looks like <m>f(\theta) = e^u</m>.</p>
+            <p>Next, we need to find the derivative of <m>f(\theta)</m> with respect to <m>\theta</m>. Using the chain rule, we have:</p>
+            <p>
+              <m>\frac{d}{d\theta} f(\theta) = \frac{d}{d\theta} e^u \cdot \frac{du}{d\theta}</m>
+            </p>
+            <p>The derivative of <m>e^u</m> with respect to <m>u</m> is simply <m>e^u</m>. This is why calc students do, and should, love <m>e^u</m> as a function. Now, let's find <m>\frac{du}{d\theta}</m>.</p>
+            <p>Differentiating <m>\tan(\theta)</m> with respect to <m>\theta</m> gives us:</p>
+            <p>
+              <m>\frac{du}{d\theta} = \sec^2(\theta)</m>
+            </p>
+            <p>Finally, we can substitute the derivative of <m>e^u</m> and <m>\frac{du}{d\theta}</m> back into the chain rule expression:</p>
+            <p>
+              <m>\frac{d}{d\theta} f(\theta) = e^u \cdot \sec^2(\theta)</m>
+            </p>
+            <p>Since <m>u = \tan(\theta)</m>, we can rewrite the expression as:</p>
+            <p>
+              <m>\frac{d}{d\theta} f(\theta) = e^{\tan(\theta)} \cdot \sec^2(\theta)</m>
+            </p>
+            <p><em>**Sometimes you will see me make a substitution for <m>u</m> and use the chain rule. Sometimes we will skip this step. It is important to just remember the concept -- if there is an inner function, we need to remember to "respect" the chain rule.</em></p>
+          </subsection>
+
+
+          <subsection>
+            <title>Continue the conversation on Discourse</title>
+            <p>Questions and worked examples found in Discourse--<url href="https://maleymath.discourse.group/t/exponential-function-derivatives-6-2/208?u=profmaley" target="_blank" rel="noopener">https://maleymath.discourse.group/t/exponential-function-derivatives-6-2/208?u=profmaley</url></p>
+          </subsection>
+      </section>
+
+
+      <section xml:id="section2.4">
+        <title>Applications of Differentiation</title>
+        <p>Content Coming...</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter3">
+      <title>Techniques of Differentiation</title>
+
+      <section xml:id="section3.1">
+        <title>Chain Rule</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section3.2">
+        <title>Implicit Differentiation</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section3.3">
+        <title>Related Rates</title>
+    <h1>Lesson: Related Rates</h1>
+    <p><h2>Why Do I Need to Know This?</h2></p>
+    <p>Related rates are an invaluable application of calculus. Usually, a complex problem has not only one quantity changing, but multiple components within a system that are related somehow. This is the intention behind this unit. How do we measure change within a system of related, changing quantities?</p>
+    <p><h2>What Will We Learn?</h2></p>
+  <ul>
+    <li>Identify and solve related rates problems</li>
+    <li>Apply the concept of related rates to analyze changing quantities</li>
+    <li>Develop problem-solving skills for real-world scenarios</li>
+  </ul>
+  <p><h2>What Should I Recall Before Learning?</h2></p>
+  <p>Before we dive into related rates, let's recall some fundamental concepts in calculus, such as rates of change, derivatives, and the chain rule.Understanding these concepts will provide a solid foundation for tackling related rates problems.</p>
+  <p><h2>The Main Idea</h2></p>
+  <p><h3>Introduction to Related Rates</h3></p>
+  <p>Related rates involve finding how the rates of change of two or more related variables are related to each other. We often encounter these types of problems in real-world scenarios where the rates at which quantities change depend on each other.</p>
+  <p><h3>Problem-solving Approach</h3></p>
+  <p>To solve related rates problems, we generally follow these steps:</p>
+  <ol>
+    <li>Identify the variables involved and establish their relationships (e.g. generate sketches, and equations)</li>
+    <li>Differentiate the related equation(s) implicitly with respect to time or the independent variable.</li>
+    <li>Substitute known values, and use algebra to solve for the unknown rate of change.</li>
+  </ol>
+  <p><h2>Lecture Video</h2></p>
+  <p><iframe width="880" height="660" src="https://www.youtube.com/embed/dlWUpcmdbpc?wmode=opaque" title="MAT 271 Related Rates" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+  <p><h2>Practice</h2></p>
+  <p><iframe width="880" height="660" src="https://www.youtube.com/embed/tQtT8VhuVNg?wmode=opaque" title="Related Rates Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+  <p><h2>Interactive Conical Tank</h2></p>
+  <p>Here is an interactive that can help you visualize what's happening within a common problem in related rates: The conical tank.</p>
+  <p>Note you can adjust the fill rate (to filling or draining) and see the effects on dr/dt and dV/dt.</p>
+  <p><a href="https://www.geogebra.org/m/wZ3YyCE2" target="_blank" rel="noopener">https://www.geogebra.org/m/wZ3YyCE2</a></p>
+  <p><h2>Practice and Feedback</h2></p>
+  <p>Head to Discourse with questions. There will be a lot of places where algebra, geometry, or problem-solving will be rusty for each of us. Make sure to start this unit early to benefit maximally from Q&amp;A.</p>
+
+
+</section>
+
+
+
+
+
+
+
+      <section xml:id="section3.4">
+        <title>Higher Order Derivatives</title>
+        <p>Content Coming...</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter4">
+      <title>Applications of Differentiation</title>
+
+      <section xml:id="section4.1">
+        <title>Optimization Problems</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section4.2">
+        <title>Curve Sketching</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="linear-approximation-differentials-lesson">
+  <title>Lesson: Linear Approximation and Differentials</title>
+  <subsection>
+    <title>Why do I need to know this?</title>
+    <p>Imagine you are faced with a complex function, and you need to understand its behavior or estimate its value quickly. How can calculus help you in such situations? In this lesson, we will explore the powerful techniques of linear approximation and differentials that allow us to simplify functions and make accurate estimates.</p>
+  </subsection>
+  <subsection>
+    <title>What will I learn?</title>
+    <p>By the end of this lesson, you will be able to:</p>
+    <ul>
+      <li>Apply linear approximation to approximate the value of a function near a given point</li>
+      <li>Understand the concept of differentials and their significance in calculus</li>
+      <li>Use differentials to estimate the change in a function based on small changes in its variables</li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>What should I recall in order to learn this?</title>
+    <p>Before we dive into linear approximation and differentials, let's recall some fundamental concepts in calculus, such as derivatives, tangent lines, and rates of change. Understanding these concepts will provide a solid foundation for tackling the techniques discussed in this lesson.</p>
+    <ul>
+      <li>Equation of the tangent line to <m>f(x)</m> at <m>x=a</m>: <m>y = f(a) + f'(a)(x-a)</m></li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>The Main Idea(s)</title>
+    <subsection>
+      <title>Introduction to Linear Approximation</title>
+      <p>Linear approximation allows us to approximate the value of a function near a specific point using a simpler linear function. By finding the equation of the tangent line at that point, we can make accurate estimations within a small range.</p>
+    </subsection>
+    <subsection>
+      <title>Calculating Linear Approximations</title>
+      <p>Learn how to find the linear approximation of a function using the tangent line equation. Understand the relationship between the linear approximation and the original function and how it can be used for estimation and simplification.</p>
+    </subsection>
+    <subsection>
+      <title>Introduction to Differentials</title>
+      <p>Differentials are infinitesimally small changes in a function's variables. They play a crucial role in calculus, allowing us to approximate the change in a function based on these small changes in its inputs.</p>
+    </subsection>
+    <subsection>
+      <title>Using Differentials for Estimation</title>
+      <p>Explore how differentials can be used to estimate the change in a function. Learn how to calculate differentials, interpret their meaning, and apply them to solve estimation problems.</p>
+    </subsection>
+  </subsection>
+  <subsection>
+    <title>Lecture Video</title>
+    <video youtube="5hyzkoJL5P0"></video>
+  </subsection>
+  <subsection>
+    <title>Practice Exercises</title>
+    <p>Practice set of problems in Webassign. Use Discourse on the problems that stump you!</p>
+  </subsection>
+  <subsection>
+    <title>Applications and Connections</title>
+    <p>One interesting and real application of tangent line approximations in engineering is in the field of structural analysis. Engineers often use linear approximation techniques to estimate the behavior of structures under different loading conditions.</p>
+    <p>For example, when designing bridges or buildings, engineers need to assess the structural integrity and stability of the components. By using tangent line approximations, they can estimate the deflection, stress, and strain on different parts of the structure. From there, they can make informed decisions about materials, dimensions, support systems, and so on.</p>
+  </subsection>
+</section>
+
+      <section xml:id="section4.4">
+        <title>Newton's Method</title>
+        <p>Content Coming...</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter5">
+      <title>Integration</title>
+
+      <section xml:id="section5.1">
+        <title>Limits and Continuity</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section5.2">
+        <title>Integration Rules</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section5.3">
+        <title>Methods of Integration</title>
+        <p>Content Coming...</p>
+      </section>
+
+      <section xml:id="section5.4">
+        <title>Applications of Integration</title>
+        <p>Content Coming...</p>
+      </section>
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>
