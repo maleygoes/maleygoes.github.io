@@ -1,25 +1,27 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.7.27)  21 MAY 2023 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.15)  23 AUG 2023 07:32
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **./maleySchedule.tex
 (maleySchedule.tex
-LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-07-12>
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-03-30>
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/schedule\schedule.sty
 File: schedule.sty 
@@ -27,121 +29,122 @@ Package: schedule 2019/7/31 v1.20 schedule package
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count190
-\calc@Bcount=\count191
-\calc@Adimen=\dimen139
-\calc@Bdimen=\dimen140
-\calc@Askip=\skip49
-\calc@Bskip=\skip50
+\calc@Acount=\count193
+\calc@Bcount=\count194
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count192
-\calc@Cskip=\skip51
+\calc@Ccount=\count195
+\calc@Cskip=\skip52
 )
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 227.
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 )
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+(C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 )
-\cell@height=\skip52
-\cell@width=\skip53
-\box@depth=\skip54
-\c@sch@col@width=\count193
-\box@width=\skip55
-\col@width=\skip56
-\sch@depth=\skip57
-\fill@length=\skip58
-\@temp@length=\skip59
-\@@temp@length=\skip60
-\line@thickness=\skip61
-\adjusted@cell@width=\skip62
-\adjusted@cell@height=\skip63
-\c@picture@units@wide=\count194
-\c@xcoords=\count195
-\c@ycoords=\count196
-\c@timea=\count197
-\c@timeb=\count198
-\c@grid@width=\count199
-\c@grid@height=\count266
-\c@number@of@cells=\count267
-\c@number@of@subcells=\count268
-\c@number@of@days=\count269
-\c@dp@vlines=\count270
-\c@dp@hlines=\count271
-\c@dp@hcell@lines=\count272
-\c@pu@cell@width=\count273
-\c@pu@cell@height=\count274
-\c@pu@grid@top=\count275
-\c@pu@grid@width=\count276
-\c@pu@subticks=\count277
-\c@start@time=\count278
-\c@end@time=\count279
-\c@x@coord=\count280
-\c@y@coord=\count281
-\c@@tempc=\count282
-\c@@tempd=\count283
-\c@label@sep=\count284
-\c@x@Sunday=\count285
-\c@x@Monday=\count286
-\c@x@Tuesday=\count287
-\c@x@Wednesday=\count288
-\c@x@Thursday=\count289
-\c@x@Friday=\count290
-\c@x@Saturday=\count291
-\temp@box=\box50
-\@i=\count292
-\@j=\count293
-\c@ycoords@bot=\count294
-\c@x@tempa=\count295
-\c@x@tempb=\count296
-\c@y@tempa=\count297
-\c@y@tempb=\count298
-\c@temp@cnt@a=\count299
-\title@height=\skip64
-\label@height=\skip65
-\c@pu@label@width=\count300
-\center@hack=\skip66
+\cell@height=\skip53
+\cell@width=\skip54
+\box@depth=\skip55
+\c@sch@col@width=\count196
+\box@width=\skip56
+\col@width=\skip57
+\sch@depth=\skip58
+\fill@length=\skip59
+\@temp@length=\skip60
+\@@temp@length=\skip61
+\line@thickness=\skip62
+\adjusted@cell@width=\skip63
+\adjusted@cell@height=\skip64
+\c@picture@units@wide=\count197
+\c@xcoords=\count198
+\c@ycoords=\count199
+\c@timea=\count266
+\c@timeb=\count267
+\c@grid@width=\count268
+\c@grid@height=\count269
+\c@number@of@cells=\count270
+\c@number@of@subcells=\count271
+\c@number@of@days=\count272
+\c@dp@vlines=\count273
+\c@dp@hlines=\count274
+\c@dp@hcell@lines=\count275
+\c@pu@cell@width=\count276
+\c@pu@cell@height=\count277
+\c@pu@grid@top=\count278
+\c@pu@grid@width=\count279
+\c@pu@subticks=\count280
+\c@start@time=\count281
+\c@end@time=\count282
+\c@x@coord=\count283
+\c@y@coord=\count284
+\c@@tempc=\count285
+\c@@tempd=\count286
+\c@label@sep=\count287
+\c@x@Sunday=\count288
+\c@x@Monday=\count289
+\c@x@Tuesday=\count290
+\c@x@Wednesday=\count291
+\c@x@Thursday=\count292
+\c@x@Friday=\count293
+\c@x@Saturday=\count294
+\temp@box=\box51
+\@i=\count295
+\@j=\count296
+\c@ycoords@bot=\count297
+\c@x@tempa=\count298
+\c@x@tempb=\count299
+\c@y@tempa=\count300
+\c@y@tempb=\count301
+\c@temp@cnt@a=\count302
+\title@height=\skip65
+\label@height=\skip66
+\c@pu@label@width=\count303
+\center@hack=\skip67
 )
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count301
-\Gm@cntv=\count302
-\c@Gm@tempcnt=\count303
-\Gm@bindingoffset=\dimen141
-\Gm@wd@mp=\dimen142
-\Gm@odd@mp=\dimen143
-\Gm@even@mp=\dimen144
-\Gm@layoutwidth=\dimen145
-\Gm@layoutheight=\dimen146
-\Gm@layouthoffset=\dimen147
-\Gm@layoutvoffset=\dimen148
+\Gm@cnth=\count304
+\Gm@cntv=\count305
+\c@Gm@tempcnt=\count306
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks17
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
@@ -184,14 +187,14 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
-Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
 )
-\XKV@depth=\count304
+\XKV@depth=\count307
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 LaTeX Font Info:    Trying to load font information for OT1+lato-TLF on input l
@@ -204,9 +207,9 @@ LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
 
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
-File: l3backend-pdftex.def 2021-07-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count305
-\l__pdf_internal_box=\box51
+File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count308
+\l__pdf_internal_box=\box52
 ) (maleySchedule.aux)
 \openout1 = `maleySchedule.aux'.
 
@@ -228,16 +231,16 @@ LaTeX Font Info:    ... okay on input line 27.
 (C:\Users\maley\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count306
-\scratchdimen=\dimen149
-\scratchbox=\box52
-\nofMPsegments=\count307
-\nofMParguments=\count308
+\scratchcounter=\count309
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count310
+\nofMParguments=\count311
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count309
-\MPscratchDim=\dimen150
-\MPnumerator=\count310
-\makeMPintoPDFobject=\count311
+\MPscratchCnt=\count312
+\MPscratchDim=\dimen152
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
 \everyMPtoPDFconversion=\toks21
 )
 *geometry* driver: auto-detecting
@@ -274,40 +277,46 @@ ii
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count312
-\c@mv@boldtabular=\count313
+\c@mv@tabular=\count315
+\c@mv@boldtabular=\count316
 LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 31.
+(Font)              scaled to size 17.28pt on input line 32.
 LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 31.
+(Font)              scaled to size 12.0pt on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 32.
 LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 31.
+(Font)              scaled to size 6.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/lato-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 33.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `OT1/lato-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 33.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 58.
+(Font)              <7> on input line 64.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 58.
+(Font)              <5> on input line 64.
 [1
 
-{C:/Users/maley/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+{C:/Users/maley/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/male
+y/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lato/a_y72t7m.enc}]
 (maleySchedule.aux) ) 
 Here is how much of TeX's memory you used:
- 2873 strings out of 478870
- 43634 string characters out of 2848836
- 354888 words of memory out of 3000000
- 20791 multiletter control sequences out of 15000+600000
- 428772 words of font info for 41 fonts, out of 8000000 for 9000
+ 3098 strings out of 476331
+ 50559 string characters out of 5787765
+ 1865660 words of memory out of 5000000
+ 23526 multiletter control sequences out of 15000+600000
+ 540365 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,66p,192b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/maley/AppData/Local/Programs/MiKTeX/fonts/enc/dv
-ips/lato/a_y72t7m.enc}<C:/Users/maley/AppData/Local/Programs/MiKTeX/fonts/type1
-/typoland/lato/Lato-Bold.pfb><C:/Users/maley/AppData/Local/Programs/MiKTeX/font
-s/type1/typoland/lato/Lato-Regular.pfb><C:/Users/maley/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on maleySchedule.pdf (1 page, 50536 bytes).
+ 57i,7n,62p,191b,362s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/maley/AppData/Local/Programs/MiKTeX/fonts/type1/
+typoland/lato/Lato-Bold.pfb><C:/Users/maley/AppData/Local/Programs/MiKTeX/fonts
+/type1/typoland/lato/Lato-Regular.pfb><C:/Users/maley/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on maleySchedule.pdf (1 page, 61799 bytes).
 PDF statistics:
  22 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
