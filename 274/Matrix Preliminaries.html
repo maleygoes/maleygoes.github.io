@@ -294,6 +294,43 @@ This demonstrates that multiplying any matrix by the identity matrix results in 
 
 <p>This is the eigenvector corresponding to the eigenvalue \( 1 + 2i \) for the matrix \( A \).</p>
 
+<h2> Trace, Determinant, and the Characteristic Equation </h2>
+
+<p>
+    The <strong>trace</strong> of a 2x2 matrix \( A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \) is the sum of its diagonal elements. The trace, denoted as \( T \), is calculated as \( T = a + d \).
+  </p>
+  <p>
+    The <strong>determinant</strong> of this matrix, denoted as \( D \), is calculated as \( D = ad - bc \).
+  </p>
+  <p>
+    The <strong>characteristic polynomial</strong> of matrix \( A \) is given by the equation \( \lambda^2 - T\lambda + D \). To understand why, let's consider the equation \( \det(A - \lambda I) = 0 \) where \( I \) is the identity matrix. Expanding this equation, we get:
+  </p>
+  <p>
+    \( \begin{vmatrix} a - \lambda & b \\ c & d - \lambda \end{vmatrix} = 0 \)
+  </p>
+  <p>
+    \( (a - \lambda)(d - \lambda) - bc = 0 \)
+  </p>
+  <p>
+    \( \lambda^2 - (a + d)\lambda + (ad - bc) = 0 \)
+  </p>
+  <p>
+    Hence, the characteristic polynomial is \( \lambda^2 - T\lambda + D \). This is all you will really ever need when solving for the eigenvalues of a 2x2.
+  </p>
+  <h3>Example:</h3>
+  <p>
+    Consider the matrix \( A = \begin{pmatrix} 3 & 4 \\ 2 & 1 \end{pmatrix} \). The trace \( T \) and determinant \( D \) are:
+  </p>
+  <p>
+    \( T = 3 + 1 = 4 \)
+  </p>
+  <p>
+    \( D = 3 \cdot 1 - 4 \cdot 2 = -5 \)
+  </p>
+  <p>
+    The characteristic polynomial is \( \lambda^2 - 4\lambda - 5 \).  Therefore the characterstic equation is \[ \lambda^2 - 4\lambda - 5 = 0\] and we can solve to find the eigenvalues, and then on to the eigenvectors.
+  </p>
+
 
 </section>
 
