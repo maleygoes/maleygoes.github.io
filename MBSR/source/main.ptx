@@ -38,9 +38,9 @@
 
        <copyright>
           <year>2020<ndash />2023</year>
-          <holder>You</holder>
+          <holder>Sean Maley</holder>
           <shortlicense> 
-            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+            All Rights Reserved.
           </shortlicense>
         </copyright>
       </colophon>   
@@ -54,55 +54,55 @@
   <title>Sessions Overview</title>
   
   <!-- Session 1 -->
-  <subsection xml:id="session_1">
+  <subsection>
     <title>Session 1</title>
     <p>In the first session, you'll get a rundown of what the course is all about. We will discuss the evidence and theory about how the mind and body work together for your well-being. We'll dive into practical activities like the body scan, mindful eating and breathing, and practicing welcoming yourself into the present moment again and again.</p>
   </subsection>
   
   <!-- Session 2 -->
-  <subsection xml:id="session_2">
+  <subsection>
     <title>Session 2</title>
     <p>Week two is all about how you see the world. Your perspective shapes your reactions, so we'll dig into that. You'll practice a body-scan technique to better understand how you handle stress. The goal is to change your reactions to stressful events, which will be better for your mind and body in the short and long run.</p>
   </subsection>
   
   <!-- Session 3 -->
-  <subsection xml:id="session_3">
+  <subsection>
     <title>Session 3</title>
     <p>This week, you'll try different mindfulness exercises like yoga, sitting meditation, and walking meditation. It's a good time to talk about your experiences and how you're bringing mindfulness into your daily life. We'll explore the benefits of being in the moment, looking at how it affects your feelings and body sensations.</p>
   </subsection>
   
   <!-- Session 4 -->
-  <subsection xml:id="session_4">
+  <subsection>
     <title>Session 4</title>
     <p>Mindfulness helps you be curious and open to all kinds of experiences. This week, we'll work on sharpening your focus and widening your awareness. You'll learn about how stress affects you physically and mentally, and we'll look at positive ways to cope with it.</p>
   </subsection>
   
   <!-- Session 5 -->
-  <subsection xml:id="session_5">
+  <subsection>
     <title>Session 5</title>
     <p>By now, you know the basics. This week, we'll apply mindfulness more effectively to challenges you face in your life. You'll start to notice unhealthy habits and how to break them using mindful awareness. We'll also focus on how mindfulness can help when you feel strong emotions or physical sensations, particularly in matters of health.</p>
   </subsection>
   
   <!-- Session 6 -->
-  <subsection xml:id="session_6">
+  <subsection>
     <title>Session 6</title>
     <p>This week is about bouncing back from stress, also known as resilience. You'll learn coping strategies that use mindfulness to improve your ability to deal with life's ups and downs. We'll also cover how to use mindfulness when you're talking to others, especially during emotional or tough conversations.</p>
   </subsection>
   
   <!-- All-Day Retreat -->
-  <subsection xml:id="all_day_retreat">
+  <subsection>
     <title>All-Day Retreat</title>
     <p>Between weeks six and seven, we'll have a full-day session. This will help solidify your new skills and prepare you to use them in various areas of your life, not just during this course.</p>
   </subsection>
   
   <!-- Session 7 -->
-  <subsection xml:id="session_7">
+  <subsection>
     <title>Session 7</title>
     <p>Mindfulness is most useful when it's a long-term commitment. This week, we'll explore ways to make mindfulness a regular part of your life. Although having a set time for mindfulness practice is good, it's equally important to be aware and present in all your daily activities. You'll learn how to keep up your practice as life changes.</p>
   </subsection>
   
   <!-- Session 8 -->
-  <subsection xml:id="session_8">
+  <subsection>
     <title>Session 8</title>
     <p>In the final week, we'll go over everything you've learned. We'll discuss how to keep the momentum going and what resources are out there to help you continue your mindfulness journey. The last lesson serves as a nice wrap-up, marking both the end of the course and the start of your ongoing mindfulness practice.</p>
   </subsection>
@@ -152,25 +152,25 @@
     <p><alert>Journaling.</alert> Journaling is a wonderful way to deepen your understanding of new material and to integrate it into your daily life. Throughout this course we will provide questions and inquiries for your reflection. We invite you to use your preferred journaling method—whether that is pen and paper, a Word doc, or an online tool—to reflect on your experience and capture your thoughts as you progress through the program.</p>
   </section>
 
-      <section xml:id="intro">
-	  
-        <title>Introduction and Orientation</title>
-			<p>Welcome to the Mindfulness-Based Stress Reduction program.</p>
-      <p>Take a moment here, and welcome yourself.  </p>
-      </section>
+  <section xml:id="intro">
 
-    </chapter>
+    <title>Introduction and Orientation</title>
+	<p>Welcome to the Mindfulness-Based Stress Reduction program.</p>
+  <p>Take a moment here, and welcome yourself.  </p>
+  </section>
 
-    <chapter xml:id="week_1">
+  </chapter>
 
-      
-    </chapter>
+  <chapter xml:id="Module_1">
+
+    
+  </chapter>
 
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 
       <colophon>
-        <p> This book was authored in <pretext />. </p>
+        <!-- <p> This book was authored in <pretext />. </p> -->
       </colophon>
 
     </backmatter>

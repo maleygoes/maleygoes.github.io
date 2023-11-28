@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ODEs and Why We Care</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Matrix Preliminaries</h1>
+									</header>
+									<p> Required concepts in order to solve Systems of Linear, Constant Coefficient ODEs </p>
+
+
+						                                   
+                                    <h2><strong>Representing a System of Equations Using Matrices</strong></h2>
+
+<p>A system of linear equations can be represented using matrices, which simplifies the process of finding solutions. This representation involves expressing the system in the form <em>Ax = b</em>, where <em>A</em> is the matrix of coefficients, <em>x</em> is the column matrix of variables, and <em>b</em> is the column matrix of constants.</p>
+
+<h3><strong>Example:</strong></h3>
+
+<p>Consider the system of equations:</p>
+
+<ol>
+    <li>\(2x_1 + 3x_2 = 5\)</li>
+    <li> \( 4x_1-x_2 = 6 \)</li>
+</ol>
+
+<p>This can be expressed in matrix form as:</p>
+
+<p>\[ A = \left[ \begin{array}{cc}
+2 & 3 \\
+4 & -1 \\
+\end{array} \right], \quad x = \left[ \begin{array}{c}
+x_{1} \\
+x_{2} \\
+\end{array} \right], \quad b = \left[ \begin{array}{c}
+5 \\
+6 \\
+\end{array} \right] \]</p>
+
+<p>So, the matrix equation is:</p>
+
+<p>\[ \left[ \begin{array}{cc}
+2 & 3 \\
+4 & -1 \\
+\end{array} \right] \left[ \begin{array}{c}
+x_{1} \\
+x_{2} \\
+\end{array} \right] = \left[ \begin{array}{c}
+5 \\
+6 \\
+\end{array} \right] \]</p>
+
+<p> Or, alternatively: \[ Ax=b \]
+
+<p>This compact representation allows for systematic methods of solving to find the values of x<sub>1</sub> and x<sub>2</sub>.</p>
+
+<h2>Matrix Vector Multiplication </h2>
+
+<p> How do we actually multiply these through? If we're looking at matrix algebra this is definitely a requirement.</p>
+
+<p>Matrix-vector multiplication involves multiplying a matrix <span class="mathjax">\( A \)</span> by a vector <span class="mathjax">\( x \)</span>. Consider <span class="mathjax">\( A \)</span> as an <span class="mathjax">\( m \times n \)</span> matrix and <span class="mathjax">\( x \)</span> as an <span class="mathjax">\( n \)</span>-dimensional column vector:</p>
+
+<p><span class="mathjax">\[
+A = \begin{bmatrix} 
+a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ 
+a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+\end{bmatrix}, \quad x = \begin{bmatrix} 
+x_1 \\ x_2 \\ \vdots \\ x_n 
+\end{bmatrix}
+\]</span></p>
+
+<p>The matrix-vector product <span class="mathjax">\( Ax \)</span> is defined as:</p>
+
+<p><span class="mathjax">\[
+Ax = \begin{bmatrix} 
+a_{1,1}x_1 + a_{1,2}x_2 + \cdots + a_{1,n}x_n \\ 
+a_{2,1}x_1 + a_{2,2}x_2 + \cdots + a_{2,n}x_n \\ 
+\vdots \\ 
+a_{m,1}x_1 + a_{m,2}x_2 + \cdots + a_{m,n}x_n 
+\end{bmatrix}
+\]</span></p>
+
+<h3>Example:</h3>
+
+<p>Let's multiply the matrix <span class="mathjax">\( A \)</span> with a vector <span class="mathjax">\( x \)</span>:</p>
+
+<p><span class="mathjax">\[
+A = \begin{bmatrix} 
+1 & 2 \\ 
+3 & 4 
+\end{bmatrix}, \quad x = \begin{bmatrix} 
+5 \\ 6 
+\end{bmatrix}
+\]</span></p>
+
+<p>The product <span class="mathjax">\( Ax \)</span> is:</p>
+
+<p><span class="mathjax">\[
+Ax = \begin{bmatrix} 
+1 \cdot 5 + 2 \cdot 6 \\ 
+3 \cdot 5 + 4 \cdot 6 
+\end{bmatrix} = \begin{bmatrix} 
+5 + 12 \\ 
+15 + 24 
+\end{bmatrix} = \begin{bmatrix} 
+17 \\ 
+39 
+\end{bmatrix}
+\]</span></p>
+
+<p>So, <span class="mathjax">\( Ax = \begin{bmatrix} 17 \\ 39 \end{bmatrix} \)</span>.</p>
+
+<h2>Matrix Multiplication</h2>
+
+<p>Matrix multiplication involves multiplying the rows of the first matrix by the columns of the second matrix and summing their products.</p>
+
+<p><strong>Example:</strong> Multiply matrices \( A \) and \( B \) where</p>
+<p>\( A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \) and \( B = \begin{pmatrix} e & f \\ g & h \end{pmatrix} \).</p>
+
+<p>The product \( AB \) is calculated as follows:</p>
+<p>\( AB = \begin{pmatrix} ae+bg & af+bh \\ ce+dg & cf+dh \end{pmatrix} \)</p>
+
+<p><strong>Worked Example:</strong></p>
+<p>Let \( A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \) and \( B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix} \).</p>
+<p>Then \( AB = \begin{pmatrix} 1\cdot5+2\cdot7 & 1\cdot6+2\cdot8 \\ 3\cdot5+4\cdot7 & 3\cdot6+4\cdot8 \end{pmatrix} = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix} \).</p>
+
+<h2>Identity Matrix</h2>
+<p>
+The identity matrix, often denoted as \( I \), is a square matrix in which all the elements of the principal diagonal are ones (1) and all other elements are zeros (0). It acts as the multiplicative identity in matrix multiplication, meaning any matrix multiplied by the identity matrix is unchanged.
+</p>
+
+<h3>Example of a 2x2 Identity Matrix</h3>
+<p>
+A 2x2 identity matrix is represented as:
+\[ I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \]
+</p>
+
+<h3>Worked Example</h3>
+<p>
+Consider a 2x2 matrix \( A \):
+\[ A = \begin{pmatrix} 3 & 4 \\ 2 & 5 \end{pmatrix} \]
+Multiplying \( A \) by the 2x2 identity matrix \( I \) yields:
+\[ A \cdot I = \begin{pmatrix} 3 & 4 \\ 2 & 5 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 3 & 4 \\ 2 & 5 \end{pmatrix} \]
+This demonstrates that multiplying any matrix by the identity matrix results in the original matrix itself.
+</p>
+
+<h2>Matrix Inversion Using 2x2 Matrices</h2>
+
+<p>The inverse of a 2x2 matrix \( A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \) is given by \( A^{-1} = \frac{1}{D} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} \), where \( D \) is the determinant of \( A \) and \( D \neq 0 \). The determinant \( D \) is calculated as \( D = ad - bc \).</p>
+
+<h3>Example:</h3>
+<p>Find the inverse of the matrix \( A = \begin{pmatrix} 4 & 7 \\ 2 & 6 \end{pmatrix} \).</p>
+
+<ol>
+    <li>First, calculate the determinant \( D \) of matrix \( A \):
+        \[ D = (4)(6) - (7)(2) = 24 - 14 = 10 \]
+    </li>
+    <li>Then, apply the formula for the inverse of a 2x2 matrix:
+        \[ A^{-1} = \frac{1}{10} \begin{pmatrix} 6 & -7 \\ -2 & 4 \end{pmatrix} = \begin{pmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{pmatrix} \]
+    </li>
+</ol>
+
+<h3> Note: Invertibilty and the Determinant </h3>
+<p>When a matrix \( A \) is not invertible, it means there is no matrix \( C \) such that \( CA = I \) (where \( I \) is the identity matrix). This is closely related to the determinant of \( A \). For a 2x2 matrix \( A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \), the determinant \( \text{det}(A) \) is given by \( ad - bc \). </p>
+
+<p>If \( \text{det}(A) = 0 \), the matrix \( A \) is not invertible. This is because the inverse of \( A \) is given by \( \frac{1}{\text{det}(A)} \) times waht is called the "adjugate" of \( A \). Specifically, the inverse of \( A \), when \( \text{det}(A) \neq 0 \), is \( \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} \). </p>
+
+<p><strong>Example:</strong> Consider \( A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix} \). The determinant of \( A \) is \( 1 \cdot 4 - 2 \cdot 2 = 0 \). Since \( \text{det}(A) = 0 \), there is no matrix \( C \) such that \( CA = I \). Thus, \( A \) is not invertible.</p>
+
+<h2> Theorem </h2>
+
+<p><strong>Theorem:</strong> If \( Ax = 0 \) for a matrix \( A \) and \( A \) is invertible, then the only solution for \( x \) is \( x = 0 \).</p>
+
+<p><strong>Explanation:</strong> An invertible matrix means there exists a matrix \( A^{-1} \) such that \( A^{-1}A = I \), where \( I \) is the identity matrix. If \( Ax = 0 \), multiplying both sides by \( A^{-1} \) yields \( A^{-1}Ax = A^{-1}0 \), which simplifies to \( Ix = 0 \). Since \( Ix = x \), we get \( x = 0 \).</p>
+
+<p><strong>Example:</strong> Consider the 2x2 matrix \( A = \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix} \) which is invertible. Let's say \( Ax = 0 \) where \( x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \).</p>
+
+<p>So, \( \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \).</p>
+
+<p>Solving this system, we get:</p>
+
+<ul>
+  <li>\( 2x_1 + 3x_2 = 0 \)</li>
+  <li>\( x_1 + 4x_2 = 0 \)</li>
+</ul>
+
+<p>Upon solving these equations, we find that \( x_1 = 0 \) and \( x_2 = 0 \). Therefore, \( x = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \) is the only solution.</p>
+
+
+<h2><strong>Eigenvalues and Eigenvectors:</strong></h2>
+<p> In linear algebra, an eigenvector of a square matrix is a non-zero vector that changes by only a scalar factor when that matrix is multiplied by it. The scalar factor is known as the eigenvalue corresponding to this eigenvector.</p>
+
+<p>Mathematically, for a square matrix <em>A</em>, an eigenvector <em>v</em> and an eigenvalue <em>λ</em>, the relationship is defined by:</p>
+
+<p>\[ A \mathbf{v} = \lambda \mathbf{v} \]</p>
+
+<p><strong>Example:</strong> Consider the 2x2 matrix A:</p>
+
+<p>\[ A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} \]</p>
+
+<p>To find the eigenvalues, we solve the characteristic equation:</p>
+
+<p>\[ \text{det}(A - \lambda I) = 0 \]</p>
+
+<p>Which gives:</p>
+
+<p>\[ \text{det}\left(\begin{pmatrix} 4-\lambda & 1 \\ 2 & 3-\lambda \end{pmatrix}\right) = 0 \]</p>
+
+<p>\[ (4-\lambda)(3-\lambda) - (2)(1) = 0 \]</p>
+
+<p>\[ \lambda^2 - 7\lambda + 10 = 0 \]</p>
+
+<p>Solving this quadratic equation, we get the eigenvalues \(\lambda_1 = 2\) and \(\lambda_2 = 5\).</p>
+
+<p>To find the eigenvectors, we substitute each eigenvalue back into the equation \(A \mathbf{v} = \lambda \mathbf{v}\) and solve for \(\mathbf{v}\). For \(\lambda_1 = 2\):</p>
+
+<p>\[ \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\mathbf{v} = 2\mathbf{v} \]</p>
+
+<p>\[ \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\mathbf{v} = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}\mathbf{v} \]</p>
+
+<p>\[ \begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0} \]</p>
+
+<p>From which we can find an eigenvector for \(\lambda_1 = 2\). A similar process is followed for \(\lambda_2 = 5\).</p>
+
+
+  <h2>Computing Eigenvectors</h2>
+  <p>To find an eigenvector \( \mathbf{v} \) of a matrix \( A \) for a given eigenvalue \( \lambda \), we solve the equation \( A\mathbf{v} = \lambda\mathbf{v} \). This is equivalent to solving \( (A - \lambda I)\mathbf{v} = 0 \), where \( I \) is the identity matrix of the same size as \( A \).</p>
+  
+  <p><b>Example:</b> Let's compute an eigenvector for \( A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} \) and \( \lambda_1 = 2 \).</p>
+  
+  <ol>
+    <li>First, subtract \( \lambda_1 I \) from \( A \):
+      \[ A - \lambda_1 I = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} - \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix} \]
+    </li>
+    <li>Next, solve \( (A - \lambda_1 I)\mathbf{v} = 0 \). This leads to a system of linear equations:
+      \[ \begin{align*}
+        2v_1 + v_2 &= 0 \\
+        2v_1 + v_2 &= 0
+      \end{align*} \]
+      Note that both equations are identical, so we only need to consider one.
+    </li>
+    <li>Choose \( v_1 = t \) (where \( t \) is a parameter), then \( v_2 = -2t \).</li>
+    <li>The eigenvector \( \mathbf{v} \) corresponding to \( \lambda_1 = 2 \) is any nonzero multiple of \( \begin{pmatrix} t \\ -2t \end{pmatrix} \), for example, \( \begin{pmatrix} 1 \\ -2 \end{pmatrix} \) if \( t=1 \).</li>
+  </ol>
+
+
+
+</section>
+
+						</div>
+					</div>
+        </div>
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            
+
+	</body>
+</html>
