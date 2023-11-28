@@ -270,7 +270,29 @@ This demonstrates that multiplying any matrix by the identity matrix results in 
     <li>Choose \( v_1 = t \) (where \( t \) is a parameter), then \( v_2 = -2t \).</li>
     <li>The eigenvector \( \mathbf{v} \) corresponding to \( \lambda_1 = 2 \) is any nonzero multiple of \( \begin{pmatrix} t \\ -2t \end{pmatrix} \), for example, \( \begin{pmatrix} 1 \\ -2 \end{pmatrix} \) if \( t=1 \).</li>
   </ol>
+<h3> When Eigenvalues are complex </h3>
+<p>Let's see how to compute eigenvectors for a given matrix, when the eigenvalues are complex. We use the matrix \( A = \begin{bmatrix} -3 & 2 \\ -10 & 5 \end{bmatrix} \). First, we find the eigenvalues of this matrix.</p>
 
+<p>To find the eigenvalues, we solve the characteristic equation \( \text{det}(A - \lambda I) = 0 \), where \( \lambda \) is the eigenvalue and \( I \) is the identity matrix.</p>
+
+<p>So, \( \text{det}\left(\begin{bmatrix} -3 & 2 \\ -10 & 5 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\right) = \text{det}\left(\begin{bmatrix} -3-\lambda & 2 \\ -10 & 5-\lambda \end{bmatrix}\right) = 0 \).</p>
+
+<p>Solving this, we find the eigenvalues are complex: \( \lambda = 1 \pm 2i \).</p>
+
+<p>Now, let's find an eigenvector for \( \lambda = 1 + 2i \). We solve \( (A - \lambda I)v = 0 \), where \( v \) is the eigenvector.</p>
+
+<p>Substituting \( \lambda = 1 + 2i \) into \( A - \lambda I \), we get \( \begin{bmatrix} -4-2i & 2 \\ -10 & 4-2i \end{bmatrix} \). Setting this equal to the zero vector and solving for \( v =\langle x , y \rangle \),</p>
+
+<ul>
+  <li>\( (-4-2i)x + 2y = 0 \)</li>
+  <li>\( -10x + (4-2i)y = 0 \)</li>
+</ul>
+
+<p> It turns out these are actually multiples of each other (multiply by (1-2i)), and so we have duplicate equations.  So then we can discard one of the equations.  THEN if we just let x=1, and solve for y, we find one possible eigenvector is:</p>
+
+<p>\( v = \begin{bmatrix} 1 \\ 2+i \end{bmatrix} \).</p>
+
+<p>This is the eigenvector corresponding to the eigenvalue \( 1 + 2i \) for the matrix \( A \).</p>
 
 
 </section>
