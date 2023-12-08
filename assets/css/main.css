@@ -2125,6 +2125,23 @@ button,
         position: absolute;
         right: -0.5em;
         top: 0; } }
+ /* Grid */
+ .schedule-grid {
+  display: grid;
+  grid-template-columns: auto repeat(5, 1fr); /* Time + 5 days */
+  grid-auto-rows: minmax(20px, auto); /* Adjust height based on content */
+  gap: 10px;
+}
+
+.time-slot {
+  grid-column: 1;
+  /* Additional styling */
+}
+
+.activity {
+  grid-row: span 10; /* Spans 10 time slots of 10 minutes each */
+  /* Additional styling */
+}
 
 /* Banner */
 #banner {
