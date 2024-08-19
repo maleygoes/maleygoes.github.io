@@ -1,6 +1,6 @@
 
 
-\documentclass[11pt]{article} % Can also use 11pt for a larger overall font size
+\documentclass[10pt]{article} % Can also use 11pt for a larger overall font size
 
 \usepackage{schedule} % Use the calendar.sty style
 
@@ -11,9 +11,9 @@
 \usepackage{xcolor}
 
 
-\CellHeight{.8in}
+\CellHeight{.5in}
 \CellWidth{1.5in}
-\TimeRange{9:00-16:00}
+\TimeRange{9:00-17:00}
 \SubUnits{30}
 \BeginOn{Monday}
 \TextSize{\small}
@@ -23,58 +23,56 @@
 \NewAppointment{class}{yellow}{black}
 \NewAppointment{oclass}{cyan}{black}
 \NewAppointment{office}{green}{blue}
+\NewAppointment{driving}{gray}{black}
 
 \begin{document}
-
-\title{Sean Maley Schedule Fall 2024}
-\author{}
-\date{}
-\maketitle
-\vspace{-5em}
-\begin{schedule}
-
-%	\office{\textbf{Office Hours}}{WebEx }{M}{12:00-12:50}
-%	\office{\textbf{Office Hours}}{WebEx }{W}{12:00-12:50}
-%%	\office{\textbf{Student Office Hours}}{Remote}{M}{11:00-12:40}
-%%%	\office{\textbf{Student/Office Hours}}{Remote}{M}{12:00-13:00}
-%%	\office{\textbf{Student/Office Hours}}{Main Campus \\ In-person}{Th}{11:00-12:30}
-%%	\office{\textbf{Student/Office Hours}}{Main Campus\\ In-person}{T}{11:00-12:30}
-%%	%\office{\textbf{Student/Office Hours}}{Email Replies}{M,F}{12:00-13:00}
-%%%	\office{\textbf{Office Hours}}{3239}{Th}{11:30-12:30}
-%	\office{\textbf{Office Hours}}{Office 3239 \\ Or WebEx}{T,Th}{11:00-12:50}
-%	\class{\textbf{MAT 273} \\ Multivariable Calculus}{Rm 3210}{T,Th}{14:00-15:40}
-%%	\class{\textbf{PSY 245}\\ Mindfulness in Psych}{Rm 1460}{W}{9:00-11:30}
-%	\meeting{\textbf{Faculty Meeting}}{2755/Remote}{T}{12:50-14:00}
-%	\meeting{\textbf{Assessment Meetings}}{Remote}{Th}{12:50-14:00}
-%	\meeting{\textbf{Department Meeting}}{3210}{F}{12:50-15:00}
-%%
-%%%	\class{\textbf{MAT  \\ Intro to Functions}}{Online*}{T,Th}{10:00-11:30}
-%%	\oclass{\textbf{MAT 152 \\ Precalculus}}{Online*}{M,W}{9:00-10:40}
-%%	\oclass{\textbf{MAT 274 \\ Differential \\ Equations}}{Online*}{T,Th}{9:00-10:40}
-%	\oclass{\textbf{MAT 271 \\ Single Variable \\ Calculus}}{Online}{M,W}{9:00-10:40}
-%	\oclass{\textbf{MAT 274 \\ Differential Equations}}{Online}{T,Th}{9:00-10:40}
-%%	\class{\textbf{MAT 273 \\ Multi Variable  \\ Calculus}}{3214}{T,Th}{14:00-15:40}
-%%	\meeting{\textbf{Mindfulness for \\ Beginners}}{Remote}{W}{12:00-13:00}
-%%	\meeting{\textbf{Department Meetings}}{3202}{F}{13:00-14:30}
+	
+	\title{Sean Maley Schedule Fall 2024}
+	\author{}
+	\date{}
+	\maketitle
+	\vspace{-5em}
+	\begin{schedule}
+		\driving{Driving - Unavailable}{}{T,Th}{11:00 - 12:00}
+		\office{\textbf{Office Hours }}{WebEx }{M}{14:00-14:50}
+		\office{\textbf{Office Hours}}{WebEx }{W}{14:00-15:50}
+		
+		%	\office{\textbf{Office Hours \\ (MAT 273 / PSY 245)}}{WebEx}{T}{12:00-12:50}
+		%    \office{\textbf{Office Hours \\ (MAT 273 Focus)}}{WebEx}{Th}{11:30-12:50}
+		\oclass{\textbf{MAT 274} \\ Differential Equations}{Rm 3210}{T,Th}{14:00-15:40}
+		\office{\textbf{Office Hours }}{WebEx / 3239}{T,Th}{15:40-16:30}
+		\office{\textbf{Office Hours }}{WebEx}{T}{12:00-12:50}
+		
+		\meeting{\textbf{Faculty Meeting}}{2755/Remote}{T}{12:50-14:00}
+		\meeting{\textbf{Weekly Conference}}{Zoom}{W}{11:00-12:00}
+		\meeting{\textbf{Assessment Meetings}}{Remote}{Th}{12:50-14:00}
+		\meeting{\textbf{Department Meeting}}{3210}{F}{12:50-15:00}
+		
+		\oclass{\textbf{PSY 245 \\ Mindfulness in \\ Psychology}}{Remote}{T,Th}{9:30-10:50}
+		\oclass{\textbf{MAT 273 \\ Calc III}}{Online}{M}{9:00-10:40}
+		\oclass{\textbf{MAT 271 \\ Calc 1}}{Online}{W}{9:00-10:40}
+		
+		
+	\end{schedule}
+	
+	\begin{center}
+		 Email: Sean.Maley@flcc.edu\\
+			
+			Remote Office Hours: \textcolor{blue}{\url{https://flcc.webex.com/join/sean.maley}}\\[1em]
+		All office hours are open to all of my students.  
+		
+		BUT I encourage you to come during these specific times if possible, to maximize collaboration time.\\[1em]
+		
+		\begin{tabular}{c c c c }
+%			\hline
+			\textbf{Mon} & MAT 273 & \textbf{Weds} & MAT 097 \& 271 \\
+%			\hline
+			\textbf{Tues} & MAT 274 & \textbf{Thurs} & PSY 245 \\
+%			\hline
+		\end{tabular}
+	
+	\end{center}
 	
 	
-\end{schedule}
-
-\begin{center}
-	{\small Email: Sean.Maley@flcc.edu\\
-		I reply to emails once a day for about 1-2 hours.  Please allow 24-48 hours at most for a reply.  \\
-%	Course questions: \textcolor{blue}{\url{https://maleymath.discourse.group}}\\
-	Remote Office Hours: \textcolor{blue}{\url{https://flcc.webex.com/join/sean.maley}}}
 	
-%Office: 3239 Main Campus\\
-%Phone: 585 653 8551 (txt or vmail)\\
-%Remote/WebEx address: \url{https://flcc.webex.com/meet/sean.maley}\\}
-%*For sections marked ``Online" this is when I will be replying to posts and grading work - not a guarantee to meet in real-time (though possible). \\
-%Please make an appointment or visit office hours.
-%\textbf{\textit{On Mon/Wed I am usually on Main Campus.  \\
-%		On Tues/Thurs I am usually on Victor Campus.}}
-\end{center}
-
-
-
 \end{document}

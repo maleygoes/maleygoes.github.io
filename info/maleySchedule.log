@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.15)  18 AUG 2024 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.15)  19 AUG 2024 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(c:/texlive/2024/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count188
 \c@section=\count189
@@ -504,7 +504,7 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 963.
 LaTeX Info: Redefining \not on input line 1603.
 )
 LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 2
-7.
+8.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
@@ -517,43 +517,43 @@ File: l3backend-pdftex.def 2024-03-14 L3 backend support: PDF output (pdfTeX)
 (./maleySchedule.aux)
 \openout1 = `maleySchedule.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 27.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 28.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 2
-7.
+8.
  (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 28.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 2
-7.
+8.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 28.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 2
-7.
+8.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 28.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
-27.
+28.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    ... okay on input line 28.
 
 (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -588,12 +588,12 @@ LaTeX Font Info:    ... okay on input line 27.
 * \topmargin=-89.35315pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=59.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -604,30 +604,30 @@ LaTeX Font Info:    ... okay on input line 27.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
-32.
+33.
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
-32.
+33.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
-32.
+33.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
-32.
+33.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
- 67.
+ 61.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
@@ -642,20 +642,22 @@ L3 programming layer <2024-03-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4795 strings out of 474104
- 64264 string characters out of 5747496
- 1932496 words of memory out of 5000000
- 27127 multiletter control sequences out of 15000+600000
- 586546 words of font info for 106 fonts, out of 8000000 for 9000
+ 4818 strings out of 474104
+ 64510 string characters out of 5747496
+ 1946496 words of memory out of 5000000
+ 27145 multiletter control sequences out of 15000+600000
+ 589804 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,6n,79p,280b,382s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/texliv
-e/2024/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb><c:/texlive/2024/texmf-
-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on maleySchedule.pdf (1 page, 24413 bytes).
+ 71i,7n,79p,280b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><c:/texliv
+e/2024/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb><c:/texlive/2024/texmf-
+dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/texlive/2024/texmf-dist/fonts/t
+ype1/public/kpfonts/jkpmne.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/k
+pfonts/jkpttmn8a.pfb>
+Output written on maleySchedule.pdf (1 page, 40141 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
- 15 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
