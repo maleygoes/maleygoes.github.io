@@ -626,17 +626,9 @@ LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
-\OT1/jkp/m/n/10 Multivariable Cal-cu-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
-\OT1/jkp/m/n/10 Multivariable Cal-cu-
- []
-
 LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
  72.
+
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
 ) [1
@@ -662,7 +654,7 @@ e/2024/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb><c:/texlive/2024/texmf-
 dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/texlive/2024/texmf-dist/fonts/t
 ype1/public/kpfonts/jkpmne.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/k
 pfonts/jkpttmn8a.pfb>
-Output written on maleySchedule.pdf (1 page, 39666 bytes).
+Output written on maleySchedule.pdf (1 page, 39655 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream
