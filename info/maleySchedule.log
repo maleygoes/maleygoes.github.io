@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.15)  19 AUG 2024 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.15)  5 JAN 2025 07:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -627,7 +627,7 @@ LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
- 61.
+ 72.
 
 (c:/texlive/2024/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
@@ -642,19 +642,19 @@ L3 programming layer <2024-03-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4818 strings out of 474104
- 64510 string characters out of 5747496
- 1946496 words of memory out of 5000000
- 27145 multiletter control sequences out of 15000+600000
- 589804 words of font info for 111 fonts, out of 8000000 for 9000
+ 4819 strings out of 474104
+ 64524 string characters out of 5747496
+ 1944496 words of memory out of 5000000
+ 27146 multiletter control sequences out of 15000+600000
+ 590822 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,7n,79p,280b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,7n,79p,280b,342s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><c:/texliv
 e/2024/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb><c:/texlive/2024/texmf-
 dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/texlive/2024/texmf-dist/fonts/t
 ype1/public/kpfonts/jkpmne.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/k
 pfonts/jkpttmn8a.pfb>
-Output written on maleySchedule.pdf (1 page, 40141 bytes).
+Output written on maleySchedule.pdf (1 page, 39526 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream
