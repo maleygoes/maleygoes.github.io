@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="precalc-multivar" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Multivariable Precalculus</title>
+
+  <introduction>
+    <p> Learning everything we will need about math in multiple dimensions, before we apply calculus. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <!-- <xi:include href="sec-section-name.ptx" /> -->
+  <xi:include href="3d-geometry.ptx" />
+
+</chapter>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="3d-geometry" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Geometry in <m> \mathbb{R}^3 </m> </title>
+
+  <introduction>
+  <p>
+    Welcome to the world of 3D geometry! In this section, we will explore how
+    to measure distances in three-dimensional space and describe spheres.
+    While we’ll cover the essential formulas and definitions, our focus will
+    be on understanding why these ideas matter and seeing how they come up
+    in real-life situations. Let’s start by looking at a familiar scenario—
+    something you might encounter every day—and then connect it to the
+    underlying math.
+  </p>
+  </introduction>
+  <subsection>
+    <title>Motivation: Navigating in 3D</title>
+  <p>
+    Imagine you’re operating a drone that can move in any direction above
+    the ground. You want to figure out how far the drone is from its takeoff
+    spot, so you can plan the best path to fly back safely. Or picture a
+    submarine exploring the ocean depths: it might need to maintain a
+    certain distance from the seafloor. These situations both revolve
+    around figuring out the distance between two points in
+    three-dimensional space.
+  </p>
+  </subsection>
+
+  <subsection>
+    <title>The Distance Formula in 3D</title>>
+
+  <subsection>
+
+    <title> Coordinates of Points in 3D</title>
+  <p>
+    When we work in three dimensions, we label each point with three
+    coordinates <m>(x, y, z)</m>. Think of <m>x</m> as the left–right
+    direction, <m>y</m> as the forward–back direction, and <m>z</m> as
+    the up–down direction.
+  </p>
+  <ul>
+    <li>A point <m>P</m> is located at <m>(x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>)</m>.</li>
+    <li>Another point <m>Q</m> is located at <m>(x<sub>2</sub>, y<sub>2</sub>, z<sub>2</sub>)</m>.</li>
+  </ul>
+  </subsection>
+
+  
+
+  <subsection>
+    <title>The Distance Formula</title>
+  <p>
+    If you need the distance <m>d</m> between <m>P</m> and <m>Q</m>, you
+    can use a direct extension of the Pythagorean theorem from two
+    dimensions to three dimensions. The formula is:
+  </p>
+  <me>
+    d = √((x₂ - x₁)² + (y₂ - y₁)² + (z₂ - z₁)²).
+  </me>
+  <p>
+    This expression captures the combined difference in each of the three
+    directions.
+  </p>
+  </subsection>
+  <p><strong>Example (Drone Navigation):</strong></p>
+  <p>
+    If your drone starts at <m>(2, -1, 5)</m> and ends up at
+    <m>(5, 3, 7)</m>, the distance traveled is
+  </p>
+  <me>
+    \sqrt{(5 - 2)² + (3 - (-1))² + (7 - 5)²}
+    =\sqrt{3² + 4² + 2²}
+    = \sqrt{9 + 16 + 4}
+    = \sqrt{29}.
+  </me>
+  <p>
+    So the drone is <m>\sqrt{29}</m> units away from its starting point.
+  </p>
+ </subsection>
+  <subsection>
+    <title>Equations of Spheres</title>
+  <p>
+    A <strong>sphere</strong> in three-dimensional space is the set of
+    points that are all at the same distance, called the
+    <strong>radius</strong>, from a fixed point called the
+    <strong>center</strong>. Spheres are often used in physics (like
+    modeling planets or atoms), in computer graphics (3D animations), and
+    even in global positioning systems (GPS relies on distances from
+    satellite “spheres”).
+  </p>
+  </subsection>
+ 
+  
+  <subsection>
+  <title>3.1 Standard Form of a Sphere</title>
+  <p>
+    If a sphere has a center at <m>(h, k, l)</m> and a radius <m>r</m>,
+    any point <m>(x, y, z)</m> on the sphere satisfies:
+  </p>
+  <me>
+    (x - h)² + (y - k)² + (z - l)² = r².
+  </me>
+  <p>
+    This is basically the 3D distance formula set equal to a constant
+    radius <m>r</m>.
+  </p>
+
+  <p><strong>Example (GPS Satellites):</strong></p>
+  <p>
+    GPS satellites broadcast their positions and send signals that travel
+    at the speed of light. The distance between a satellite and your
+    receiver on Earth is like the radius of a sphere. Your receiver
+    calculates its position by finding the intersection of several of
+    these “distance spheres” from different satellites. Wherever they
+    intersect is where you are located on the planet’s surface.
+  </p>
+  </subsection>
+  <subsection><title>3.2 Visualizing a Sphere</title>
+  <ul>
+    <li><strong>Center:</strong> <m>(h, k, l)</m></li>
+    <li><strong>Radius:</strong> <m>r</m></li>
+  </ul>
+  <p>
+    If you wanted to picture it in your mind, think of wrapping a
+    basketball around a point in space. The surface of the sphere is the
+    collection of all points that are exactly <m>r</m> units from the
+    center.
+  </p>
+
+  <h2>4. Working Through a Practice Problem</h2>
+  <p>
+    Let’s put these ideas into practice with a quick exercise.
+  </p>
+
+  </subsection>
+
+  <p><strong>Practice Problem:</strong></p>
+  <p>
+    A certain GPS satellite orbits at a center point <m>(20000, 0, 0)</m>
+    in kilometers (this is not an actual orbit location—just an example).
+    The sphere representing all the points it can reach on Earth at a
+    given instant has a radius of 2000 km. Write an equation for this
+    sphere.
+  </p>
+
+  <p><strong>Solution:</strong></p>
+  <ol>
+    <li>The center of the sphere: <m>(h, k, l) = (20000, 0, 0)</m>.</li>
+    <li>The radius of the sphere: <m>r = 2000</m>.</li>
+    <li>
+      Plug into the formula:
+      <me>
+        (x - 20000)² + (y - 0)² + (z - 0)² = 2000².
+      </me>
+      Or more simply:
+      <me>
+        (x - 20000)² + y² + z² = 4,000,000.
+      </me>
+    </li>
+  </ol>
+  <p>
+    That’s it! You’ve written the equation of the sphere.
+  </p>
+
+  <h2>5. Key Takeaways</h2>
+  <ul>
+    <li>
+      <strong>Distance in 3D</strong> – To find the distance between
+      points <m>(x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>)</m> and
+      <m>(x<sub>2</sub>, y<sub>2</sub>, z<sub>2</sub>)</m>, remember
+      <me>
+        d = √((x₂ - x₁)² + (y₂ - y₁)² + (z₂ - z₁)²).
+      </me>
+    </li>
+    <li>
+      <strong>Equation of a Sphere</strong> – A sphere with center
+      <m>(h, k, l)</m> and radius <m>r</m> is given by
+      <me>
+        (x - h)² + (y - k)² + (z - l)² = r².
+      </me>
+    </li>
+    <li>
+      <strong>Real-World Applications</strong> – From drone flights to GPS
+      technology, understanding how to calculate distances and describe
+      spheres in 3D helps us solve practical, real-life problems.
+    </li>
+  </ul>
+
+  <p>
+    <strong>Looking Ahead:</strong> You’ll use distance formulas and the
+    concept of spheres to tackle more advanced topics like level surfaces,
+    gradients, and optimization in 3D. By appreciating the real-world
+    motivations—like finding paths for vehicles, mapping planetary orbits,
+    and designing engineering solutions—these mathematical tools become
+    more intuitive and more powerful.
+  </p>
+  <p>
+    Keep practicing, and remember to look for ways these ideas show up in
+    everyday life. You’ll soon see that the world around us is brimming
+    with three-dimensional geometry in action!
+  </p>
+
+
+
+
+</section>

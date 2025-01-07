@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter. Fill in and comment/uncomment to see how this -->
+<!-- works. -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <titlepage>
+    <author>
+      <personname>Sean Maley, Associate Professor</personname>
+      <department>Mathematics</department>
+      <institution>SUNY Finger Lakes</institution>
+    </author>
+    <date>
+      2025
+    </date>
+  </titlepage>
+
+  <colophon>
+
+    <!-- <website>
+      <url href="https://pretextbook.org">My Website</url>
+    </website>
+ -->
+    <copyright>
+      <year>2024<ndash />2025</year>
+      <holder>Sean Maley</holder>
+      <shortlicense> All rights reserved.
+      </shortlicense>
+    </copyright>
+  </colophon>
+</frontmatter>
+
