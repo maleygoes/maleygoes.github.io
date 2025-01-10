@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="vectors" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vectors Introduction</title>
+
+  <introduction>
+    <p>
+      Vectors come into play whenever we care more than just about the magnitude of a quantity.  "Direction" can mean a lot more than the pointing of an arrow, by the way.  But in general, having both direction/orientation and a magnitude gives us much more flexibility in applying mathematics in the real world.  Very few things are represented accurately as just "scalars" or just plain numbers without any other properties.
+    </p>
+  </introduction>
+
+<subsection>
+  <title>Position Vectors and Representation Vectors</title>
+  <p>
+    One thing to wrap our head around is 
+  </p>
+
+</subsection>
+
+
+<exercises>
+  
+  <exercise>
+    <myopenmath problem = "182569">
+    </myopenmath>
+  </exercise>
+
+
+
+</exercises>
+
+
+</section>

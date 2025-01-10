@@ -10,5 +10,6 @@
   <!-- include sections -->
   <!-- <xi:include href="sec-section-name.ptx" /> -->
   <xi:include href="3d-geometry.ptx" />
+  <xi:include href="vectors.ptx" />
 
 </chapter>
