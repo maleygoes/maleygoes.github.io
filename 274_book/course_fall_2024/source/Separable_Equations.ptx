@@ -4,5 +4,5 @@
   <title>Section Title</title>
 
   <p> Text of section. </p>
-  <m>f(x) + 1 \frac{2x}{1-x \ln(x) + \sin(\theta)}</m>
+  <me>f(x) + 1 \frac{2x}{1-x \ln(x) + \sin(\theta)}</me>
 </section>
