@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="WhyODEs" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Basic Concepts: Differential Equations, Solutions, and Initial Value Problems</title>
+
+  <subsection xml:id="why-odes-overview">
+    <title>1) Overview</title>
+
+    <p>
+      A <term>difference between modeling and curve fitting</term>: in modeling we assert a <em>law of change</em>. In calculus language this is an equation relating an unknown function to its derivatives. Formally, a <term>differential equation</term> (DE) is any relation involving an unknown function and one or more of its derivatives.
+    </p>
+
+    <definition>
+      <statement>
+        <p>
+          The <term>order</term> of a DE is the highest derivative present. If the unknown depends on a single independent variable, the equation is an <term>ordinary differential equation</term> (ODE). If it involves partial derivatives of a function of several variables, it is a <term>partial differential equation</term> (PDE).
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Examples (order indicated in parentheses):
+    </p>
+    <p>
+      <me> y' = \cos x \quad (1), \qquad y'' + y = 0 \quad (2), \qquad y^{(3)} - xy' + y = e^{x} \quad (3). </me>
+    </p>
+
+    <definition xml:id="def-solution">
+      <title>Solution and solution curve</title>
+      <statement>
+        <p>
+          Let <m>n\ge 1</m>. In an <m>n</m>-th order DE written schematically as
+          <me> y^{(n)} = f\!\big(x,\,y,\,y',\,\dots,\,y^{(n-1)}\big), </me>
+          a <term>solution</term> on an open interval <m>(a,b)</m> is a function <m>y</m> that is <m>n</m> times differentiable on <m>(a,b)</m> and satisfies the identity for all <m>x\in(a,b)</m>. Its graph is a <term>solution curve</term>. A curve on which every local graph segment solves the DE is an <term>integral curve</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <definition xml:id="def-ivp">
+      <title>Initial value problem and interval of validity</title>
+      <statement>
+        <p>
+          An <term>initial value problem</term> (IVP) specifies values of <m>y, y',\dots, y^{(n-1)}</m> at some <m>x_0</m>:
+          <me>
+            y^{(n)} = f(x,y,\dots,y^{(n-1)}), \qquad
+            y(x_0)=k_0,\; y'(x_0)=k_1,\;\dots,\; y^{(n-1)}(x_0)=k_{n-1}.
+          </me>
+          The largest open interval containing <m>x_0</m> on which the solution exists and satisfies the DE is its <term>interval of validity</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <aside>
+      <title>Historical context</title>
+      <p>
+        Newton formulated celestial dynamics with ODEs in the 1680s; Leibniz’s notation (<m>dy/dx</m>) made symbolic manipulation tractable. The Bernoullis popularized families such as homogeneous and logistic-type equations. Euler systematized linear equations with constant coefficients and the method of integrating factors. Lagrange and Laplace pushed ODE techniques into mechanics and potential theory. The “IVP” language comes from kinematics where position and velocity at <m>t=0</m> determine future motion under a law of acceleration.
+      </p>
+    </aside>
+
+  </subsection>
+
+  <subsection xml:id="practice-a">
+    <title>2) Practice A: Foundational Examples</title>
+
+    <example xml:id="ex-integral-curve-hyperbola">
+      <title>Integral curves from level sets</title>
+      <statement>
+        <p>
+          Show that each branch of the rectangular hyperbola <m>xy = a</m> (<m>a\ne 0</m>) is an integral curve of
+          <me> y' = -\frac{y}{x}. </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The level set <m>xy=a</m> can be written locally as a graph <m>y(x)=a/x</m> on <m>(0,\infty)</m> or <m>(-\infty,0)</m>. Then
+          <me> y'(x) = -\frac{a}{x^2} = -\frac{y(x)}{x}, </me>
+          so the DE is satisfied on either interval. The whole hyperbola is not a single solution curve because it is not single-valued over an interval containing <m>0</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-verify-linear">
+      <title>Verification on domains split by a singular point</title>
+      <statement>
+        <p>
+          Verify that
+          <me> y(x) = x + \frac{1}{x} </me>
+          solves
+          <me> x\,y'(x) + y(x) = 2x </me>
+          on <m>(0,\infty)</m> and on <m>(-\infty,0)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Compute <m>y' = 1 - x^{-2}</m>, hence
+          <me>
+            x\,y' + y = x\!\left(1 - \frac{1}{x^2}\right) + \left(x + \frac{1}{x}\right)
+            = x - \frac{1}{x} + x + \frac{1}{x} = 2x,
+          </me>
+          valid for <m>x\ne 0</m>. The function is undefined at <m>0</m>, so no solution exists on any interval containing <m>0</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-ivp-poly">
+      <title>Basic IVP and interval of validity</title>
+      <statement>
+        <p>
+          Solve the IVP
+          <me> y'(x) = 3x^2, \qquad y(2)=5. </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Integrate to get <m>y = x^3 + C</m>. Enforce <m>5 = y(2) = 8 + C</m>, so <m>C=-3</m>. Thus
+          <me> y(x) = x^3 - 3, </me>
+          valid for all <m>x\in\mathbb{R}</m>. Interval of validity: <m>(-\infty,\infty)</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-ivp-log">
+      <title>IVP with logarithm and domain split</title>
+      <statement>
+        <p>
+          Solve the IVPs
+          <me> x\,y'(x)=1,\; y(1)=0 \qquad \text{and} \qquad x\,y'(x)=1,\; y(-1)=0. </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For <m>x\ne 0</m>, <m>y' = 1/x</m>, so <m>y=\ln|x|+C</m>.
+        </p>
+        <p>
+          If <m>y(1)=0</m>, then <m>0=\ln 1 + C</m> gives <m>C=0</m>. The solution <m>y=\ln x</m> is valid only on <m>(0,\infty)</m>.
+        </p>
+        <p>
+          If <m>y(-1)=0</m>, then <m>0=\ln|{-1}| + C = 0 + C</m>, so <m>C=0</m> and <m>y=\ln(-x)</m> on <m>(-\infty,0)</m>. Each IVP determines a solution on the maximal interval that excludes the singular point <m>0</m>.
+        </p>
+      </solution>
+    </example>
+
+  </subsection>
+
+  <subsection xml:id="practice-b">
+    <title>3) Practice B: Intermediate Examples</title>
+
+    <example xml:id="ex-second-order-verify">
+      <title>Verifying a parametric family for a nonhomogeneous second-order DE</title>
+      <statement>
+        <p>
+          Show that for arbitrary constants <m>c_1, c_2</m>,
+          <me> y(x) = c_1 e^{x} + c_2 e^{-x} + \tfrac{1}{2} x e^{x} </me>
+          solves
+          <me> y'' - y = e^{x} \quad \text{on } (-\infty,\infty). </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For the homogeneous part <m>y_h=c_1 e^{x}+c_2 e^{-x}</m>, we have <m>y_h''-y_h=0</m>. For <m>y_p=\tfrac{1}{2}x e^{x}</m>,
+          <me> y_p' = \tfrac{1}{2}e^{x} + \tfrac{1}{2}x e^{x}, \qquad
+              y_p'' = e^{x} + \tfrac{1}{2}x e^{x}, </me>
+          hence <m>y_p''-y_p = e^{x}</m>. Linearity gives <m>(y_h+y_p)''-(y_h+y_p)=e^{x}</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-nth-derivative-exp">
+      <title>All solutions of <m>y^{(n)}=e^{a x}</m></title>
+      <statement>
+        <p>
+          Let <m>n\in\mathbb{N}</m> and <m>a\in\mathbb{R}\setminus\{0\}</m>. Find all solutions of
+          <me> y^{(n)}(x) = e^{a x}. </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Integrating repeatedly yields
+          <me> y^{(n-1)} = \frac{1}{a}e^{a x} + k_1,\;
+              y^{(n-2)} = \frac{1}{a^2}e^{a x} + k_1 x + k_2,\;\dots </me>
+          After <m>n</m> integrations,
+          <me> y(x) = \frac{1}{a^{n}}\,e^{a x} \;+\; c_0 + c_1 x + \cdots + c_{n-1} x^{n-1}, </me>
+          with arbitrary constants <m>c_0,\dots,c_{n-1}</m>. Differentiating <m>n</m> times returns <m>e^{a x}</m>, so this is the complete family.
+        </p>
+        <remark>
+          <p>
+            Edge case <m>a=0</m>: the equation is <m>y^{(n)}=1</m> and
+            <me> y(x)=\frac{x^{n}}{n!}+ c_0 + c_1 x + \cdots + c_{n-1} x^{n-1}. </me>
+          </p>
+        </remark>
+      </solution>
+    </example>
+
+    <example xml:id="ex-ivp-second-order">
+      <title>Second-order IVP with constant coefficients</title>
+      <statement>
+        <p>
+          Solve the IVP
+          <me>
+            y'' - 2y' + 2y = e^{x}, \qquad y(0)=1,\qquad y'(0)=0.
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The homogeneous characteristic equation <m>r^2-2r+2=0</m> has roots <m>1\pm i</m>, so
+          <me> y_h = e^{x}\big(C_1\cos x + C_2 \sin x\big). </me>
+          Try a particular solution <m>y_p = A e^{x}</m>. Then
+          <me> y_p' = A e^{x},\quad y_p'' = A e^{x},\quad y_p'' - 2y_p' + 2y_p = A e^{x}. </me>
+          Choose <m>A=1</m> to match the forcing, so <m>y_p=e^{x}</m>. Thus
+          <me> y = e^{x}\big(C_1\cos x + C_2 \sin x\big) + e^{x}. </me>
+          Apply the data: <m>y(0)=C_1+1=1</m> gives <m>C_1=0</m>. Next,
+          <me>
+            y' = e^{x}\big(C_1\cos x + C_2 \sin x\big)
+                + e^{x}\big(-C_1\sin x + C_2 \cos x\big)
+                + e^{x}.
+          </me>
+          With <m>C_1=0</m>, this simplifies to <m>y' = e^{x}\big(C_2 \sin x + C_2 \cos x + 1\big)</m>. Hence
+          <m>0=y'(0)=C_2 + 1</m> so <m>C_2=-1</m>. The solution is
+          <me> y(x) = e^{x}\big(1 - \sin x\big). </me>
+          Valid for all <m>x\in\mathbb{R}</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-free-fall">
+      <title>Free fall with launch from height</title>
+      <statement>
+        <p>
+          Under constant gravity <m>g</m> and no drag, let <m>y(t)</m> be altitude, positive upward. Model and solve the IVP
+          <me> y''(t) = -g,\quad y(0)=y_0,\quad y'(0)=v_0, </me>
+          then, for <m>g=9.8\,\mathrm{m/s^2}</m>, <m>y_0=50\,\mathrm{m}</m>, <m>v_0=20\,\mathrm{m/s}</m>, find the impact time when <m>y(t)=0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Integrate: <m>y'(t) = -gt + v_0</m>, then
+          <me> y(t) = -\tfrac{1}{2} g t^{2} + v_0 t + y_0. </me>
+          Impact solves <m>-\tfrac{1}{2} g t^{2} + v_0 t + y_0 = 0</m>. With the given numbers:
+          <me> -4.9 t^2 + 20 t + 50 = 0 \;\iff\; 4.9 t^2 - 20 t - 50 = 0. </me>
+          Quadratic formula:
+          <me>
+            t = \frac{20 \pm \sqrt{20^2 + 4\cdot 4.9 \cdot 50}}{2\cdot 4.9}
+              = \frac{20 \pm \sqrt{1380}}{9.8}.
+          </me>
+          The positive root gives <m>t \approx \dfrac{20 + 37.1483}{9.8} \approx 5.835\,\mathrm{s}</m>.
+        </p>
+        <remark>
+          <p>
+            Peak altitude occurs at <m>t^{*}=v_0/g\approx 2.041\,\mathrm{s}</m> with <m>y(t^{*})=y_0+v_0^2/(2g)\approx 70.41\,\mathrm{m}</m>. The polynomial model is valid until impact; after that a different contact model applies.
+          </p>
+        </remark>
+      </solution>
+    </example>
+
+  </subsection>
+
+</section>

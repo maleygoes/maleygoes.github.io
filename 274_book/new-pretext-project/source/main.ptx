@@ -12,7 +12,7 @@
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
-    <xi:include href="./module1.ptx" />
+    <xi:include href="./linearodes.ptx" />
 
 
     <!-- Include backmatter -->
