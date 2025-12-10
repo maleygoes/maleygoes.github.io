@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sean Maley's Courses at SUNY Finger Lakes CC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../274/index.html" class="logo"><strong>Maley @ FLCC</strong></a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maleygoes" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+								<header>
+            <h1>Making Handwritten Notes Accessible HTML</h1>
+            <p>This prompt was developed by Sean Maley, intended for math faculty who rely on handwritten demonstrations and notes. You can make a copy and edit the prompt to whatever your use case might be.</p>
+        </header>
+
+        <ol>
+        	<li> Use the + button to add the file you wish to convert.<br>
+        		Also select "Pro/Thinking" and "Canvas" under Tools.</li>
+
+        	<li> Copy and use this "Master Prompt" in the chat:</li>
+
+        	<style>
+.copy-btn {
+  cursor: pointer;
+  padding: 4px 8px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.code-box {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 12px;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: monospace;
+}
+</style>
+
+<button class="copy-btn" onclick="copyEscaped()">Copy Prompt</button>
+
+<div class="code-box" id="escaped-block">
+&lt;pre&gt;&lt;code&gt; "Here is a PDF file of handwritten math notes. Please convert it into
+					a single, accessible, and downloadable HTML file for my visually
+					impaired students.
+
+
+					When you convert it, you must follow these specific
+					rules:
+
+
+					1. Semantic HTML: Transcribe all text into
+					structured HTML. Use &amp;lt;h1&amp;gt; for the main title, &amp;lt;h2&amp;gt; and
+					&amp;lt;h3&amp;gt; for sections/sub-sections, &amp;lt;p&amp;gt; for paragraphs, and
+					&amp;lt;ul&amp;gt;/&amp;lt;ol&amp;gt; for lists.
+
+
+					2. LaTeX for Math: Transcribe all handwritten
+					mathematical notation directly into LaTeX syntax.
+
+
+					Use \( ... \) for inline math (math that appears
+					within a line of text).
+
+
+					Use \[ ... \] for display math (math that is
+					centered on its own line).
+
+
+					3. MathJax Configuration: In the &amp;lt;head&amp;gt; of the
+					HTML file, you must include the MathJax library, configured to
+					find and render the TeX (LaTeX) syntax. The script block
+					must be this exact one:
+
+
+					HTML
+
+
+					&amp;lt;!-- MathJax Configuration --&amp;gt;
+
+
+					&amp;lt;script&amp;gt;
+
+
+					MathJax = {
+
+
+					tex: {
+
+
+					inlineMath: [['\\(', '\\)']],
+
+
+					displayMath: [['\\[', '\\]']]
+
+
+					}
+
+
+					};
+
+
+					&amp;lt;/script&amp;gt;
+
+
+					&amp;lt;script id="MathJax-script" async
+					src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"&amp;gt;&amp;lt;/script&amp;gt;
+
+
+					4. Styling (Mandatory): In the &amp;lt;head&amp;gt; of the
+					HTML file, you must include a &amp;lt;style&amp;gt; tag containing
+					this exact CSS:
+
+
+					&amp;lt;style&amp;gt;
+
+
+					@import
+					url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap');
+
+
+					:root {
+
+
+					--color-bg: #fdfdfd;
+
+
+					--color-text: #1f2937;
+
+
+					--color-primary: #10b981; /* Tailwind Emerald 500 */
+
+
+					--color-accent: #3b82f6; /* Tailwind Blue 500 */
+
+
+					}
+
+
+					body {
+
+
+					font-family: 'Inter', sans-serif;
+
+
+					background-color: var(--color-bg);
+
+
+					color: var(--color-text);
+
+
+					line-height: 1.6;
+
+
+					margin: 0;
+
+
+					padding: 0;
+
+
+					display: flex;
+
+
+					justify-content: center;
+
+
+					}
+
+
+					.container {
+
+
+					width: 100%;
+
+
+					max-width: 900px;
+
+
+					padding: 2rem;
+
+
+					}
+
+
+					h1 {
+
+
+					font-size: 2.5rem;
+
+
+					color: var(--color-primary);
+
+
+					border-bottom: 4px solid var(--color-primary);
+
+
+					padding-bottom: 0.5rem;
+
+
+					margin-top: 0;
+
+
+					margin-bottom: 1.5rem;
+
+
+					font-weight: 700;
+
+
+					}
+
+
+					h2 {
+
+
+					font-size: 1.75rem;
+
+
+					color: var(--color-accent);
+
+
+					margin-top: 2rem;
+
+
+					margin-bottom: 1rem;
+
+
+					font-weight: 600;
+
+
+					}
+
+
+					h3 {
+
+
+					font-size: 1.3rem;
+
+
+					color: var(--color-text);
+
+
+					margin-top: 1.5rem;
+
+
+					margin-bottom: 0.75rem;
+
+
+					font-weight: 600;
+
+
+					}
+
+
+					p, ul, ol, pre {
+
+
+					margin-bottom: 1rem;
+
+
+					}
+
+
+					ul, ol {
+
+
+					padding-left: 1.5rem;
+
+
+					}
+
+
+					li {
+
+
+					margin-bottom: 0.5rem;
+
+
+					}
+
+
+					.math-block {
+
+
+					padding: 1rem;
+
+
+					background-color: #f3f4f6;
+
+
+					border-left: 5px solid var(--color-accent);
+
+
+					margin: 1.5rem 0;
+
+
+					overflow-x: auto;
+
+
+					}
+
+
+					.note {
+
+
+					font-style: italic;
+
+
+					color: #4b5563;
+
+
+					margin-top: 0.5rem;
+
+
+					display: block;
+
+
+					}
+
+
+					&amp;lt;/style&amp;gt;
+
+
+					5. Structure: Wrap all the main content (after
+					&amp;lt;body&amp;gt;) in a div with the class container to apply the boxed
+					styling.
+
+
+					The final result should be a single, self-contained HTML file. This
+					process will ensure the math is both easy to author and fully
+					accessible."&lt;/code&gt;&lt;/pre&gt;
+</div>
+
+<script>
+function copyEscaped() {
+  const text = document.getElementById("escaped-block").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied!");
+}
+</script>
+
+
+
+        </ol>
+
+
+
+
+        </section>
+
+        <footer class="footer">
+            For more information, please email Sean dot Maley [ at ] flcc dot edu.
+        </footer>
+    </div>
+</section}
+
+				
+
+		<!-- Scripts -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async
+		          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="../274/assets/js/jquery.min.js"></script>
+			<script src="../274/assets/js/browser.min.js"></script>
+			<script src="../274/assets/js/breakpoints.min.js"></script>
+			<script src="../274/assets/js/util.js"></script>
+			<script src="../274/assets/js/main.js"></script>
+            
+
+	</body>
+</html>
