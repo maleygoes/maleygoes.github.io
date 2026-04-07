@@ -1522,7 +1522,7 @@
 							font: regularFont,
 							color: colors.muted
 						});
-						page.drawText("These signature and date fields are fillable in the downloaded PDF.", {
+						page.drawText("These signature, date, and office-use fields are fillable in the downloaded PDF.", {
 							x: margin,
 							y: pageHeight - margin - 48,
 							size: 10,
@@ -1533,11 +1533,13 @@
 						const signatureBlocks = [
 							{ key: "applicant", label: "Applicant Signature" },
 							{ key: "department-chair", label: "Department Chair Signature" },
-							{ key: "cabinet-member", label: "Cabinet Member Signature" }
+							{ key: "cabinet-member", label: "Cabinet Member Signature" },
+							{ key: "accounts-payable", label: "Accounts Payable Signature" }
 						];
 						const signatureWidth = pageWidth - margin * 2 - 126;
 						const dateWidth = 96;
 						const fieldHeight = 26;
+						const signatureBlockGap = 96;
 						let y = pageHeight - margin - 132;
 
 						signatureBlocks.forEach((item) => {
@@ -1582,7 +1584,90 @@
 								font: regularFont
 							});
 
-							y -= 138;
+							y -= signatureBlockGap;
+						});
+
+						page.drawText("Office Use Only", {
+							x: margin,
+							y: y + 54,
+							size: 13,
+							font: boldFont,
+							color: colors.accent
+						});
+						page.drawText("Final Approval Status", {
+							x: margin,
+							y: y + 30,
+							size: 11,
+							font: regularFont,
+							color: colors.ink
+						});
+
+						const finalApprovalField = form.createCheckBox("office.final-approval-approved");
+						finalApprovalField.addToPage(page, {
+							x: margin,
+							y: y + 4,
+							width: 16,
+							height: 16,
+							borderColor: colors.line,
+							borderWidth: 1,
+							backgroundColor: rgb(1, 1, 1)
+						});
+						page.drawText("Approved", {
+							x: margin + 24,
+							y: y + 8,
+							size: 11,
+							font: regularFont,
+							color: colors.ink
+						});
+
+						const budgetFieldWidth = (contentWidth - 18) / 2;
+						const amountFieldX = margin + budgetFieldWidth + 18;
+						const budgetRows = [
+							{ key: "1", rowY: y - 52 },
+							{ key: "2", rowY: y - 116 }
+						];
+
+						budgetRows.forEach((item) => {
+							page.drawText("Budget Code " + item.key, {
+								x: margin,
+								y: item.rowY + 34,
+								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+							page.drawText("Amount to Be Charged " + item.key, {
+								x: amountFieldX,
+								y: item.rowY + 34,
+								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+
+							const budgetCodeField = form.createTextField("office.budget-code-" + item.key);
+							budgetCodeField.addToPage(page, {
+								x: margin,
+								y: item.rowY,
+								width: budgetFieldWidth,
+								height: fieldHeight,
+								borderColor: colors.line,
+								borderWidth: 1,
+								backgroundColor: rgb(1, 1, 1),
+								textColor: colors.ink,
+								font: regularFont
+							});
+
+							const amountField = form.createTextField("office.amount-to-be-charged-" + item.key);
+							amountField.addToPage(page, {
+								x: amountFieldX,
+								y: item.rowY,
+								width: budgetFieldWidth,
+								height: fieldHeight,
+								borderColor: colors.line,
+								borderWidth: 1,
+								backgroundColor: rgb(1, 1, 1),
+								textColor: colors.ink,
+								font: regularFont
+							});
 						});
 					}
 
@@ -1824,6 +1909,7 @@
 										<li>Fillable applicant signature field</li>
 										<li>Fillable department chair signature field</li>
 										<li>Fillable cabinet member signature field</li>
+										<li>Fillable Accounts Payable and office-use fields</li>
 									</ul>
 								</aside>
 							</div>
@@ -2019,54 +2105,54 @@
 										</div>
 										<div class="grant-cost-grid">
 											<div class="grant-cost-card">
-												<label for="cost-airfare">Airfare</label>
-												<input type="number" id="cost-airfare" min="0" step="0.01" data-cost-item data-cost-label="Airfare" placeholder="0.00" />
+												<label for="cost-airfare">Airfare <span class="grant-required">*</span></label>
+												<input type="number" id="cost-airfare" min="0" step="0.01" data-cost-item data-cost-label="Airfare" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-lodging">Lodging</label>
-												<input type="number" id="cost-lodging" min="0" step="0.01" data-cost-item data-cost-label="Lodging" placeholder="0.00" />
+												<label for="cost-lodging">Lodging <span class="grant-required">*</span></label>
+												<input type="number" id="cost-lodging" min="0" step="0.01" data-cost-item data-cost-label="Lodging" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-meals">Meals</label>
-												<input type="number" id="cost-meals" min="0" step="0.01" data-cost-item data-cost-label="Meals" placeholder="0.00" />
+												<label for="cost-meals">Meals <span class="grant-required">*</span></label>
+												<input type="number" id="cost-meals" min="0" step="0.01" data-cost-item data-cost-label="Meals" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-registration">Registration</label>
-												<input type="number" id="cost-registration" min="0" step="0.01" data-cost-item data-cost-label="Registration" placeholder="0.00" />
+												<label for="cost-registration">Registration <span class="grant-required">*</span></label>
+												<input type="number" id="cost-registration" min="0" step="0.01" data-cost-item data-cost-label="Registration" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-ground">Ground Transportation</label>
-												<input type="number" id="cost-ground" min="0" step="0.01" data-cost-item data-cost-label="Ground Transportation" placeholder="0.00" />
+												<label for="cost-ground">Ground Transportation <span class="grant-required">*</span></label>
+												<input type="number" id="cost-ground" min="0" step="0.01" data-cost-item data-cost-label="Ground Transportation" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-tolls">Tolls</label>
-												<input type="number" id="cost-tolls" min="0" step="0.01" data-cost-item data-cost-label="Tolls" placeholder="0.00" />
+												<label for="cost-tolls">Tolls <span class="grant-required">*</span></label>
+												<input type="number" id="cost-tolls" min="0" step="0.01" data-cost-item data-cost-label="Tolls" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-parking">Parking</label>
-												<input type="number" id="cost-parking" min="0" step="0.01" data-cost-item data-cost-label="Parking" placeholder="0.00" />
+												<label for="cost-parking">Parking <span class="grant-required">*</span></label>
+												<input type="number" id="cost-parking" min="0" step="0.01" data-cost-item data-cost-label="Parking" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-other">Other</label>
-												<input type="number" id="cost-other" min="0" step="0.01" data-cost-item data-cost-label="Other" placeholder="0.00" />
+												<label for="cost-other">Other <span class="grant-required">*</span></label>
+												<input type="number" id="cost-other" min="0" step="0.01" data-cost-item data-cost-label="Other" required />
 											</div>
 										</div>
 										<div class="grant-vehicle-grid">
 											<div class="grant-cost-card">
-												<label for="cost-rental-days">Rental Car Days Needed</label>
-												<input type="number" id="cost-rental-days" min="0" step="1" placeholder="0" />
+												<label for="cost-rental-days">Rental Car Days Needed <span class="grant-required">*</span></label>
+												<input type="number" id="cost-rental-days" min="0" step="1" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="rental-daily-rate">Rental Car Per Day</label>
-												<input type="number" id="rental-daily-rate" min="0" step="0.01" value="40.00" />
+												<label for="rental-daily-rate">Rental Car Per Day <span class="grant-required">*</span></label>
+												<input type="number" id="rental-daily-rate" min="0" step="0.01" value="45.00" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="cost-mileage-miles">Personal Vehicle Miles</label>
-												<input type="number" id="cost-mileage-miles" min="0" step="0.1" placeholder="0" />
+												<label for="cost-mileage-miles">Personal Vehicle Miles <span class="grant-required">*</span></label>
+												<input type="number" id="cost-mileage-miles" min="0" step="0.1" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="mileage-rate">Mileage Rate</label>
-												<input type="number" id="mileage-rate" min="0" step="0.01" value="0.36" />
+												<label for="mileage-rate">Mileage Rate <span class="grant-required">*</span></label>
+												<input type="number" id="mileage-rate" min="0" step="0.001" value="0.725" required />
 											</div>
 											<div class="grant-vehicle-result">
 												<strong>Vehicle Cost Used in Total</strong>
@@ -2158,11 +2244,11 @@
 										<div class="grant-funding-grid">
 											<div class="grant-cost-card">
 												<label for="tuition-amount">Tuition Amount <span class="grant-required">*</span></label>
-												<input type="number" id="tuition-amount" name="tuition-amount" min="0" step="0.01" value="0.00" required />
+												<input type="number" id="tuition-amount" name="tuition-amount" min="0" step="0.01" required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="tuition-fees">Required Fees</label>
-												<input type="number" id="tuition-fees" name="tuition-fees" min="0" step="0.01" value="0.00" />
+												<label for="tuition-fees">Required Fees <span class="grant-required">*</span></label>
+												<input type="number" id="tuition-fees" name="tuition-fees" min="0" step="0.01" required />
 											</div>
 											<div class="grant-vehicle-result">
 												<strong>Total Tuition Reimbursement Cost</strong>
@@ -2200,8 +2286,8 @@
 									</div>
 									<div class="grant-funding-grid">
 										<div class="grant-cost-card">
-											<label for="already-sought-fdf">Already Sought from Faculty Development This Academic Year</label>
-											<input type="number" id="already-sought-fdf" name="already-sought-fdf" min="0" step="0.01" value="0.00" />
+											<label for="already-sought-fdf">Already Sought from Faculty Development This Academic Year <span class="grant-required">*</span></label>
+											<input type="number" id="already-sought-fdf" name="already-sought-fdf" min="0" step="0.01" required />
 										</div>
 										<div class="grant-vehicle-result">
 											<strong>Remaining Faculty Development Eligibility</strong>
@@ -2209,12 +2295,12 @@
 											<p class="grant-small-note">The usual annual Faculty Development limit is $1,100 per faculty member, though additional funding may be available later.</p>
 										</div>
 										<div class="grant-cost-card">
-											<label for="faculty-development-request">Requested from Faculty Development on This Application</label>
-											<input type="number" id="faculty-development-request" name="faculty-development-request" min="0" step="0.01" value="0.00" />
+											<label for="faculty-development-request">Requested from Faculty Development on This Application <span class="grant-required">*</span></label>
+											<input type="number" id="faculty-development-request" name="faculty-development-request" min="0" step="0.01" required />
 										</div>
 										<div class="grant-cost-card">
-											<label for="other-funding-amount">Planned from Other Funding Sources</label>
-											<input type="number" id="other-funding-amount" name="other-funding-amount" min="0" step="0.01" value="0.00" />
+											<label for="other-funding-amount">Planned from Other Funding Sources <span class="grant-required">*</span></label>
+											<input type="number" id="other-funding-amount" name="other-funding-amount" min="0" step="0.01" required />
 										</div>
 										<div class="grant-cost-card">
 											<label for="other-funding-source">Other Funding Source(s)</label>
@@ -2255,42 +2341,42 @@
 									</div>
 									<div class="grant-checklist">
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-application" data-checklist-item data-checklist-label="Completed Faculty Development Application Form ready for applicant and department chair signatures." />
+											<input class="grant-check-input" type="checkbox" id="check-application" data-checklist-item data-checklist-label="Completed Faculty Development Application Form ready for applicant and department chair signatures." required />
 											<div class="grant-check-copy">
 												<label for="check-application">Completed Faculty Development Application Form</label>
 												<p>Adapted for this page: the generated packet includes signature lines for the applicant and department chair.</p>
 											</div>
 										</div>
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-registration-docs" data-checklist-item data-checklist-label="Documentation of conference or event registration costs." />
+											<input class="grant-check-input" type="checkbox" id="check-registration-docs" data-checklist-item data-checklist-label="Documentation of conference or event registration costs." required />
 											<div class="grant-check-copy">
 												<label for="check-registration-docs">Documentation of your conference or event registration costs</label>
 												<p>Examples include invoices, screenshots, emailed receipts, or registration pages showing the fee.</p>
 											</div>
 										</div>
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-info-materials" data-checklist-item data-checklist-label="Relevant informational materials about the professional learning opportunity." />
+											<input class="grant-check-input" type="checkbox" id="check-info-materials" data-checklist-item data-checklist-label="Relevant informational materials about the professional learning opportunity." required />
 											<div class="grant-check-copy">
 												<label for="check-info-materials">Relevant informational materials about this professional learning opportunity</label>
 												<p>Add brochures, agenda pages, conference descriptions, session information, or presenter details.</p>
 											</div>
 										</div>
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-travel-agent" data-checklist-item data-checklist-label="Town and Country Travel estimate email for flights, trains, and/or hotel costs, plus any cheaper comparison option if applicable." />
+											<input class="grant-check-input" type="checkbox" id="check-travel-agent" data-checklist-item data-checklist-label="Town and Country Travel estimate email for flights, trains, and/or hotel costs, plus any cheaper comparison option if applicable." required />
 											<div class="grant-check-copy">
 												<label for="check-travel-agent">Town &amp; Country Travel estimate email for flights, train, and/or hotel</label>
 												<p>Especially useful when airfare is involved. If you found a cheaper option, include that price alongside the Town &amp; Country estimate.</p>
 											</div>
 										</div>
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-tolls-parking" data-checklist-item data-checklist-label="Documentation estimating tolls or parking fees, if applicable." />
+											<input class="grant-check-input" type="checkbox" id="check-tolls-parking" data-checklist-item data-checklist-label="Documentation estimating tolls or parking fees, if applicable." required />
 											<div class="grant-check-copy">
 												<label for="check-tolls-parking">Documentation estimating tolls or parking fees</label>
 												<p>Attach screenshots, maps, parking schedules, or other evidence if these costs are expected.</p>
 											</div>
 										</div>
 										<div class="grant-check-item">
-											<input class="grant-check-input" type="checkbox" id="check-meals-schedule" data-checklist-item data-checklist-label="Current event schedule showing which meals are covered, or prior-year schedule if the current one is unavailable, when meal reimbursement is requested." />
+											<input class="grant-check-input" type="checkbox" id="check-meals-schedule" data-checklist-item data-checklist-label="Current event schedule showing which meals are covered, or prior-year schedule if the current one is unavailable, when meal reimbursement is requested." required />
 											<div class="grant-check-copy">
 												<label for="check-meals-schedule">Event schedule showing covered meals, if meal reimbursement is requested</label>
 												<p>Use the current schedule when available; otherwise attach the prior-year schedule and note that the new schedule is not yet posted.</p>
@@ -2315,6 +2401,7 @@
 												<div class="grant-signature-line">Applicant signature and date</div>
 												<div class="grant-signature-line">Department chair signature and date</div>
 												<div class="grant-signature-line">Cabinet member signature and date</div>
+												<div class="grant-signature-line">Accounts Payable signature, final approval checkbox, and budget coding fields</div>
 											</div>
 										</div>
 									</div>
