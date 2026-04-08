@@ -262,6 +262,29 @@
 				color: var(--grant-ink);
 			}
 
+			.grant-course-stack {
+				display: grid;
+				gap: 1.25rem;
+			}
+
+			.grant-course-card-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: start;
+				gap: 1rem;
+				margin-bottom: 1rem;
+			}
+
+			.grant-course-card-header .button {
+				flex-shrink: 0;
+			}
+
+			.grant-repeat-actions {
+				display: flex;
+				justify-content: flex-start;
+				margin-top: 1rem;
+			}
+
 			.grant-label-row {
 				display: flex;
 				align-items: center;
@@ -671,14 +694,16 @@
 				const modePanels = Array.from(document.querySelectorAll("[data-mode-panel]"));
 				const modeSections = Array.from(document.querySelectorAll("[data-mode-section]"));
 				const applicationDateInput = document.getElementById("application-date");
+				const deliveryModeInput = document.getElementById("delivery-mode");
 				const costInputs = Array.from(document.querySelectorAll("[data-cost-item]"));
 				const rentalDaysInput = document.getElementById("cost-rental-days");
 				const mileageMilesInput = document.getElementById("cost-mileage-miles");
 				const rentalDailyRateInput = document.getElementById("rental-daily-rate");
 				const mileageRateInput = document.getElementById("mileage-rate");
 				const vehicleCostDisplay = document.getElementById("vehicle-cost-used");
-				const tuitionAmountInput = document.getElementById("tuition-amount");
-				const tuitionFeesInput = document.getElementById("tuition-fees");
+				const tuitionCoursesContainer = document.getElementById("tuition-courses");
+				const tuitionCourseTemplate = document.getElementById("tuition-course-template");
+				const addTuitionCourseButton = document.getElementById("add-tuition-course");
 				const tuitionTotalDisplay = document.getElementById("tuition-total");
 				const alreadySoughtInput = document.getElementById("already-sought-fdf");
 				const facultyRequestInput = document.getElementById("faculty-development-request");
@@ -688,6 +713,7 @@
 				const summaryTotalDisplay = document.getElementById("summary-total");
 				const summaryModeDisplay = document.getElementById("summary-mode");
 				const summaryChecklistCard = document.getElementById("summary-checklist-card");
+				const summaryChecklistNote = document.getElementById("summary-checklist-note");
 				const summaryFilesDisplay = document.getElementById("summary-files");
 				const summaryChecklistDisplay = document.getElementById("summary-checklist");
 				const uploadInput = document.getElementById("supporting-docs");
@@ -703,6 +729,7 @@
 				});
 				const facultyDevelopmentAnnualLimit = 1100;
 				let currentMode = "conference";
+				let previousDeliveryMode = deliveryModeInput ? deliveryModeInput.value : "";
 
 				let attachments = [];
 				const previewUrls = new Map();
@@ -735,6 +762,33 @@
 					return Number.isFinite(value) ? value : 0;
 				}
 
+				function getTuitionCourseCards() {
+					return Array.from(tuitionCoursesContainer.querySelectorAll("[data-tuition-course]"));
+				}
+
+				function getTuitionCourseField(course, fieldName) {
+					return course.querySelector('[data-course-field="' + fieldName + '"]');
+				}
+
+				function getTuitionCourseData() {
+					return getTuitionCourseCards().map((course, index) => ({
+						index,
+						title: getTuitionCourseField(course, "title").value.trim(),
+						provider: getTuitionCourseField(course, "provider").value.trim(),
+						number: getTuitionCourseField(course, "number").value.trim(),
+						modality: getTuitionCourseField(course, "modality").value.trim(),
+						location: getTuitionCourseField(course, "location").value.trim(),
+						startDate: getTuitionCourseField(course, "start-date").value,
+						endDate: getTuitionCourseField(course, "end-date").value,
+						credits: getTuitionCourseField(course, "credits").value.trim(),
+						tuitionAmount: getNumericValue(getTuitionCourseField(course, "tuition-amount")),
+						tuitionFees: getNumericValue(getTuitionCourseField(course, "tuition-fees")),
+						description: getTuitionCourseField(course, "description").value.trim(),
+						relationship: getTuitionCourseField(course, "relationship").value.trim(),
+						notes: getTuitionCourseField(course, "notes").value.trim()
+					}));
+				}
+
 				function computeRentalEstimate() {
 					return getNumericValue(rentalDaysInput) * getNumericValue(rentalDailyRateInput);
 				}
@@ -744,7 +798,7 @@
 				}
 
 				function computeTuitionTotal() {
-					return getNumericValue(tuitionAmountInput) + getNumericValue(tuitionFeesInput);
+					return getTuitionCourseData().reduce((sum, course) => sum + course.tuitionAmount + course.tuitionFees, 0);
 				}
 
 				function computeRemainingFacultyDevelopmentEligibility() {
@@ -782,6 +836,7 @@
 
 				function updateTuitionTotals() {
 					const formatted = currencyFormatter.format(computeTuitionTotal());
+					updateTuitionCourseTotals();
 					tuitionTotalDisplay.textContent = formatted;
 					if (currentMode === "tuition") {
 						summaryTotalDisplay.textContent = formatted;
@@ -794,10 +849,21 @@
 					facultyRequestInput.setCustomValidity("");
 				}
 
+				function getChecklistInputs(mode = currentMode) {
+					return checklistInputs.filter((input) => {
+						const checklistSection = input.closest("[data-mode-section]");
+						return checklistSection && checklistSection.dataset.modeSection === mode;
+					});
+				}
+
 				function updateChecklistSummary() {
-					const completed = checklistInputs.filter((input) => input.checked).length;
-					const total = checklistInputs.length;
+					const activeChecklistInputs = getChecklistInputs();
+					const completed = activeChecklistInputs.filter((input) => input.checked).length;
+					const total = activeChecklistInputs.length;
 					summaryChecklistDisplay.textContent = completed + " / " + total;
+					summaryChecklistNote.textContent = currentMode === "tuition"
+						? "Tuition packets include a checklist for syllabus and cost documentation."
+						: "Conference packets include a checklist for supporting materials.";
 				}
 
 				function syncPanelState(container, isActive) {
@@ -809,8 +875,89 @@
 
 				function updateModeSummary() {
 					summaryModeDisplay.textContent = getModeLabel();
-					summaryChecklistCard.hidden = currentMode !== "conference";
+					summaryChecklistCard.hidden = false;
 					summaryTotalDisplay.textContent = currencyFormatter.format(computeCurrentModeTotal());
+					updateChecklistSummary();
+				}
+
+				function updateTuitionCourseCardLabels() {
+					const courses = getTuitionCourseCards();
+
+					courses.forEach((course, index) => {
+						const courseNumber = index + 1;
+						const heading = "Course " + courseNumber;
+						const legend = course.querySelector("[data-course-legend]");
+						const header = course.querySelector("[data-course-heading]");
+						const removeButton = course.querySelector("[data-remove-tuition-course]");
+
+						if (legend) {
+							legend.textContent = heading;
+						}
+						if (header) {
+							header.textContent = heading;
+						}
+
+						course.querySelectorAll("[data-course-field]").forEach((field) => {
+							const fieldKey = field.dataset.courseField;
+							const fieldId = "tuition-course-" + courseNumber + "-" + fieldKey;
+							field.id = fieldId;
+							field.name = fieldId;
+
+							const label = course.querySelector('[data-course-label="' + fieldKey + '"]');
+							if (label) {
+								label.setAttribute("for", fieldId);
+							}
+						});
+
+						if (removeButton) {
+							removeButton.hidden = courses.length === 1;
+						}
+					});
+				}
+
+				function updateTuitionCourseTotals() {
+					getTuitionCourseCards().forEach((course) => {
+						const courseTotalDisplay = course.querySelector("[data-course-total]");
+						const courseTotal = getNumericValue(getTuitionCourseField(course, "tuition-amount"))
+							+ getNumericValue(getTuitionCourseField(course, "tuition-fees"));
+						courseTotalDisplay.textContent = currencyFormatter.format(courseTotal);
+					});
+				}
+
+				function addTuitionCourse() {
+					const courseFragment = tuitionCourseTemplate.content.cloneNode(true);
+					tuitionCoursesContainer.appendChild(courseFragment);
+					updateTuitionCourseCardLabels();
+					updateTuitionCourseTotals();
+					updateTuitionTotals();
+				}
+
+				function resetTuitionCourses() {
+					tuitionCoursesContainer.innerHTML = "";
+					addTuitionCourse();
+				}
+
+				function getTravelEstimatorInputs() {
+					return [...costInputs, rentalDaysInput, mileageMilesInput];
+				}
+
+				function setTravelEstimatorValues(value) {
+					getTravelEstimatorInputs().forEach((input) => {
+						input.value = value;
+					});
+					updateTravelTotals();
+				}
+
+				function handleDeliveryModeChange() {
+					const selectedMode = deliveryModeInput.value;
+
+					if (selectedMode === "Virtual") {
+						setTravelEstimatorValues("0");
+					} else if (previousDeliveryMode === "Virtual") {
+						setTravelEstimatorValues("");
+					}
+
+					previousDeliveryMode = selectedMode;
 				}
 
 				function setMode(mode) {
@@ -1033,18 +1180,22 @@
 						+ ".";
 				}
 
-				function getChecklistItems() {
-					return checklistInputs.map((input) => ({
+				function getChecklistItems(mode = currentMode) {
+					return getChecklistInputs(mode).map((input) => ({
 						label: input.dataset.checklistLabel,
 						checked: input.checked
 					}));
 				}
 
 				function getTuitionItems() {
-					return [
-						{ label: "Tuition", value: getNumericValue(tuitionAmountInput) },
-						{ label: "Required Fees", value: getNumericValue(tuitionFeesInput) }
-					];
+					const courses = getTuitionCourseData();
+					return courses.flatMap((course, index) => {
+						const coursePrefix = courses.length > 1 ? "Course " + (index + 1) + " " : "";
+						return [
+							{ label: coursePrefix + "Tuition", value: course.tuitionAmount },
+							{ label: coursePrefix + "Required Fees", value: course.tuitionFees }
+						];
+					});
 				}
 
 				function getFundingRequestSummary() {
@@ -1064,8 +1215,9 @@
 
 				function buildFileName() {
 					const applicant = getValue("applicant-name") || "faculty-development";
+					const firstTuitionCourse = getTuitionCourseData()[0];
 					const subject = currentMode === "tuition"
-						? (getValue("course-title") || "tuition-reimbursement")
+						? ((firstTuitionCourse && firstTuitionCourse.title) || "tuition-reimbursement")
 						: (getValue("event-name") || "conference-travel");
 					const rawName = applicant + "-" + subject + "-" + currentMode + "-application";
 
@@ -1493,8 +1645,8 @@
 						cursorY -= 6;
 					}
 
-					function drawChecklist() {
-						const items = getChecklistItems();
+					function drawChecklist(mode = currentPacketMode) {
+						const items = getChecklistItems(mode);
 						items.forEach((item) => {
 							drawWrappedText((item.checked ? "[X] " : "[ ] ") + item.label, {
 								font: regularFont,
@@ -1681,22 +1833,32 @@
 					drawField("Application Date", formatDate(getValue("application-date")));
 
 					if (currentPacketMode === "tuition") {
-						drawSectionTitle("Course Details");
-						drawField("Course Title", getValue("course-title"));
-						drawField("Institution / Provider", getValue("course-provider"));
-						drawField("Course Number / Section", getValue("course-number") || "Not provided");
-						drawField("Modality", getValue("course-modality") || "Not provided");
-						drawField("Location", getValue("course-location") || "Not provided");
-						drawField("Course Dates", formatRange(getValue("course-start-date"), getValue("course-end-date"), formatDate));
-						drawField("Credits / Contact Hours", getValue("course-credits") || "Not provided");
+						const tuitionCourses = getTuitionCourseData();
 
-						drawSectionTitle("Rationale and Outcomes");
-						drawField("Rationale", getValue("tuition-rationale"));
-						drawField("Expected Benefit to Department / Students", getValue("tuition-outcomes") || "Not provided");
+						tuitionCourses.forEach((course, index) => {
+							const courseLabel = tuitionCourses.length > 1 ? "Course " + (index + 1) : "Course";
 
-						drawSectionTitle("Tuition Reimbursement Cost");
+							drawSectionTitle(courseLabel + " Details");
+							drawField("Course Title", course.title);
+							drawField("Institution / Provider", course.provider);
+							drawField("Course Number / Section", course.number || "Not provided");
+							drawField("Modality", course.modality || "Not provided");
+							drawField("Location", course.location || "Not provided");
+							drawField("Course Dates", formatRange(course.startDate, course.endDate, formatDate));
+							drawField("Credits / Contact Hours", course.credits || "Not provided");
+
+							drawSectionTitle(courseLabel + " Description");
+							drawField("Course Description", course.description);
+							drawField("Explain the Relationship of the Course to Your Responsibilities", course.relationship || "Not provided");
+							drawField("Tuition Notes", course.notes || "No additional notes provided.");
+							drawField("Course Cost", currencyFormatter.format(course.tuitionAmount + course.tuitionFees));
+						});
+
+						drawSectionTitle("Packet Checklist");
+						drawChecklist(currentPacketMode);
+
+						drawSectionTitle("Total Tuition Reimbursement Cost");
 						drawTuitionTable();
-						drawField("Tuition Notes", getValue("tuition-notes") || "No additional notes provided.");
 					} else {
 						drawSectionTitle("Event Details");
 						drawField("Event Name", getValue("event-name"));
@@ -1715,7 +1877,7 @@
 						drawField("Expected Benefit to Department / Students", getValue("expected-outcomes") || "Not provided");
 
 						drawSectionTitle("Packet Checklist");
-						drawChecklist();
+						drawChecklist(currentPacketMode);
 
 						drawSectionTitle("Travel Cost Estimate");
 						drawCostTable();
@@ -1815,9 +1977,27 @@
 					input.addEventListener("input", updateTravelTotals);
 				});
 
-				[tuitionAmountInput, tuitionFeesInput].forEach((input) => {
-					input.addEventListener("input", updateTuitionTotals);
+				tuitionCoursesContainer.addEventListener("input", (event) => {
+					if (event.target.matches("[data-tuition-cost]")) {
+						updateTuitionTotals();
+					}
 				});
+
+				tuitionCoursesContainer.addEventListener("click", (event) => {
+					const removeButton = event.target.closest("[data-remove-tuition-course]");
+					if (!removeButton) {
+						return;
+					}
+
+					const courseCard = removeButton.closest("[data-tuition-course]");
+					if (courseCard && getTuitionCourseCards().length > 1) {
+						courseCard.remove();
+						updateTuitionCourseCardLabels();
+						updateTuitionTotals();
+					}
+				});
+
+				addTuitionCourseButton.addEventListener("click", addTuitionCourse);
 
 				[alreadySoughtInput, facultyRequestInput].forEach((input) => {
 					input.addEventListener("input", updateFundingEligibility);
@@ -1831,12 +2011,16 @@
 					button.addEventListener("click", () => setMode(button.dataset.mode));
 				});
 
+				deliveryModeInput.addEventListener("change", handleDeliveryModeChange);
+
 				generateButton.addEventListener("click", generatePdfPacket);
 
 				resetButton.addEventListener("click", () => {
 					form.reset();
+					previousDeliveryMode = deliveryModeInput.value;
 					revokePreviewUrls();
 					attachments = [];
+					resetTuitionCourses();
 					setDefaultDates();
 					updateTravelTotals();
 					updateTuitionTotals();
@@ -1849,7 +2033,9 @@
 
 				window.addEventListener("beforeunload", revokePreviewUrls);
 
+				addTuitionCourse();
 				setDefaultDates();
+				previousDeliveryMode = deliveryModeInput.value;
 				updateTravelTotals();
 				updateTuitionTotals();
 				updateFundingEligibility();
@@ -1897,7 +2083,7 @@
 										<div class="grant-stat" id="summary-checklist-card">
 											<span class="grant-stat-label">Checklist Marked</span>
 											<span class="grant-stat-value" id="summary-checklist">0 / 6</span>
-											<span class="grant-stat-note">Conference packets include a checklist for supporting materials.</span>
+											<span class="grant-stat-note" id="summary-checklist-note">Conference packets include a checklist for supporting materials.</span>
 										</div>
 										<div class="grant-stat">
 											<span class="grant-stat-label">Supporting Files</span>
@@ -2152,7 +2338,7 @@
 											</div>
 											<div class="grant-cost-card">
 												<label for="mileage-rate">Mileage Rate <span class="grant-required">*</span></label>
-												<input type="number" id="mileage-rate" min="0" step="0.001" value="0.725" required />
+												<input type="number" id="mileage-rate" min="0" step="0.01" value="0.76" required />
 											</div>
 											<div class="grant-vehicle-result">
 												<strong>Vehicle Cost Used in Total</strong>
@@ -2174,110 +2360,124 @@
 									<div class="grant-section">
 										<div class="grant-section-header">
 											<h2>Course Details</h2>
-											<p>Provide the key details for the course or program. Attach the syllabus and supporting documents below.</p>
+											<p>Provide the key details for each course or program. One course is included by default, and you can add more courses to the same tuition reimbursement packet if needed.</p>
 										</div>
-										<fieldset class="grant-fieldset">
-											<legend>Tuition Reimbursement</legend>
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-title">Course Title <span class="grant-required">*</span></label>
-													</div>
-													<input type="text" id="course-title" name="course-title" required />
-												</div>
-												<div class="col-6 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-provider">Institution / Provider <span class="grant-required">*</span></label>
-													</div>
-													<input type="text" id="course-provider" name="course-provider" required />
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-number">Course Number / Section</label>
-													</div>
-													<input type="text" id="course-number" name="course-number" />
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-modality">Modality <span class="grant-required">*</span></label>
-													</div>
-													<select id="course-modality" name="course-modality" required>
-														<option value="">- Select modality -</option>
-														<option>In Person</option>
-														<option>Hybrid</option>
-														<option>Online</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-location">Where It Is Being Held <span class="grant-required">*</span></label>
-													</div>
-													<input type="text" id="course-location" name="course-location" placeholder="Campus, city, or online platform" required />
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-start-date">Start Date <span class="grant-required">*</span></label>
-													</div>
-													<input type="date" id="course-start-date" name="course-start-date" required />
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-end-date">End Date <span class="grant-required">*</span></label>
-													</div>
-													<input type="date" id="course-end-date" name="course-end-date" required />
-												</div>
-												<div class="col-4 col-12-small">
-													<div class="grant-label-row">
-														<label for="course-credits">Credits / Contact Hours</label>
-													</div>
-													<input type="text" id="course-credits" name="course-credits" placeholder="Optional" />
-												</div>
+										<div id="tuition-courses" class="grant-course-stack"></div>
+										<div class="grant-repeat-actions">
+											<button type="button" class="button small" id="add-tuition-course">Add Another Course</button>
+										</div>
+										<div class="grant-total-bar">
+											<div class="grant-total-label">
+												<strong>Total Tuition Reimbursement Cost</strong>
+												<span>The total updates automatically from all listed courses.</span>
 											</div>
-										</fieldset>
+											<div class="grant-total-amount" id="tuition-total">$0.00</div>
+										</div>
 									</div>
+								</div>
 
-									<div class="grant-section">
-										<div class="grant-section-header">
-											<h2>Tuition and Rationale</h2>
-											<p>Enter the tuition amount, any required fees, and explain why this reimbursement supports your development.</p>
+								<template id="tuition-course-template">
+									<fieldset class="grant-fieldset" data-tuition-course>
+										<legend data-course-legend>Course 1</legend>
+										<div class="grant-course-card-header">
+											<div class="grant-section-header">
+												<h3 data-course-heading>Course 1</h3>
+												<p>Provide the course details, tuition amounts, description, and relationship to your responsibilities for this reimbursement item.</p>
+											</div>
+											<button type="button" class="button small" data-remove-tuition-course>Remove Course</button>
+										</div>
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="title">Course Title <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" data-course-field="title" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="provider">Institution / Provider <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" data-course-field="provider" required />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="number">Course Number / Section</label>
+												</div>
+												<input type="text" data-course-field="number" />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="modality">Modality <span class="grant-required">*</span></label>
+												</div>
+												<select data-course-field="modality" required>
+													<option value="">- Select modality -</option>
+													<option>In Person</option>
+													<option>Hybrid</option>
+													<option>Online</option>
+												</select>
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="location">Where It Is Being Held <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" data-course-field="location" placeholder="Campus, city, or online platform" required />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="start-date">Start Date <span class="grant-required">*</span></label>
+												</div>
+												<input type="date" data-course-field="start-date" required />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="end-date">End Date <span class="grant-required">*</span></label>
+												</div>
+												<input type="date" data-course-field="end-date" required />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label data-course-label="credits">Credits / Contact Hours</label>
+												</div>
+												<input type="text" data-course-field="credits" placeholder="Optional" />
+											</div>
 										</div>
 										<div class="grant-funding-grid">
 											<div class="grant-cost-card">
-												<label for="tuition-amount">Tuition Amount <span class="grant-required">*</span></label>
-												<input type="number" id="tuition-amount" name="tuition-amount" min="0" step="0.01" required />
+												<label data-course-label="tuition-amount">Tuition Amount <span class="grant-required">*</span></label>
+												<input type="number" min="0" step="0.01" data-course-field="tuition-amount" data-tuition-cost required />
 											</div>
 											<div class="grant-cost-card">
-												<label for="tuition-fees">Required Fees <span class="grant-required">*</span></label>
-												<input type="number" id="tuition-fees" name="tuition-fees" min="0" step="0.01" required />
+												<label data-course-label="tuition-fees">Required Fees <span class="grant-required">*</span></label>
+												<input type="number" min="0" step="0.01" data-course-field="tuition-fees" data-tuition-cost required />
 											</div>
 											<div class="grant-vehicle-result">
-												<strong>Total Tuition Reimbursement Cost</strong>
-												<span id="tuition-total">$0.00</span>
-												<p class="grant-small-note">This total updates automatically from tuition and fees.</p>
+												<strong>Course Total</strong>
+												<span data-course-total>$0.00</span>
+												<p class="grant-small-note">This total updates automatically from tuition and fees for this course.</p>
 											</div>
 										</div>
 										<div class="row gtr-uniform">
 											<div class="col-12">
 												<div class="grant-label-row">
-													<label for="tuition-rationale">Rationale <span class="grant-required">*</span></label>
+													<label data-course-label="description">Course Description <span class="grant-required">*</span></label>
 												</div>
-												<textarea id="tuition-rationale" name="tuition-rationale" rows="7" required placeholder="Describe why this course or program should be supported and how it will contribute to your professional development."></textarea>
+												<textarea data-course-field="description" rows="7" required placeholder="Describe the course or program, including the topics, format, and what it covers."></textarea>
 											</div>
 											<div class="col-12">
 												<div class="grant-label-row">
-													<label for="tuition-outcomes">Expected Benefit to Department / Students</label>
+													<label data-course-label="relationship">Explain the Relationship of the Course to Your Responsibilities</label>
 												</div>
-												<textarea id="tuition-outcomes" name="tuition-outcomes" rows="4" placeholder="Summarize how the course or program will benefit your teaching, department, or students."></textarea>
+												<textarea data-course-field="relationship" rows="4" placeholder="Explain how this course connects to your current role, responsibilities, teaching, or other assigned duties."></textarea>
 											</div>
 											<div class="col-12">
 												<div class="grant-label-row">
-													<label for="tuition-notes">Tuition Notes</label>
+													<label data-course-label="notes">Tuition Notes</label>
 												</div>
-												<textarea id="tuition-notes" name="tuition-notes" rows="3" placeholder="Add any notes about reimbursement timing, billing, or required tuition documentation."></textarea>
+												<textarea data-course-field="notes" rows="3" placeholder="Add any notes about reimbursement timing, billing, or required tuition documentation."></textarea>
 											</div>
 										</div>
-									</div>
-								</div>
+									</fieldset>
+								</template>
 
 								<div class="grant-section">
 									<div class="grant-section-header">
@@ -2380,6 +2580,29 @@
 											<div class="grant-check-copy">
 												<label for="check-meals-schedule">Event schedule showing covered meals, if meal reimbursement is requested</label>
 												<p>Use the current schedule when available; otherwise attach the prior-year schedule and note that the new schedule is not yet posted.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="grant-section grant-mode-section" data-mode-section="tuition">
+									<div class="grant-section-header">
+										<h2>Packet Checklist</h2>
+										<p>Confirm that the required supporting materials for tuition reimbursement are attached before generating the packet.</p>
+									</div>
+									<div class="grant-checklist">
+										<div class="grant-check-item">
+											<input class="grant-check-input" type="checkbox" id="check-tuition-syllabus" data-checklist-item data-checklist-label="Current syllabus or official course outline attached." required />
+											<div class="grant-check-copy">
+												<label for="check-tuition-syllabus">Current syllabus or official course outline attached</label>
+												<p>Attach the syllabus, official course outline, or other institutional description that shows what the course covers.</p>
+											</div>
+										</div>
+										<div class="grant-check-item">
+											<input class="grant-check-input" type="checkbox" id="check-tuition-cost-docs" data-checklist-item data-checklist-label="Documentation of tuition and required fee costs attached." required />
+											<div class="grant-check-copy">
+												<label for="check-tuition-cost-docs">Documentation of tuition and required fee costs attached</label>
+												<p>Attach invoices, billing statements, screenshots, registration summaries, or other documentation showing the tuition and fee amounts.</p>
 											</div>
 										</div>
 									</div>
