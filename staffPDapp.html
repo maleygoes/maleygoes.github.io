@@ -1,0 +1,2124 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Professional Association Professional Development Funding Application</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			:root {
+				--grant-ink: #003366;
+				--grant-ink-soft: #478316;
+				--grant-accent: #478316;
+				--grant-accent-deep: #003366;
+				--grant-highlight: #478316;
+				--grant-paper: #fffdf8;
+				--grant-paper-soft: #f5efe4;
+				--grant-line: rgba(0, 51, 102, 0.14);
+				--grant-shadow: 0 24px 50px rgba(0, 51, 102, 0.12);
+			}
+
+			body {
+				background:
+					radial-gradient(circle at top left, rgba(71, 131, 22, 0.22), transparent 30%),
+					radial-gradient(circle at right center, rgba(0, 51, 102, 0.15), transparent 24%),
+					linear-gradient(180deg, #fffaf2 0%, #f7f1e8 52%, #f4eee5 100%);
+			}
+
+			.grant-page {
+				max-width: 1120px;
+				margin: 0 auto;
+				padding: 2.5rem 1.5rem 4rem;
+			}
+
+			.grant-shell {
+				display: grid;
+				gap: 2rem;
+			}
+
+			.grant-hero {
+				position: relative;
+				overflow: hidden;
+				padding: 2.75rem;
+				border-radius: 1.5rem;
+				background:
+					linear-gradient(135deg, rgba(231, 239, 247, 0.98), rgba(216, 231, 244, 0.96)),
+					linear-gradient(160deg, rgba(71, 131, 22, 0.16), transparent 45%);
+				box-shadow: var(--grant-shadow);
+				color: var(--grant-ink);
+			}
+
+			.grant-hero::before,
+			.grant-hero::after {
+				content: "";
+				position: absolute;
+				border-radius: 999px;
+				opacity: 0.7;
+			}
+
+			.grant-hero::before {
+				width: 18rem;
+				height: 18rem;
+				right: -5rem;
+				top: -7rem;
+				background: radial-gradient(circle, rgba(71, 131, 22, 0.28), transparent 62%);
+			}
+
+			.grant-hero::after {
+				width: 20rem;
+				height: 20rem;
+				left: -8rem;
+				bottom: -9rem;
+				background: radial-gradient(circle, rgba(0, 51, 102, 0.18), transparent 64%);
+			}
+
+			.grant-hero-grid {
+				position: relative;
+				display: grid;
+				grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 1fr);
+				gap: 1.5rem;
+				align-items: start;
+				z-index: 1;
+			}
+
+			.grant-kicker {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.35rem 0.9rem;
+				border-radius: 999px;
+				background: rgba(71, 131, 22, 0.14);
+				color: var(--grant-accent-deep);
+				font-size: 0.82rem;
+				font-weight: 600;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+			}
+
+			.grant-hero h1 {
+				margin: 1rem 0 0.75rem;
+				color: var(--grant-ink);
+				font-size: clamp(2rem, 3.6vw, 3.2rem);
+				line-height: 1.08;
+			}
+
+			.grant-hero h3 {
+				margin: 0 0 0.75rem;
+				color: rgba(0, 51, 102, 0.82);
+				font-weight: 600;
+			}
+
+			.grant-hero p {
+				max-width: 46rem;
+				color: rgba(0, 51, 102, 0.82);
+				font-size: 1rem;
+			}
+
+			.grant-hero-label {
+				margin: 1.25rem 0 0.4rem;
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-hero-points {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			.grant-hero-points li {
+				padding: 0.45rem 0.85rem;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.72);
+				color: var(--grant-ink);
+				font-size: 0.86rem;
+				font-weight: 600;
+			}
+
+			.grant-hero-note {
+				margin: 0.9rem 0 0;
+				max-width: 46rem;
+				color: rgba(0, 51, 102, 0.75);
+				font-size: 0.92rem;
+			}
+
+			.grant-hero-note strong {
+				color: var(--grant-ink);
+			}
+
+			.grant-summary-card,
+			.grant-form-card {
+				background: rgba(255, 253, 248, 0.92);
+				backdrop-filter: blur(14px);
+				border: 1px solid rgba(255, 255, 255, 0.4);
+				border-radius: 1.4rem;
+				box-shadow: var(--grant-shadow);
+			}
+
+			.grant-summary-card {
+				padding: 1.5rem;
+				color: #173241;
+			}
+
+			.grant-summary-card h2 {
+				margin-bottom: 0.6rem;
+				font-size: 1.2rem;
+			}
+
+			.grant-summary-grid {
+				display: grid;
+				gap: 0.85rem;
+				margin: 1rem 0 0;
+			}
+
+			.grant-stat {
+				display: grid;
+				gap: 0.15rem;
+				padding: 0.9rem 1rem;
+				border-radius: 1rem;
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 239, 228, 0.9));
+				border: 1px solid var(--grant-line);
+			}
+
+			.grant-stat-label {
+				font-size: 0.8rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-stat-value {
+				font-family: "Roboto Slab", serif;
+				font-size: 1.6rem;
+				line-height: 1.1;
+				color: var(--grant-accent-deep);
+			}
+
+			.grant-stat-note {
+				font-size: 0.88rem;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-form-card {
+				padding: 2rem;
+			}
+
+			.grant-form {
+				margin: 0;
+			}
+
+			.grant-section {
+				display: grid;
+				gap: 1rem;
+				margin-bottom: 2.25rem;
+			}
+
+			.grant-section:last-child {
+				margin-bottom: 0;
+			}
+
+			.grant-section-header {
+				display: grid;
+				gap: 0.35rem;
+			}
+
+			.grant-section-header h2,
+			.grant-section-header h3 {
+				margin: 0;
+			}
+
+			.grant-section-header p {
+				margin: 0;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-fieldset {
+				padding: 1.5rem;
+				border: 1px solid var(--grant-line);
+				border-radius: 1.2rem;
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 243, 236, 0.9));
+			}
+
+			.grant-fieldset legend {
+				padding: 0 0.55rem;
+				font-family: "Roboto Slab", serif;
+				font-weight: 700;
+				color: var(--grant-ink);
+			}
+
+			.grant-label-row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 0.75rem;
+				margin-bottom: 0.35rem;
+			}
+
+			.grant-required {
+				color: var(--grant-accent);
+				font-weight: 700;
+			}
+
+			.grant-help {
+				font-size: 0.82rem;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-form-card label {
+				font-weight: 700;
+				color: var(--grant-ink);
+			}
+
+			.grant-form-card input,
+			.grant-form-card textarea,
+			.grant-form-card select {
+				background: rgba(255, 255, 255, 0.95);
+				border-color: rgba(22, 49, 63, 0.14);
+				box-shadow: inset 0 1px 2px rgba(22, 49, 63, 0.03);
+			}
+
+			.grant-form-card input:focus,
+			.grant-form-card textarea:focus,
+			.grant-form-card select:focus {
+				border-color: var(--grant-accent);
+				box-shadow: 0 0 0 1px var(--grant-accent);
+			}
+
+			.grant-cost-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+				gap: 1rem;
+			}
+
+			.grant-cost-card {
+				padding: 1rem;
+				border: 1px solid var(--grant-line);
+				border-radius: 1rem;
+				background: rgba(255, 255, 255, 0.84);
+			}
+
+			.grant-cost-card label {
+				display: block;
+				margin-bottom: 0.45rem;
+			}
+
+			.grant-cost-card input,
+			.grant-vehicle-grid input,
+			.grant-funding-grid input {
+				width: 95%;
+			}
+
+			.grant-vehicle-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+				gap: 1rem;
+			}
+
+			.grant-vehicle-result {
+				display: grid;
+				gap: 0.3rem;
+				align-content: center;
+				padding: 1rem 1.1rem;
+				border: 1px solid rgba(184, 76, 67, 0.18);
+				border-radius: 1rem;
+				background: linear-gradient(135deg, rgba(241, 195, 109, 0.16), rgba(184, 76, 67, 0.08));
+			}
+
+			.grant-vehicle-result strong {
+				font-size: 0.98rem;
+				color: var(--grant-ink);
+			}
+
+			.grant-vehicle-result span {
+				font-family: "Roboto Slab", serif;
+				font-size: 1.6rem;
+				line-height: 1.1;
+				color: var(--grant-accent-deep);
+			}
+
+			.grant-funding-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+				gap: 1rem;
+			}
+
+			.grant-total-bar {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				align-items: center;
+				gap: 1rem;
+				padding: 1.15rem 1.4rem;
+				border-radius: 1.1rem;
+				background: linear-gradient(135deg, rgba(241, 195, 109, 0.22), rgba(184, 76, 67, 0.14));
+				border: 1px solid rgba(184, 76, 67, 0.16);
+			}
+
+			.grant-total-label {
+				display: grid;
+				gap: 0.2rem;
+			}
+
+			.grant-total-label strong {
+				font-size: 1.1rem;
+				color: var(--grant-ink);
+			}
+
+			.grant-total-label span {
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-total-amount {
+				font-family: "Roboto Slab", serif;
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				color: var(--grant-accent-deep);
+				white-space: nowrap;
+			}
+
+			.grant-upload-shell {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.grant-field-upload-groups {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.grant-field-upload-group {
+				display: grid;
+				gap: 0.65rem;
+				padding: 1.1rem 1.15rem;
+				border: 1px solid var(--grant-line);
+				border-radius: 1.1rem;
+				background: rgba(255, 255, 255, 0.9);
+			}
+
+			.grant-field-upload-group[hidden] {
+				display: none !important;
+			}
+
+			.grant-field-upload-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 0.6rem;
+			}
+
+			.grant-field-upload-header strong {
+				color: var(--grant-ink);
+			}
+
+			.grant-help-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				width: 1.5rem;
+				height: 1.5rem;
+				border-radius: 999px;
+				border: 1px solid var(--grant-line);
+				background: rgba(255, 255, 255, 0.95);
+				color: var(--grant-ink-soft);
+				font-size: 0.82rem;
+				font-weight: 700;
+				cursor: help;
+			}
+
+			.grant-field-upload-group .grant-upload-zone {
+				padding: 1.2rem 1rem;
+			}
+
+			.grant-upload-zone {
+				display: grid;
+				place-items: center;
+				gap: 0.65rem;
+				padding: 2rem 1.5rem;
+				border: 2px dashed rgba(184, 76, 67, 0.35);
+				border-radius: 1.2rem;
+				background:
+					linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 228, 0.88)),
+					repeating-linear-gradient(45deg, rgba(22, 49, 63, 0.02) 0, rgba(22, 49, 63, 0.02) 12px, transparent 12px, transparent 24px);
+				text-align: center;
+				transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+				cursor: pointer;
+			}
+
+			.grant-upload-zone:hover,
+			.grant-upload-zone.is-active {
+				border-color: var(--grant-accent);
+				transform: translateY(-2px);
+				box-shadow: 0 16px 30px rgba(184, 76, 67, 0.12);
+			}
+
+			.grant-upload-zone h3 {
+				margin: 0;
+			}
+
+			.grant-upload-zone p {
+				margin: 0;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-upload-list {
+				display: grid;
+				gap: 0.85rem;
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+
+			.grant-upload-item {
+				display: grid;
+				grid-template-columns: auto minmax(0, 1fr) auto;
+				gap: 0.9rem;
+				align-items: center;
+				padding: 0.9rem 1rem;
+				border-radius: 1rem;
+				border: 1px solid var(--grant-line);
+				background: rgba(255, 255, 255, 0.9);
+			}
+
+			.grant-upload-thumb,
+			.grant-upload-icon {
+				width: 4.5rem;
+				height: 4.5rem;
+				border-radius: 0.9rem;
+			}
+
+			.grant-upload-thumb {
+				object-fit: cover;
+				border: 1px solid rgba(22, 49, 63, 0.08);
+			}
+
+			.grant-upload-icon {
+				display: grid;
+				place-items: center;
+				background: linear-gradient(160deg, rgba(184, 76, 67, 0.12), rgba(22, 49, 63, 0.12));
+				font-family: "Roboto Slab", serif;
+				font-size: 1rem;
+				font-weight: 700;
+				color: var(--grant-accent-deep);
+				border: 1px solid rgba(184, 76, 67, 0.2);
+			}
+
+			.grant-upload-meta {
+				min-width: 0;
+			}
+
+			.grant-upload-name {
+				display: block;
+				margin-bottom: 0.2rem;
+				font-weight: 700;
+				color: var(--grant-ink);
+				overflow-wrap: anywhere;
+			}
+
+			.grant-upload-size {
+				font-size: 0.88rem;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-upload-remove {
+				padding: 0 1rem;
+				height: 2.75rem;
+				line-height: 2.75rem;
+				border-radius: 999px;
+			}
+
+			.grant-packet-preview {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+				gap: 1rem;
+			}
+
+			.grant-preview-card {
+				padding: 1.15rem;
+				border: 1px solid var(--grant-line);
+				border-radius: 1rem;
+				background: rgba(255, 255, 255, 0.88);
+			}
+
+			.grant-preview-card h3 {
+				margin-bottom: 0.6rem;
+				font-size: 1rem;
+			}
+
+			.grant-signature-stack {
+				display: grid;
+				gap: 1.3rem;
+				margin-top: 0.9rem;
+			}
+
+			.grant-signature-line {
+				padding-top: 0.45rem;
+				border-top: 2px solid rgba(22, 49, 63, 0.35);
+				font-size: 0.9rem;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.85rem;
+				align-items: center;
+			}
+
+			.grant-status {
+				margin: 0;
+				padding: 0.9rem 1rem;
+				border-radius: 0.95rem;
+				background: rgba(255, 255, 255, 0.88);
+				border: 1px solid var(--grant-line);
+				color: var(--grant-ink-soft);
+				min-height: 3.35rem;
+			}
+
+			.grant-status[data-tone="success"] {
+				border-color: rgba(68, 142, 91, 0.22);
+				background: rgba(233, 246, 237, 0.92);
+				color: #2d6b43;
+			}
+
+			.grant-status[data-tone="error"] {
+				border-color: rgba(184, 76, 67, 0.28);
+				background: rgba(252, 237, 234, 0.92);
+				color: var(--grant-accent-deep);
+			}
+
+			.grant-status[data-tone="working"] {
+				border-color: rgba(241, 195, 109, 0.28);
+				background: rgba(255, 249, 232, 0.94);
+				color: #815d19;
+			}
+
+			.grant-hidden-input {
+				display: none;
+			}
+
+			.grant-small-note {
+				margin: 0;
+				font-size: 0.9rem;
+				color: var(--grant-ink-soft);
+			}
+
+			.grant-footer {
+				margin-top: 1.5rem;
+				padding: 1rem 0 0;
+				border-top: 1px solid var(--grant-line);
+				font-size: 0.92rem;
+				color: var(--grant-ink-soft);
+				text-align: center;
+			}
+
+			@media screen and (max-width: 1280px) {
+				.grant-hero-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				.grant-hero,
+				.grant-form-card {
+					padding: 1.5rem;
+				}
+
+				.grant-total-bar,
+				.grant-upload-item {
+					grid-template-columns: 1fr;
+				}
+
+				.grant-upload-thumb,
+				.grant-upload-icon {
+					width: 100%;
+					height: 9rem;
+				}
+
+				.grant-actions {
+					flex-direction: column;
+					align-items: stretch;
+				}
+
+				.grant-actions > * {
+					width: 100%;
+				}
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+		<script defer>
+			document.addEventListener("DOMContentLoaded", () => {
+				const form = document.getElementById("funds-form");
+				const applicationDateInput = document.getElementById("application-date");
+				const deliveryModeInput = document.getElementById("delivery-mode");
+
+				const costRegistrationInput = document.getElementById("cost-registration");
+				const costLodgingInput = document.getElementById("cost-lodging");
+				const costOtherMaterialsInput = document.getElementById("cost-other-materials");
+				const costAirfareInput = document.getElementById("cost-airfare");
+				const costRailInput = document.getElementById("cost-rail");
+				const costTaxiInput = document.getElementById("cost-taxi");
+				const costTollsInput = document.getElementById("cost-tolls");
+				const costParkingInput = document.getElementById("cost-parking");
+
+				const rentalDaysInput = document.getElementById("cost-rental-days");
+				const rentalDailyRateInput = document.getElementById("rental-daily-rate");
+				const mileageMilesInput = document.getElementById("cost-mileage-miles");
+				const mileageRateInput = document.getElementById("mileage-rate");
+				const vehicleCostDisplay = document.getElementById("vehicle-cost-used");
+
+				const mealKeys = ["breakfast", "lunch", "dinner"];
+				const mealsSubtotalDisplay = document.getElementById("meals-subtotal");
+
+				const travelTotalDisplay = document.getElementById("travel-total");
+				const amountRequestedInput = document.getElementById("amount-requested");
+				const amountRequestedCapNote = document.getElementById("amount-requested-cap-note");
+				const otherFundingAmountInput = document.getElementById("other-funding-amount");
+				const otherFundingSourceInput = document.getElementById("other-funding-source");
+
+				const summaryTotalDisplay = document.getElementById("summary-total");
+				const summaryRequestedDisplay = document.getElementById("summary-requested");
+				const summaryFilesDisplay = document.getElementById("summary-files");
+
+				const fieldUploadGroupsContainer = document.getElementById("field-upload-groups");
+				const statusBox = document.getElementById("pdf-status");
+				const generateButton = document.getElementById("generate-pdf");
+				const resetButton = document.getElementById("reset-form");
+
+				const currencyFormatter = new Intl.NumberFormat("en-US", {
+					style: "currency",
+					currency: "USD"
+				});
+
+				const PD_FUND_CAP = 1200;
+				const PD_FUND_PERCENT = 0.75;
+
+				let previousDeliveryMode = deliveryModeInput ? deliveryModeInput.value : "";
+
+				function todayAsInputValue() {
+					const now = new Date();
+					const year = String(now.getFullYear());
+					const month = String(now.getMonth() + 1).padStart(2, "0");
+					const day = String(now.getDate()).padStart(2, "0");
+					return year + "-" + month + "-" + day;
+				}
+
+				function setDefaultDates() {
+					if (!applicationDateInput.value) {
+						applicationDateInput.value = todayAsInputValue();
+					}
+				}
+
+				function setStatus(message, tone = "neutral") {
+					statusBox.dataset.tone = tone;
+					statusBox.textContent = message;
+				}
+
+				function getNumericValue(input) {
+					const value = Number.parseFloat(input.value);
+					return Number.isFinite(value) ? value : 0;
+				}
+
+				function getValue(id) {
+					return document.getElementById(id).value.trim();
+				}
+
+				function computeRentalEstimate() {
+					return getNumericValue(rentalDaysInput) * getNumericValue(rentalDailyRateInput);
+				}
+
+				function computeMileageEstimate() {
+					return getNumericValue(mileageMilesInput) * getNumericValue(mileageRateInput);
+				}
+
+				function computeVehicleCost() {
+					const rentalEstimate = computeRentalEstimate();
+					const personalMileageEstimate = computeMileageEstimate();
+
+					if (rentalEstimate > 0 && personalMileageEstimate > 0) {
+						return Math.min(rentalEstimate, personalMileageEstimate);
+					}
+
+					return rentalEstimate || personalMileageEstimate || 0;
+				}
+
+				function computeMealCost(key) {
+					return getNumericValue(document.getElementById("meal-" + key + "-qty"))
+						* getNumericValue(document.getElementById("meal-" + key + "-rate"));
+				}
+
+				function computeMealsSubtotal() {
+					return mealKeys.reduce((sum, key) => sum + computeMealCost(key), 0);
+				}
+
+				function computeTravelTotal() {
+					const base = getNumericValue(costRegistrationInput)
+						+ getNumericValue(costLodgingInput)
+						+ getNumericValue(costOtherMaterialsInput)
+						+ getNumericValue(costAirfareInput)
+						+ getNumericValue(costRailInput)
+						+ getNumericValue(costTaxiInput)
+						+ getNumericValue(costTollsInput)
+						+ getNumericValue(costParkingInput)
+						+ computeMealsSubtotal();
+					return base + computeVehicleCost();
+				}
+
+				function computeRequestCap() {
+					return Math.min(computeTravelTotal() * PD_FUND_PERCENT, PD_FUND_CAP);
+				}
+
+				function updateAmountRequestedValidity() {
+					const cap = computeRequestCap();
+					const requested = getNumericValue(amountRequestedInput);
+
+					if (requested > cap + 0.005) {
+						amountRequestedInput.setCustomValidity("Amount requested cannot exceed " + currencyFormatter.format(cap) + " (75% of the total, capped at " + currencyFormatter.format(PD_FUND_CAP) + ").");
+					} else {
+						amountRequestedInput.setCustomValidity("");
+					}
+				}
+
+				function updateTravelTotals() {
+					vehicleCostDisplay.textContent = currencyFormatter.format(computeVehicleCost());
+
+					mealKeys.forEach((key) => {
+						document.getElementById("meal-" + key + "-cost").textContent = currencyFormatter.format(computeMealCost(key));
+					});
+					mealsSubtotalDisplay.textContent = currencyFormatter.format(computeMealsSubtotal());
+
+					const total = computeTravelTotal();
+					travelTotalDisplay.textContent = currencyFormatter.format(total);
+
+					const cap = computeRequestCap();
+					amountRequestedCapNote.textContent = "Awards cover up to 75% of estimated expenses, not to exceed " + currencyFormatter.format(PD_FUND_CAP) + ". Current maximum: " + currencyFormatter.format(cap) + ".";
+					if (amountRequestedInput.dataset.userEdited !== "true") {
+						amountRequestedInput.value = cap.toFixed(2);
+					}
+					updateAmountRequestedValidity();
+
+					summaryTotalDisplay.textContent = currencyFormatter.format(total);
+					summaryRequestedDisplay.textContent = currencyFormatter.format(getNumericValue(amountRequestedInput));
+
+					updateFieldUploadVisibility();
+				}
+
+				function getTravelEstimatorInputsForVirtual() {
+					return [
+						costLodgingInput, costOtherMaterialsInput, costAirfareInput, costRailInput,
+						costTaxiInput, costTollsInput, costParkingInput, rentalDaysInput, mileageMilesInput,
+						document.getElementById("meal-breakfast-qty"), document.getElementById("meal-lunch-qty"), document.getElementById("meal-dinner-qty")
+					];
+				}
+
+				function setTravelEstimatorValues(value) {
+					getTravelEstimatorInputsForVirtual().forEach((input) => {
+						input.value = value;
+					});
+					updateTravelTotals();
+				}
+
+				function handleDeliveryModeChange() {
+					const selectedMode = deliveryModeInput.value;
+
+					if (selectedMode === "Virtual") {
+						setTravelEstimatorValues("0");
+					} else if (previousDeliveryMode === "Virtual") {
+						setTravelEstimatorValues("");
+					}
+
+					previousDeliveryMode = selectedMode;
+				}
+
+				// Per-field supporting-documentation upload groups.
+				const fieldUploadConfigs = [
+					{ key: "registration", label: "Registration Fee", example: "Agenda + registration form", trigger: () => getNumericValue(costRegistrationInput) },
+					{ key: "lodging", label: "Lodging", example: "Hotel quote", trigger: () => getNumericValue(costLodgingInput) },
+					{ key: "other-materials", label: "Other Materials Required by Conference", example: "Itemized list of required materials", trigger: () => getNumericValue(costOtherMaterialsInput) },
+					{ key: "rental-car", label: "Rental Car", example: "Rental quote", trigger: () => getNumericValue(rentalDaysInput) },
+					{ key: "personal-mileage", label: "Personal Vehicle Mileage", example: "Mileage-calculator printout", trigger: () => getNumericValue(mileageMilesInput) },
+					{ key: "airfare", label: "Airfare", example: "Fare quote/itinerary from the college's travel agent", trigger: () => getNumericValue(costAirfareInput) },
+					{ key: "rail", label: "Rail", example: "Fare quote from the college's travel agent", trigger: () => getNumericValue(costRailInput) },
+					{ key: "taxi", label: "Taxi / Rideshare", example: "Ex: Quote from app/platform", trigger: () => getNumericValue(costTaxiInput) },
+					{ key: "tolls", label: "Tolls", example: "Ex: Screenshot of NY Toll calculator", trigger: () => getNumericValue(costTollsInput) },
+					{ key: "parking", label: "Parking", example: "Ex: Information from website, if available", trigger: () => getNumericValue(costParkingInput) },
+					{ key: "meals", label: "Meals", example: "Event agenda showing which meals are, and are not, provided by the conference", trigger: () => computeMealsSubtotal() }
+				];
+
+				const attachmentsByField = new Map(fieldUploadConfigs.map((config) => [config.key, []]));
+				const previewUrlsByField = new Map(fieldUploadConfigs.map((config) => [config.key, new Map()]));
+
+				function fileKey(file) {
+					return [file.name, file.size, file.lastModified].join("::");
+				}
+
+				function isAcceptedFile(file) {
+					return file.type === "application/pdf" || file.type.startsWith("image/") || file.name.toLowerCase().endsWith(".pdf");
+				}
+
+				function formatBytes(bytes) {
+					if (bytes === 0) {
+						return "0 KB";
+					}
+
+					const units = ["bytes", "KB", "MB", "GB"];
+					const exponent = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+					const value = bytes / (1024 ** exponent);
+					const precision = value >= 10 || exponent === 0 ? 0 : 1;
+					return value.toFixed(precision) + " " + units[exponent];
+				}
+
+				function updateSummaryFiles() {
+					const total = fieldUploadConfigs.reduce((sum, config) => sum + attachmentsByField.get(config.key).length, 0);
+					summaryFilesDisplay.textContent = total + " file" + (total === 1 ? "" : "s");
+				}
+
+				function renderFieldAttachments(config) {
+					const list = document.getElementById("field-upload-list-" + config.key);
+					const count = document.getElementById("field-upload-count-" + config.key);
+					const attachments = attachmentsByField.get(config.key);
+					const previewUrls = previewUrlsByField.get(config.key);
+
+					list.innerHTML = "";
+
+					if (attachments.length === 0) {
+						count.textContent = "No documentation added yet.";
+						return;
+					}
+
+					count.textContent = attachments.length + " file" + (attachments.length === 1 ? "" : "s") + " attached.";
+
+					attachments.forEach((item) => {
+						const listItem = document.createElement("li");
+						listItem.className = "grant-upload-item";
+
+						let preview;
+						if (item.file.type.startsWith("image/")) {
+							let previewUrl = previewUrls.get(item.key);
+							if (!previewUrl) {
+								previewUrl = URL.createObjectURL(item.file);
+								previewUrls.set(item.key, previewUrl);
+							}
+							preview = document.createElement("img");
+							preview.className = "grant-upload-thumb";
+							preview.src = previewUrl;
+							preview.alt = item.file.name;
+						} else {
+							preview = document.createElement("div");
+							preview.className = "grant-upload-icon";
+							preview.textContent = "PDF";
+						}
+
+						const meta = document.createElement("div");
+						meta.className = "grant-upload-meta";
+						meta.innerHTML = "<span class=\"grant-upload-name\"></span><span class=\"grant-upload-size\"></span>";
+						meta.querySelector(".grant-upload-name").textContent = item.file.name;
+						meta.querySelector(".grant-upload-size").textContent = formatBytes(item.file.size);
+
+						const removeButton = document.createElement("button");
+						removeButton.type = "button";
+						removeButton.className = "button small grant-upload-remove";
+						removeButton.textContent = "Remove";
+						removeButton.addEventListener("click", () => {
+							const previewUrl = previewUrls.get(item.key);
+							if (previewUrl) {
+								URL.revokeObjectURL(previewUrl);
+								previewUrls.delete(item.key);
+							}
+
+							attachmentsByField.set(config.key, attachmentsByField.get(config.key).filter((entry) => entry.key !== item.key));
+							renderFieldAttachments(config);
+							updateSummaryFiles();
+						});
+
+						listItem.append(preview, meta, removeButton);
+						list.appendChild(listItem);
+					});
+				}
+
+				function addFilesToField(config, fileList) {
+					const invalidFiles = [];
+					const attachments = attachmentsByField.get(config.key);
+
+					Array.from(fileList).forEach((file) => {
+						if (!isAcceptedFile(file)) {
+							invalidFiles.push(file.name);
+							return;
+						}
+
+						const key = fileKey(file);
+						if (attachments.some((entry) => entry.key === key)) {
+							return;
+						}
+
+						attachments.push({ key, file });
+					});
+
+					renderFieldAttachments(config);
+					updateSummaryFiles();
+
+					if (invalidFiles.length > 0) {
+						setStatus("Skipped unsupported files for " + config.label + ": " + invalidFiles.join(", ") + ". Only PDFs and images can be appended.", "error");
+					} else {
+						setStatus(config.label + " documentation updated.", "neutral");
+					}
+				}
+
+				function wireFieldUpload(config) {
+					const input = document.getElementById("field-upload-input-" + config.key);
+					const zone = document.getElementById("field-upload-zone-" + config.key);
+
+					input.addEventListener("change", (event) => {
+						addFilesToField(config, event.target.files);
+						input.value = "";
+					});
+
+					["dragenter", "dragover"].forEach((eventName) => {
+						zone.addEventListener(eventName, (event) => {
+							event.preventDefault();
+							zone.classList.add("is-active");
+						});
+					});
+
+					["dragleave", "dragend", "drop"].forEach((eventName) => {
+						zone.addEventListener(eventName, (event) => {
+							event.preventDefault();
+							zone.classList.remove("is-active");
+						});
+					});
+
+					zone.addEventListener("drop", (event) => addFilesToField(config, event.dataTransfer.files));
+					zone.addEventListener("click", () => input.click());
+					zone.addEventListener("keydown", (event) => {
+						if (event.key === "Enter" || event.key === " ") {
+							event.preventDefault();
+							input.click();
+						}
+					});
+				}
+
+				function buildFieldUploadUI() {
+					fieldUploadGroupsContainer.innerHTML = fieldUploadConfigs.map((config) => (
+						'<div class="grant-field-upload-group" data-field-group="' + config.key + '" hidden>'
+						+ '<div class="grant-field-upload-header"><strong>' + config.label + '</strong>'
+						+ '<span class="grant-help-icon" tabindex="0" title="Example documentation: ' + config.example + '">?</span></div>'
+						+ '<input class="grant-hidden-input" type="file" id="field-upload-input-' + config.key + '" accept=".pdf,image/*" multiple />'
+						+ '<div class="grant-upload-zone" id="field-upload-zone-' + config.key + '" tabindex="0" role="button" aria-label="Add documentation for ' + config.label + '">'
+						+ '<p>Drop PDFs or screenshots here, or click to browse.</p></div>'
+						+ '<p class="grant-small-note" id="field-upload-count-' + config.key + '">No documentation added yet.</p>'
+						+ '<ul class="grant-upload-list" id="field-upload-list-' + config.key + '" aria-live="polite"></ul>'
+						+ '</div>'
+					)).join("");
+
+					fieldUploadConfigs.forEach((config) => wireFieldUpload(config));
+				}
+
+				function updateFieldUploadVisibility() {
+					fieldUploadConfigs.forEach((config) => {
+						const group = document.querySelector('[data-field-group="' + config.key + '"]');
+						if (group) {
+							group.hidden = !(config.trigger() > 0);
+						}
+					});
+				}
+
+				function validateFieldUploads() {
+					return fieldUploadConfigs.filter((config) => config.trigger() > 0 && attachmentsByField.get(config.key).length === 0);
+				}
+
+				function getAllAttachmentsFlattened() {
+					return fieldUploadConfigs.flatMap((config) => attachmentsByField.get(config.key).map((item) => ({
+						fieldLabel: config.label,
+						file: item.file
+					})));
+				}
+
+				function formatDate(value) {
+					if (!value) {
+						return "Not provided";
+					}
+
+					const date = new Date(value + "T00:00:00");
+					return date.toLocaleDateString("en-US", {
+						year: "numeric",
+						month: "long",
+						day: "numeric"
+					});
+				}
+
+				function formatRange(startValue, endValue, formatter) {
+					if (!startValue && !endValue) {
+						return "Not provided";
+					}
+
+					if (startValue && endValue && startValue === endValue) {
+						return formatter(startValue);
+					}
+
+					if (!startValue) {
+						return "Ends " + formatter(endValue);
+					}
+
+					if (!endValue) {
+						return "Starts " + formatter(startValue);
+					}
+
+					return formatter(startValue) + " to " + formatter(endValue);
+				}
+
+				function getCostItems() {
+					return [
+						{ label: "Registration Fee", value: getNumericValue(costRegistrationInput) },
+						{ label: "Lodging", value: getNumericValue(costLodgingInput) },
+						{ label: "Other Materials Required by Conference", value: getNumericValue(costOtherMaterialsInput) },
+						{ label: "Vehicle Cost Used (lower of rental days vs mileage)", value: computeVehicleCost() },
+						{ label: "Airfare", value: getNumericValue(costAirfareInput) },
+						{ label: "Rail", value: getNumericValue(costRailInput) },
+						{ label: "Taxi / Rideshare", value: getNumericValue(costTaxiInput) },
+						{ label: "Tolls", value: getNumericValue(costTollsInput) },
+						{ label: "Parking", value: getNumericValue(costParkingInput) },
+						{ label: "Meals Subtotal", value: computeMealsSubtotal() }
+					];
+				}
+
+				function getVehicleComparisonSummary() {
+					return "Rental estimate: "
+						+ getNumericValue(rentalDaysInput)
+						+ " day(s) x "
+						+ currencyFormatter.format(getNumericValue(rentalDailyRateInput))
+						+ " = "
+						+ currencyFormatter.format(computeRentalEstimate())
+						+ ". Personal mileage estimate: "
+						+ getNumericValue(mileageMilesInput)
+						+ " mile(s) x "
+						+ currencyFormatter.format(getNumericValue(mileageRateInput))
+						+ " = "
+						+ currencyFormatter.format(computeMileageEstimate())
+						+ ". Amount used in total: "
+						+ currencyFormatter.format(computeVehicleCost())
+						+ ".";
+				}
+
+				function getFundingRequestSummary() {
+					const total = computeTravelTotal();
+					const cap = computeRequestCap();
+					const sourceText = getValue("other-funding-source");
+
+					return "Total Estimated Cost: "
+						+ currencyFormatter.format(total)
+						+ ". Maximum allowed from the PD Fund (75% of total, capped at "
+						+ currencyFormatter.format(PD_FUND_CAP)
+						+ "): "
+						+ currencyFormatter.format(cap)
+						+ ". Requested from the PD Fund on this application: "
+						+ currencyFormatter.format(getNumericValue(amountRequestedInput))
+						+ ". Planned from other source(s): "
+						+ currencyFormatter.format(getNumericValue(otherFundingAmountInput))
+						+ (sourceText ? " (" + sourceText + ")" : "")
+						+ ".";
+				}
+
+				function buildFileName() {
+					const applicant = getValue("applicant-name") || "pd-application";
+					const subject = getValue("event-name") || "conference-event";
+					const rawName = applicant + "-" + subject + "-pd-application";
+
+					return rawName
+						.toLowerCase()
+						.replace(/[^a-z0-9]+/g, "-")
+						.replace(/^-+|-+$/g, "")
+						.concat(".pdf");
+				}
+
+				function wrapText(text, font, fontSize, maxWidth) {
+					const lines = [];
+					const paragraphs = String(text || "")
+						.replace(/\r/g, "")
+						.split("\n");
+
+					paragraphs.forEach((paragraph, paragraphIndex) => {
+						if (paragraph.trim() === "") {
+							lines.push("");
+							return;
+						}
+
+						const words = paragraph.trim().split(/\s+/);
+						let line = "";
+
+						words.forEach((word) => {
+							const candidate = line ? line + " " + word : word;
+							if (font.widthOfTextAtSize(candidate, fontSize) <= maxWidth) {
+								line = candidate;
+							} else {
+								if (line) {
+									lines.push(line);
+								}
+								line = word;
+							}
+						});
+
+						if (line) {
+							lines.push(line);
+						}
+
+						if (paragraphIndex < paragraphs.length - 1) {
+							lines.push("");
+						}
+					});
+
+					return lines;
+				}
+
+				async function normalizeImage(file) {
+					const arrayBuffer = await file.arrayBuffer();
+					const fileType = file.type.toLowerCase();
+
+					if (fileType === "image/png") {
+						return { kind: "png", bytes: arrayBuffer };
+					}
+
+					if (fileType === "image/jpeg" || fileType === "image/jpg") {
+						return { kind: "jpg", bytes: arrayBuffer };
+					}
+
+					if (!("createImageBitmap" in window)) {
+						throw new Error("This browser can only embed PNG or JPEG screenshots in the PDF packet.");
+					}
+
+					const imageBitmap = await createImageBitmap(file);
+					const canvas = document.createElement("canvas");
+					canvas.width = imageBitmap.width;
+					canvas.height = imageBitmap.height;
+					const context = canvas.getContext("2d");
+					if (!context) {
+						imageBitmap.close();
+						throw new Error("Unable to process " + file.name + " for the PDF packet.");
+					}
+					context.drawImage(imageBitmap, 0, 0);
+
+					const pngBlob = await new Promise((resolve, reject) => {
+						canvas.toBlob((blob) => {
+							if (blob) {
+								resolve(blob);
+							} else {
+								reject(new Error("Unable to convert " + file.name + " into a PDF-ready image."));
+							}
+						}, "image/png");
+					});
+					imageBitmap.close();
+
+					return { kind: "png", bytes: await pngBlob.arrayBuffer() };
+				}
+
+				async function appendImageToPdf(pdfDoc, file) {
+					const { rgb } = PDFLib;
+					const normalizedImage = await normalizeImage(file);
+					const pageWidth = 612;
+					const pageHeight = 792;
+					const margin = 48;
+					const titleSpace = 28;
+					const page = pdfDoc.addPage([pageWidth, pageHeight]);
+					const image = normalizedImage.kind === "png"
+						? await pdfDoc.embedPng(normalizedImage.bytes)
+						: await pdfDoc.embedJpg(normalizedImage.bytes);
+					const imageDimensions = image.scale(1);
+					const availableWidth = pageWidth - margin * 2;
+					const availableHeight = pageHeight - margin * 2 - titleSpace;
+					const scale = Math.min(
+						availableWidth / imageDimensions.width,
+						availableHeight / imageDimensions.height
+					);
+					const drawWidth = imageDimensions.width * scale;
+					const drawHeight = imageDimensions.height * scale;
+					const x = (pageWidth - drawWidth) / 2;
+					const y = margin;
+
+					page.drawText(file.name, {
+						x: margin,
+						y: pageHeight - margin + 4,
+						size: 11,
+						color: rgb(0.32, 0.39, 0.44)
+					});
+
+					page.drawImage(image, {
+						x,
+						y,
+						width: drawWidth,
+						height: drawHeight
+					});
+				}
+
+				async function appendAttachmentsToPdf(pdfDoc) {
+					for (const item of getAllAttachmentsFlattened()) {
+						if (item.file.type === "application/pdf" || item.file.name.toLowerCase().endsWith(".pdf")) {
+							const sourcePdf = await PDFLib.PDFDocument.load(await item.file.arrayBuffer());
+							const copiedPages = await pdfDoc.copyPages(sourcePdf, sourcePdf.getPageIndices());
+							copiedPages.forEach((page) => pdfDoc.addPage(page));
+						} else {
+							await appendImageToPdf(pdfDoc, item.file);
+						}
+					}
+				}
+
+				async function buildPdfPacket() {
+					const { PDFDocument, StandardFonts, rgb } = PDFLib;
+					const pdfDoc = await PDFDocument.create();
+					const pdfForm = pdfDoc.getForm();
+					const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+					const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+					const pageWidth = 612;
+					const pageHeight = 792;
+					const margin = 54;
+					const contentWidth = pageWidth - margin * 2;
+					const colors = {
+						ink: rgb(0.09, 0.19, 0.25),
+						muted: rgb(0.31, 0.39, 0.44),
+						accent: rgb(0.72, 0.3, 0.26),
+						soft: rgb(0.98, 0.95, 0.9),
+						line: rgb(0.78, 0.73, 0.67)
+					};
+
+					let page = pdfDoc.addPage([pageWidth, pageHeight]);
+					let cursorY = pageHeight - margin;
+
+					function addPage() {
+						page = pdfDoc.addPage([pageWidth, pageHeight]);
+						cursorY = pageHeight - margin;
+					}
+
+					function ensureSpace(requiredHeight) {
+						if (cursorY - requiredHeight < margin) {
+							addPage();
+						}
+					}
+
+					function drawWrappedText(text, options = {}) {
+						const font = options.font || regularFont;
+						const fontSize = options.size || 11;
+						const lineHeight = options.lineHeight || 14;
+						const x = options.x || margin;
+						const maxWidth = options.maxWidth || (pageWidth - x - margin);
+						const color = options.color || colors.ink;
+						const lines = wrapText(text, font, fontSize, maxWidth);
+
+						lines.forEach((line) => {
+							const extraGap = line === "" ? lineHeight * 0.45 : lineHeight;
+							ensureSpace(extraGap);
+							if (line !== "") {
+								page.drawText(line, {
+									x,
+									y: cursorY - fontSize,
+									size: fontSize,
+									font,
+									color
+								});
+							}
+							cursorY -= extraGap;
+						});
+					}
+
+					function drawHeader() {
+						page.drawRectangle({
+							x: margin,
+							y: pageHeight - 116,
+							width: contentWidth,
+							height: 78,
+							color: colors.soft
+						});
+						page.drawText("PA Professional Development Application", {
+							x: margin + 18,
+							y: pageHeight - 74,
+							size: 20,
+							font: boldFont,
+							color: colors.ink
+						});
+						page.drawText("Conference / event funding packet for review and signature routing", {
+							x: margin + 18,
+							y: pageHeight - 94,
+							size: 11,
+							font: regularFont,
+							color: colors.muted
+						});
+						page.drawText("Estimated total: " + currencyFormatter.format(computeTravelTotal()), {
+							x: pageWidth - margin - 190,
+							y: pageHeight - 94,
+							size: 11,
+							font: boldFont,
+							color: colors.accent
+						});
+						cursorY = pageHeight - 140;
+					}
+
+					function drawSectionTitle(title) {
+						ensureSpace(34);
+						page.drawText(title, {
+							x: margin,
+							y: cursorY - 16,
+							size: 15,
+							font: boldFont,
+							color: colors.accent
+						});
+						page.drawLine({
+							start: { x: margin, y: cursorY - 21 },
+							end: { x: pageWidth - margin, y: cursorY - 21 },
+							thickness: 1,
+							color: colors.line
+						});
+						cursorY -= 34;
+					}
+
+					function drawField(label, value) {
+						ensureSpace(30);
+						page.drawText(label, {
+							x: margin,
+							y: cursorY - 12,
+							size: 11,
+							font: boldFont,
+							color: colors.ink
+						});
+						cursorY -= 18;
+						drawWrappedText(value || "Not provided", {
+							font: regularFont,
+							size: 11,
+							lineHeight: 14,
+							color: colors.muted
+						});
+						cursorY -= 6;
+					}
+
+					function drawCostTable() {
+						const items = getCostItems();
+						const rowHeight = 16;
+						const tableHeight = 28 + items.length * rowHeight + 20;
+						ensureSpace(tableHeight);
+
+						items.forEach((item) => {
+							page.drawText(item.label, {
+								x: margin,
+								y: cursorY - 12,
+								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+							page.drawText(currencyFormatter.format(item.value), {
+								x: pageWidth - margin - 90,
+								y: cursorY - 12,
+								size: 11,
+								font: boldFont,
+								color: colors.ink
+							});
+							cursorY -= rowHeight;
+						});
+
+						page.drawLine({
+							start: { x: margin, y: cursorY + 3 },
+							end: { x: pageWidth - margin, y: cursorY + 3 },
+							thickness: 1,
+							color: colors.line
+						});
+						page.drawText("Total Estimated Cost", {
+							x: margin,
+							y: cursorY - 13,
+							size: 12,
+							font: boldFont,
+							color: colors.accent
+						});
+						page.drawText(currencyFormatter.format(computeTravelTotal()), {
+							x: pageWidth - margin - 110,
+							y: cursorY - 13,
+							size: 12,
+							font: boldFont,
+							color: colors.accent
+						});
+						cursorY -= 28;
+					}
+
+					function drawFundingCallout() {
+						const requestedAmount = currencyFormatter.format(getNumericValue(amountRequestedInput));
+						const capAmount = currencyFormatter.format(computeRequestCap());
+						const boxHeight = 62;
+
+						ensureSpace(boxHeight + 10);
+						page.drawRectangle({
+							x: margin,
+							y: cursorY - boxHeight,
+							width: contentWidth,
+							height: boxHeight,
+							color: rgb(0.95, 0.98, 0.99),
+							borderColor: colors.line,
+							borderWidth: 1
+						});
+						page.drawText("Amount Requested from PD Fund", {
+							x: margin + 16,
+							y: cursorY - 22,
+							size: 12,
+							font: boldFont,
+							color: colors.accent
+						});
+						page.drawText(requestedAmount, {
+							x: pageWidth - margin - 128,
+							y: cursorY - 25,
+							size: 18,
+							font: boldFont,
+							color: colors.accent
+						});
+						page.drawText("Maximum allowed (75% of total, capped at $1,200): " + capAmount, {
+							x: margin + 16,
+							y: cursorY - 42,
+							size: 10,
+							font: regularFont,
+							color: colors.muted
+						});
+						cursorY -= boxHeight + 12;
+					}
+
+					function drawAttachmentSummary() {
+						const files = getAllAttachmentsFlattened();
+						if (files.length === 0) {
+							drawField("Supporting Documentation", "No supporting files were attached to this packet.");
+							return;
+						}
+
+						ensureSpace(24);
+						page.drawText("Supporting Documentation Included", {
+							x: margin,
+							y: cursorY - 12,
+							size: 11,
+							font: boldFont,
+							color: colors.ink
+						});
+						cursorY -= 18;
+						files.forEach((item, index) => {
+							drawWrappedText((index + 1) + ". " + item.fieldLabel + ": " + item.file.name, {
+								font: regularFont,
+								size: 11,
+								lineHeight: 14,
+								color: colors.muted
+							});
+						});
+						cursorY -= 6;
+					}
+
+					function drawSignaturePage() {
+						addPage();
+						page.drawText("Approval Signatures", {
+							x: margin,
+							y: pageHeight - margin - 8,
+							size: 20,
+							font: boldFont,
+							color: colors.ink
+						});
+						page.drawText("Sign after reviewing the application details and attached documentation.", {
+							x: margin,
+							y: pageHeight - margin - 30,
+							size: 11,
+							font: regularFont,
+							color: colors.muted
+						});
+						page.drawText("These signature and date fields are fillable in the downloaded PDF.", {
+							x: margin,
+							y: pageHeight - margin - 48,
+							size: 10,
+							font: regularFont,
+							color: colors.muted
+						});
+
+						const signatureBlocks = [
+							{ key: "applicant", label: "Applicant Signature" },
+							{ key: "supervisor", label: "Supervisor Signature" },
+							{ key: "committee-chair", label: "Professional Development Committee Chair Signature" }
+						];
+						const signatureWidth = pageWidth - margin * 2 - 126;
+						const dateWidth = 96;
+						const fieldHeight = 26;
+						const signatureBlockGap = 96;
+						let y = pageHeight - margin - 132;
+
+						signatureBlocks.forEach((item) => {
+							page.drawText(item.label, {
+								x: margin,
+								y: y + 34,
+								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+							page.drawText("Date", {
+								x: pageWidth - margin - dateWidth,
+								y: y + 34,
+								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+
+							const signatureField = pdfForm.createTextField("signature." + item.key);
+							signatureField.addToPage(page, {
+								x: margin,
+								y,
+								width: signatureWidth,
+								height: fieldHeight,
+								borderColor: colors.line,
+								borderWidth: 1,
+								backgroundColor: rgb(1, 1, 1),
+								textColor: colors.ink,
+								font: regularFont
+							});
+
+							const dateField = pdfForm.createTextField("signature-date." + item.key);
+							dateField.addToPage(page, {
+								x: pageWidth - margin - dateWidth,
+								y,
+								width: dateWidth,
+								height: fieldHeight,
+								borderColor: colors.line,
+								borderWidth: 1,
+								backgroundColor: rgb(1, 1, 1),
+								textColor: colors.ink,
+								font: regularFont
+							});
+
+							y -= signatureBlockGap;
+						});
+
+						page.drawText("Committee Decision", {
+							x: margin,
+							y: y + 54,
+							size: 13,
+							font: boldFont,
+							color: colors.accent
+						});
+
+						const approvedField = pdfForm.createCheckBox("committee.approved");
+						approvedField.addToPage(page, {
+							x: margin,
+							y: y + 30,
+							width: 16,
+							height: 16,
+							borderColor: colors.line,
+							borderWidth: 1,
+							backgroundColor: rgb(1, 1, 1)
+						});
+						page.drawText("Approved", {
+							x: margin + 24,
+							y: y + 34,
+							size: 11,
+							font: regularFont,
+							color: colors.ink
+						});
+
+						const notApprovedField = pdfForm.createCheckBox("committee.not-approved");
+						notApprovedField.addToPage(page, {
+							x: margin + 130,
+							y: y + 30,
+							width: 16,
+							height: 16,
+							borderColor: colors.line,
+							borderWidth: 1,
+							backgroundColor: rgb(1, 1, 1)
+						});
+						page.drawText("Not Approved", {
+							x: margin + 154,
+							y: y + 34,
+							size: 11,
+							font: regularFont,
+							color: colors.ink
+						});
+
+						page.drawText("Amount Awarded", {
+							x: margin,
+							y: y - 2,
+							size: 11,
+							font: regularFont,
+							color: colors.ink
+						});
+
+						const amountAwardedField = pdfForm.createTextField("committee.amount-awarded");
+						amountAwardedField.addToPage(page, {
+							x: margin,
+							y: y - 34,
+							width: 220,
+							height: fieldHeight,
+							borderColor: colors.line,
+							borderWidth: 1,
+							backgroundColor: rgb(1, 1, 1),
+							textColor: colors.ink,
+							font: regularFont
+						});
+					}
+
+					drawHeader();
+					drawField("Applicant Name", getValue("applicant-name"));
+					drawField("Title", getValue("applicant-title") || "Not provided");
+					drawField("Department", getValue("department"));
+					drawField("Supervisor", getValue("supervisor-name") || "Not provided");
+					drawField("Email", getValue("email"));
+					drawField("Phone", getValue("phone") || "Not provided");
+					drawField("Application Date", formatDate(getValue("application-date")));
+
+					drawSectionTitle("Event Details");
+					drawField("Conference / Event", getValue("event-name"));
+					drawField("Delivery Mode", getValue("delivery-mode") || "Not provided");
+					drawField("Event Dates", formatRange(getValue("event-start-date"), getValue("event-end-date"), formatDate));
+					drawField("Description and Justification", getValue("rationale"));
+
+					drawSectionTitle("Travel Cost Estimate");
+					drawCostTable();
+					drawField("Vehicle Comparison", getVehicleComparisonSummary());
+
+					drawSectionTitle("Funding Request");
+					drawFundingCallout();
+					drawField("Funding Summary", getFundingRequestSummary());
+
+					drawSectionTitle("Attachments");
+					drawAttachmentSummary();
+
+					drawSignaturePage();
+					pdfForm.updateFieldAppearances(regularFont);
+					await appendAttachmentsToPdf(pdfDoc);
+					return pdfDoc.save();
+				}
+
+				async function generatePdfPacket() {
+					const approvalReminder = "Next steps:\n1. Get your supervisor's approval first.\n2. Then email the signed application to the chair of the Professional Development Committee for review.\n3. This signed application will count as your travel authorization.";
+
+					if (!window.PDFLib) {
+						setStatus("The PDF library did not load. Refresh the page and try again.", "error");
+						return;
+					}
+
+					updateAmountRequestedValidity();
+
+					if (!form.reportValidity()) {
+						setStatus("Please complete the required fields before generating the PDF packet.", "error");
+						return;
+					}
+
+					const missingUploads = validateFieldUploads();
+					if (missingUploads.length > 0) {
+						setStatus("Attach documentation for: " + missingUploads.map((config) => config.label).join(", ") + " before generating the PDF packet.", "error");
+						return;
+					}
+
+					generateButton.disabled = true;
+					resetButton.disabled = true;
+					setStatus("Building the PDF packet and appending supporting documentation...", "working");
+
+					try {
+						const pdfBytes = await buildPdfPacket();
+						const blob = new Blob([pdfBytes], { type: "application/pdf" });
+						const downloadUrl = URL.createObjectURL(blob);
+						const link = document.createElement("a");
+						link.href = downloadUrl;
+						link.download = buildFileName();
+						document.body.appendChild(link);
+						link.click();
+						link.remove();
+						window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 2000);
+						setStatus("PDF packet generated successfully. Download it, get your supervisor's approval first, then email the signed application to the chair of the Professional Development Committee for review. This signed application counts as travel authorization.", "success");
+						window.alert(approvalReminder);
+					} catch (error) {
+						console.error(error);
+						setStatus("Unable to generate the PDF packet: " + error.message, "error");
+					} finally {
+						generateButton.disabled = false;
+						resetButton.disabled = false;
+					}
+				}
+
+				[
+					costRegistrationInput, costLodgingInput, costOtherMaterialsInput, costAirfareInput,
+					costRailInput, costTaxiInput, costTollsInput, costParkingInput,
+					rentalDaysInput, rentalDailyRateInput, mileageMilesInput, mileageRateInput,
+					document.getElementById("meal-breakfast-qty"), document.getElementById("meal-breakfast-rate"),
+					document.getElementById("meal-lunch-qty"), document.getElementById("meal-lunch-rate"),
+					document.getElementById("meal-dinner-qty"), document.getElementById("meal-dinner-rate")
+				].forEach((input) => {
+					input.addEventListener("input", updateTravelTotals);
+				});
+
+				amountRequestedInput.addEventListener("input", () => {
+					amountRequestedInput.dataset.userEdited = "true";
+					updateAmountRequestedValidity();
+					summaryRequestedDisplay.textContent = currencyFormatter.format(getNumericValue(amountRequestedInput));
+				});
+
+				deliveryModeInput.addEventListener("change", handleDeliveryModeChange);
+				generateButton.addEventListener("click", generatePdfPacket);
+
+				resetButton.addEventListener("click", () => {
+					form.reset();
+					previousDeliveryMode = deliveryModeInput.value;
+					amountRequestedInput.dataset.userEdited = "";
+
+					fieldUploadConfigs.forEach((config) => {
+						const previewUrls = previewUrlsByField.get(config.key);
+						for (const url of previewUrls.values()) {
+							URL.revokeObjectURL(url);
+						}
+						previewUrls.clear();
+						attachmentsByField.set(config.key, []);
+						renderFieldAttachments(config);
+					});
+
+					setDefaultDates();
+					updateTravelTotals();
+					updateSummaryFiles();
+					setStatus("Form cleared. You can start a fresh application packet.", "neutral");
+				});
+
+				window.addEventListener("beforeunload", () => {
+					for (const previewUrls of previewUrlsByField.values()) {
+						for (const url of previewUrls.values()) {
+							URL.revokeObjectURL(url);
+						}
+					}
+				});
+
+				buildFieldUploadUI();
+				setDefaultDates();
+				previousDeliveryMode = deliveryModeInput.value;
+				updateTravelTotals();
+				updateSummaryFiles();
+				setStatus("Complete the fields above, add supporting documentation for any nonzero cost, and generate a PDF packet when you are ready.");
+			});
+		</script>
+	</head>
+	<body>
+		<main class="grant-page">
+			<section class="grant-shell">
+						<div class="grant-hero">
+							<div class="grant-hero-grid">
+								<div>
+									<span class="grant-kicker">Professional Association</span>
+									<h1>Professional Association Professional Development Funding Application</h1>
+									<h3>An application builder for conferences, workshops, and other eligible professional development per PA contract.</h3>
+									<p>
+										This page lets you build a conference packet, then generates a completed PDF application for you to forward to your supervisor, cabinet member, and then the Professional Development Committee for review.  Please note: For all cost estimates, documentation must be provided.
+									</p>
+									<p class="grant-hero-label">Monthly Review Deadlines</p>
+									<ul class="grant-hero-points" aria-label="Monthly review deadlines">
+										<li>9/18/26</li>
+										<li>10/16/26</li>
+										<li>11/13/26</li>
+										<li>12/11/26</li>
+										<li>1/22/27</li>
+										<li>2/19/27</li>
+										<li>3/19/27</li>
+										<li>4/16/27</li>
+										<li>5/21/27</li>
+										<li>6/18/27</li>
+										<li>7/23/27</li>
+										<li>8/20/27</li>
+									</ul>
+									<p class="grant-hero-note">Submit the completed application and all supporting documents by email to the Committee Chair well before your event &mdash; proposals received too late to be reviewed before the event will be returned.</p>
+									<p class="grant-hero-note"><strong>26/27 Committee Members:</strong> Leticia Kalweit, Jaylea Ransom, Bryce Preston, Bob Potter, Carey Phillips</p>
+									<!-- TODO(Sean): replace # with the real link to the Process & Policy reference sheet -->
+									<p class="grant-hero-note">For more information on eligibility and details regarding the application process, visit <a href="#">insert link here</a>.</p>
+								</div>
+								<aside class="grant-summary-card" aria-label="Packet summary">
+									<h2>Packet Snapshot</h2>
+									<p class="grant-small-note">The generated PDF includes the completed application, funding summary, signature lines, and every uploaded file appended at the end.</p>
+									<div class="grant-summary-grid">
+										<div class="grant-stat">
+											<span class="grant-stat-label">Estimated Total</span>
+											<span class="grant-stat-value" id="summary-total">$0.00</span>
+											<span class="grant-stat-note">Automatically updated from the cost estimator.</span>
+										</div>
+										<div class="grant-stat">
+											<span class="grant-stat-label">Amount Requested</span>
+											<span class="grant-stat-value" id="summary-requested">$0.00</span>
+											<span class="grant-stat-note">Capped at 75% of the total, or $1,200, whichever is lower.</span>
+										</div>
+										<div class="grant-stat">
+											<span class="grant-stat-label">Supporting Files</span>
+											<span class="grant-stat-value" id="summary-files">0 files</span>
+											<span class="grant-stat-note">PDFs and screenshots are appended after the signature page.</span>
+										</div>
+									</div>
+								</aside>
+							</div>
+						</div>
+
+						<section class="grant-form-card">
+							<form id="funds-form" class="grant-form" action="#" method="post">
+								<div class="grant-section">
+									<div class="grant-section-header">
+										<h2>Applicant &amp; Event</h2>
+										<p>Provide the applicant and event details exactly as they should appear on the final PDF.</p>
+									</div>
+
+									<fieldset class="grant-fieldset">
+										<legend>Applicant</legend>
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="applicant-name">Name <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" id="applicant-name" name="applicant-name" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="applicant-title">Title <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" id="applicant-title" name="applicant-title" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="department">Department <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" id="department" name="department" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="supervisor-name">Supervisor</label>
+												</div>
+												<input type="text" id="supervisor-name" name="supervisor-name" placeholder="For routing and signature coordination" />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label for="email">Email <span class="grant-required">*</span></label>
+												</div>
+												<input type="email" id="email" name="email" required />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label for="phone">Phone</label>
+												</div>
+												<input type="tel" id="phone" name="phone" />
+											</div>
+											<div class="col-4 col-12-small">
+												<div class="grant-label-row">
+													<label for="application-date">Date of Application <span class="grant-required">*</span></label>
+												</div>
+												<input type="date" id="application-date" name="application-date" required />
+											</div>
+										</div>
+									</fieldset>
+
+									<fieldset class="grant-fieldset">
+										<legend>Event</legend>
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="event-name">Conference / Event <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" id="event-name" name="event-name" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="delivery-mode">Delivery Mode <span class="grant-required">*</span></label>
+												</div>
+												<select id="delivery-mode" name="delivery-mode" required>
+													<option value="">- Select mode -</option>
+													<option>In Person</option>
+													<option>Hybrid</option>
+													<option>Virtual</option>
+												</select>
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="event-start-date">Dates &ndash; From <span class="grant-required">*</span></label>
+												</div>
+												<input type="date" id="event-start-date" name="event-start-date" required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="event-end-date">Dates &ndash; To <span class="grant-required">*</span></label>
+												</div>
+												<input type="date" id="event-end-date" name="event-end-date" required />
+											</div>
+											<div class="col-12">
+												<div class="grant-label-row">
+													<label for="rationale">Brief Description and Justification of Event (Conference Rationale) <span class="grant-required">*</span></label>
+													<span class="grant-help">This appears as a full narrative section on the PDF.</span>
+												</div>
+												<textarea id="rationale" name="rationale" rows="8" required placeholder="Describe the event, why it matters, and how the requested support will advance your professional development."></textarea>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+
+								<div class="grant-section">
+									<div class="grant-section-header">
+										<h2>Travel Cost Estimator</h2>
+										<p>Enter projected costs and the page will total them automatically for the application packet. Vehicle reimbursement uses the lower of rental cost or mileage cost based on the rates below.  If not using a rental or personal vehicle, just enter zeroes in those fields.  If attending a virtual conference, please enter zeroes for all travel-related entries here.</p>
+									</div>
+
+									<fieldset class="grant-fieldset">
+										<legend>Registration &amp; Lodging</legend>
+										<div class="grant-cost-grid">
+											<div class="grant-cost-card">
+												<label for="cost-registration">Registration Fee <span class="grant-required">*</span></label>
+												<input type="number" id="cost-registration" min="0" step="0.01" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-lodging">Lodging <span class="grant-required">*</span></label>
+												<input type="number" id="cost-lodging" min="0" step="0.01" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-other-materials">Other Materials Required by Conference <span class="grant-required">*</span></label>
+												<input type="number" id="cost-other-materials" min="0" step="0.01" required />
+												<p class="grant-small-note">Attach an itemized list.</p>
+											</div>
+										</div>
+									</fieldset>
+
+									<fieldset class="grant-fieldset">
+										<legend>Travel</legend>
+										<div class="grant-vehicle-grid">
+											<div class="grant-cost-card">
+												<label for="cost-rental-days">Rental Car Days Needed <span class="grant-required">*</span></label>
+												<input type="number" id="cost-rental-days" min="0" step="1" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="rental-daily-rate">Rental Car Per Day <span class="grant-required">*</span></label>
+												<input type="number" id="rental-daily-rate" min="0" step="0.01" value="42.00" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-mileage-miles">Personal Vehicle Miles <span class="grant-required">*</span></label>
+												<input type="number" id="cost-mileage-miles" min="0" step="0.1" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="mileage-rate">Mileage Rate <span class="grant-required">*</span></label>
+												<input type="number" id="mileage-rate" min="0" step="0.01" value="0.725" required />
+											</div>
+											<div class="grant-vehicle-result">
+												<strong>Vehicle Cost Used in Total</strong>
+												<span id="vehicle-cost-used">$0.00</span>
+												<p class="grant-small-note">The lower of rental days x daily rate or miles x mileage rate is counted automatically.</p>
+											</div>
+										</div>
+										<div class="grant-cost-grid">
+											<div class="grant-cost-card">
+												<label for="cost-airfare">Airfare <span class="grant-required">*</span></label>
+												<input type="number" id="cost-airfare" min="0" step="0.01" required />
+												<p class="grant-small-note">Must be booked through the college's travel agent; documentation must be attached.</p>
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-rail">Rail <span class="grant-required">*</span></label>
+												<input type="number" id="cost-rail" min="0" step="0.01" required />
+												<p class="grant-small-note">Must be booked through the college's travel agent; documentation must be attached.</p>
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-taxi">Taxi / Rideshare <span class="grant-required">*</span></label>
+												<input type="number" id="cost-taxi" min="0" step="0.01" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-tolls">Tolls <span class="grant-required">*</span></label>
+												<input type="number" id="cost-tolls" min="0" step="0.01" required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="cost-parking">Parking <span class="grant-required">*</span></label>
+												<input type="number" id="cost-parking" min="0" step="0.01" required />
+											</div>
+										</div>
+									</fieldset>
+
+									<fieldset class="grant-fieldset">
+										<legend>Meals (Per Diem)</legend>
+										<p class="grant-small-note">Meals (per diem) &mdash; count only the meals the conference does NOT provide. Check each day's agenda separately; a multi-day conference may cover breakfast on some days but not others, so the quantity below is a total count across all days, not a per-day yes/no. Per diem rates are from the <a href="https://www.gsa.gov/travel/plan-book/per-diem-rates" target="_blank" rel="noopener">GSA site</a>.</p>
+										<div class="grant-cost-grid">
+											<div class="grant-cost-card">
+												<label for="meal-breakfast-qty">Breakfast &mdash; Count</label>
+												<input type="number" id="meal-breakfast-qty" min="0" step="1" value="0" />
+												<label for="meal-breakfast-rate">Per Diem Allowance</label>
+												<input type="number" id="meal-breakfast-rate" min="0" step="0.01" value="0" />
+												<p class="grant-small-note">Cost: <span id="meal-breakfast-cost">$0.00</span></p>
+											</div>
+											<div class="grant-cost-card">
+												<label for="meal-lunch-qty">Lunch &mdash; Count</label>
+												<input type="number" id="meal-lunch-qty" min="0" step="1" value="0" />
+												<label for="meal-lunch-rate">Per Diem Allowance</label>
+												<input type="number" id="meal-lunch-rate" min="0" step="0.01" value="0" />
+												<p class="grant-small-note">Cost: <span id="meal-lunch-cost">$0.00</span></p>
+											</div>
+											<div class="grant-cost-card">
+												<label for="meal-dinner-qty">Dinner &mdash; Count</label>
+												<input type="number" id="meal-dinner-qty" min="0" step="1" value="0" />
+												<label for="meal-dinner-rate">Per Diem Allowance</label>
+												<input type="number" id="meal-dinner-rate" min="0" step="0.01" value="0" />
+												<p class="grant-small-note">Cost: <span id="meal-dinner-cost">$0.00</span></p>
+											</div>
+										</div>
+										<div class="grant-total-bar">
+											<div class="grant-total-label">
+												<strong>Meals Subtotal</strong>
+												<span>Sum of the three rows above.</span>
+											</div>
+											<div class="grant-total-amount" id="meals-subtotal">$0.00</div>
+										</div>
+									</fieldset>
+
+									<div class="grant-total-bar">
+										<div class="grant-total-label">
+											<strong>Total Estimated Travel Cost</strong>
+											<span>The total updates instantly and is carried into the PDF packet.</span>
+										</div>
+										<div class="grant-total-amount" id="travel-total">$0.00</div>
+									</div>
+
+									<div class="grant-funding-grid">
+										<div class="grant-cost-card">
+											<label for="amount-requested">Amount Requested from PD Fund <span class="grant-required">*</span></label>
+											<input type="number" id="amount-requested" name="amount-requested" min="0" step="0.01" required />
+											<p class="grant-small-note" id="amount-requested-cap-note">Awards cover up to 75% of estimated expenses, not to exceed $1,200.</p>
+										</div>
+										<div class="grant-cost-card">
+											<label for="other-funding-amount">Planned Funding from Other Sources</label>
+											<input type="number" id="other-funding-amount" name="other-funding-amount" min="0" step="0.01" value="0" />
+										</div>
+										<div class="grant-cost-card">
+											<label for="other-funding-source">Other Funding Source(s)</label>
+											<input type="text" id="other-funding-source" name="other-funding-source" placeholder="Department line, other travel funds, self, etc." />
+										</div>
+									</div>
+								</div>
+
+								<div class="grant-section">
+									<div class="grant-section-header">
+										<h2>Supporting Documentation</h2>
+										<p>Attach the event materials, travel documentation, and quotes that support each nonzero cost above.  ALL cost estimates above must be supported by documentation.  A documentation box below only appears once its matching cost is entered.</p>
+									</div>
+									<div id="field-upload-groups" class="grant-field-upload-groups"></div>
+								</div>
+
+								<div class="grant-section">
+									<div class="grant-section-header">
+										<h2>PDF Packet Preview</h2>
+										<p>The generated document includes fillable signature and date fields and preserves your supporting files at the end. After you fill out and sign, send to your supervisor for signature, then to your cabinet member, then to the Professional Development Committee Chair.</p>
+									</div>
+									<div class="grant-packet-preview">
+										<div class="grant-preview-card">
+											<h3>What the packet includes</h3>
+											<p class="grant-small-note">Application details, funding summary, attachment list, appended documents, and fillable signature fields.</p>
+										</div>
+										<div class="grant-preview-card">
+											<h3>Fillable approval fields</h3>
+											<div class="grant-signature-stack">
+												<div class="grant-signature-line">Applicant signature and date</div>
+												<div class="grant-signature-line">Supervisor signature and date</div>
+												<div class="grant-signature-line">Professional Development Committee Chair signature and date</div>
+												<div class="grant-signature-line">Committee decision (Approved / Not Approved) and amount awarded</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="grant-section">
+									<div class="grant-actions">
+										<button type="button" id="generate-pdf" class="button primary large">Generate PDF Packet</button>
+										<button type="button" id="reset-form" class="button large">Clear Form</button>
+									</div>
+									<p id="pdf-status" class="grant-status" aria-live="polite"></p>
+								</div>
+							</form>
+						</section>
+					</section>
+			<p class="grant-footer">PA Professional Development Committee application builder. Latest update: August 19, 2026.</p>
+		</main>
+	</body>
+</html>
