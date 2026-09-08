@@ -721,11 +721,17 @@
 				const uploadList = document.getElementById("upload-list");
 				const uploadCount = document.getElementById("upload-count");
 				const statusBox = document.getElementById("pdf-status");
+				const draftStatusBox = document.getElementById("draft-status");
+				const saveDraftFileButton = document.getElementById("save-draft-file");
+				const loadDraftFileButton = document.getElementById("load-draft-file");
+				const draftFileInput = document.getElementById("draft-file-input");
 				const generateButton = document.getElementById("generate-pdf");
 				const resetButton = document.getElementById("reset-form");
 				const currencyFormatter = new Intl.NumberFormat("en-US", {
 					style: "currency",
-					currency: "USD"
+					currency: "USD",
+					minimumFractionDigits: 2,
+					maximumFractionDigits: 3
 				});
 				const facultyDevelopmentAnnualLimit = 1100;
 				let currentMode = "conference";
@@ -733,6 +739,10 @@
 
 				let attachments = [];
 				const previewUrls = new Map();
+
+				const draftStorageKey = "fdc-application-draft-v1";
+				let draftSaveTimer = null;
+				let isRestoringDraft = false;
 
 				function todayAsInputValue() {
 					const now = new Date();
@@ -1938,6 +1948,197 @@
 					}
 				}
 
+
+				function setDraftStatus(message) {
+					draftStatusBox.textContent = message;
+				}
+
+				function formatSavedAt(value) {
+					const savedDate = new Date(value);
+					if (Number.isNaN(savedDate.getTime())) {
+						return "an earlier session";
+					}
+
+					return savedDate.toLocaleString("en-US", {
+						month: "short",
+						day: "numeric",
+						hour: "numeric",
+						minute: "2-digit"
+					});
+				}
+
+				function collectDraft() {
+					const fields = {};
+
+					form.querySelectorAll("input, select, textarea").forEach((field) => {
+						if (!field.id || field.type === "file" || field.closest("[data-tuition-course]")) {
+							return;
+						}
+
+						fields[field.id] = field.type === "checkbox" ? field.checked : field.value;
+					});
+
+					const courses = getTuitionCourseCards().map((course) => {
+						const values = {};
+						course.querySelectorAll("[data-course-field]").forEach((field) => {
+							values[field.dataset.courseField] = field.value;
+						});
+						return values;
+					});
+
+					return {
+						version: 1,
+						savedAt: new Date().toISOString(),
+						mode: currentMode,
+						fields,
+						courses
+					};
+				}
+
+				function applyDraft(draft) {
+					if (!draft || typeof draft !== "object" || !draft.fields || typeof draft.fields !== "object") {
+						return false;
+					}
+
+					isRestoringDraft = true;
+
+					try {
+						const courses = Array.isArray(draft.courses) && draft.courses.length > 0 ? draft.courses : [{}];
+						tuitionCoursesContainer.innerHTML = "";
+
+						courses.forEach((values) => {
+							addTuitionCourse();
+							const cards = getTuitionCourseCards();
+							const card = cards[cards.length - 1];
+							card.querySelectorAll("[data-course-field]").forEach((field) => {
+								const stored = values && values[field.dataset.courseField];
+								if (typeof stored === "string") {
+									field.value = stored;
+								}
+							});
+						});
+
+						updateTuitionCourseCardLabels();
+
+						Object.keys(draft.fields).forEach((fieldId) => {
+							const field = document.getElementById(fieldId);
+							if (!field || field.type === "file") {
+								return;
+							}
+
+							const stored = draft.fields[fieldId];
+							if (field.type === "checkbox") {
+								field.checked = Boolean(stored);
+							} else if (typeof stored === "string") {
+								field.value = stored;
+							}
+						});
+
+						setDefaultDates();
+						previousDeliveryMode = deliveryModeInput.value;
+						setMode(draft.mode === "tuition" ? "tuition" : "conference");
+						updateTravelTotals();
+						updateTuitionTotals();
+						updateFundingEligibility();
+						updateChecklistSummary();
+						return true;
+					} finally {
+						isRestoringDraft = false;
+					}
+				}
+
+				function saveDraft() {
+					try {
+						const draft = collectDraft();
+						window.localStorage.setItem(draftStorageKey, JSON.stringify(draft));
+						setDraftStatus("Draft saved in this browser at " + formatSavedAt(draft.savedAt) + ". Supporting files are not saved.");
+					} catch (error) {
+						setDraftStatus("This browser is not storing drafts, so use Save Draft File to keep a copy of your work.");
+					}
+				}
+
+				function scheduleDraftSave() {
+					if (isRestoringDraft) {
+						return;
+					}
+
+					window.clearTimeout(draftSaveTimer);
+					draftSaveTimer = window.setTimeout(saveDraft, 500);
+				}
+
+				function clearStoredDraft() {
+					window.clearTimeout(draftSaveTimer);
+
+					try {
+						window.localStorage.removeItem(draftStorageKey);
+					} catch (error) {
+						// Nothing to clear when storage is unavailable.
+					}
+				}
+
+				function restoreDraft() {
+					let storedDraft = null;
+
+					try {
+						storedDraft = window.localStorage.getItem(draftStorageKey);
+					} catch (error) {
+						return false;
+					}
+
+					if (!storedDraft) {
+						return false;
+					}
+
+					let draft = null;
+					try {
+						draft = JSON.parse(storedDraft);
+					} catch (error) {
+						clearStoredDraft();
+						return false;
+					}
+
+					if (!applyDraft(draft)) {
+						clearStoredDraft();
+						return false;
+					}
+
+					setDraftStatus("Restored the draft you saved in this browser on " + formatSavedAt(draft.savedAt) + ". Supporting files are not saved, so add those again before generating the packet.");
+					return true;
+				}
+
+				function buildDraftFileName() {
+					return buildFileName().replace(/\.pdf$/, "") + "-draft.json";
+				}
+
+				function downloadDraftFile() {
+					const draft = collectDraft();
+					const blob = new Blob([JSON.stringify(draft, null, 2)], { type: "application/json" });
+					const downloadUrl = URL.createObjectURL(blob);
+					const link = document.createElement("a");
+					link.href = downloadUrl;
+					link.download = buildDraftFileName();
+					document.body.appendChild(link);
+					link.click();
+					link.remove();
+					window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 2000);
+					setDraftStatus("Draft file downloaded. Open it later with Load Draft File, on this computer or another one.");
+				}
+
+				async function loadDraftFile(file) {
+					try {
+						const draft = JSON.parse(await file.text());
+
+						if (!applyDraft(draft)) {
+							throw new Error("The file did not contain application fields.");
+						}
+
+						saveDraft();
+						setStatus("Draft loaded from " + file.name + ". Add your supporting files again before generating the packet.", "success");
+					} catch (error) {
+						setStatus("That file is not a saved application draft: " + error.message, "error");
+					}
+				}
+
 				uploadInput.addEventListener("change", (event) => {
 					addFiles(event.target.files);
 					uploadInput.value = "";
@@ -1994,6 +2195,7 @@
 						courseCard.remove();
 						updateTuitionCourseCardLabels();
 						updateTuitionTotals();
+						scheduleDraftSave();
 					}
 				});
 
@@ -2015,7 +2217,33 @@
 
 				generateButton.addEventListener("click", generatePdfPacket);
 
+				form.addEventListener("input", scheduleDraftSave);
+				form.addEventListener("change", scheduleDraftSave);
+
+				tabButtons.forEach((button) => {
+					button.addEventListener("click", scheduleDraftSave);
+				});
+
+				addTuitionCourseButton.addEventListener("click", scheduleDraftSave);
+
+				saveDraftFileButton.addEventListener("click", downloadDraftFile);
+
+				loadDraftFileButton.addEventListener("click", () => draftFileInput.click());
+
+				draftFileInput.addEventListener("change", (event) => {
+					const [file] = event.target.files;
+					if (file) {
+						loadDraftFile(file);
+					}
+					draftFileInput.value = "";
+				});
+
 				resetButton.addEventListener("click", () => {
+					if (!window.confirm("Clear this form and delete the draft saved in this browser?")) {
+						return;
+					}
+
+					clearStoredDraft();
 					form.reset();
 					previousDeliveryMode = deliveryModeInput.value;
 					revokePreviewUrls();
@@ -2029,9 +2257,15 @@
 					setMode(currentMode);
 					renderAttachments();
 					setStatus("Form cleared. You can start a fresh application packet.", "neutral");
+					setDraftStatus("Saved draft deleted. New entries will start saving again as you type.");
 				});
 
-				window.addEventListener("beforeunload", revokePreviewUrls);
+				window.addEventListener("beforeunload", () => {
+					revokePreviewUrls();
+					if (!isRestoringDraft) {
+						saveDraft();
+					}
+				});
 
 				addTuitionCourse();
 				setDefaultDates();
@@ -2043,6 +2277,10 @@
 				setMode("conference");
 				renderAttachments();
 				setStatus("Complete the fields for the active tab, add supporting files, and generate a PDF packet when you are ready.");
+
+				if (!restoreDraft()) {
+					setDraftStatus("Your entries save automatically in this browser, so a typo or a closed tab will not cost you the form. Supporting files are not saved.");
+				}
 			});
 		</script>
 	</head>
@@ -2292,35 +2530,35 @@
 										<div class="grant-cost-grid">
 											<div class="grant-cost-card">
 												<label for="cost-airfare">Airfare <span class="grant-required">*</span></label>
-												<input type="number" id="cost-airfare" min="0" step="0.01" data-cost-item data-cost-label="Airfare" required />
+												<input type="number" id="cost-airfare" min="0" step="0.001" data-cost-item data-cost-label="Airfare" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-lodging">Lodging <span class="grant-required">*</span></label>
-												<input type="number" id="cost-lodging" min="0" step="0.01" data-cost-item data-cost-label="Lodging" required />
+												<input type="number" id="cost-lodging" min="0" step="0.001" data-cost-item data-cost-label="Lodging" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-meals">Meals <span class="grant-required">*</span></label>
-												<input type="number" id="cost-meals" min="0" step="0.01" data-cost-item data-cost-label="Meals" required />
+												<input type="number" id="cost-meals" min="0" step="0.001" data-cost-item data-cost-label="Meals" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-registration">Registration <span class="grant-required">*</span></label>
-												<input type="number" id="cost-registration" min="0" step="0.01" data-cost-item data-cost-label="Registration" required />
+												<input type="number" id="cost-registration" min="0" step="0.001" data-cost-item data-cost-label="Registration" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-ground">Ground Transportation <span class="grant-required">*</span></label>
-												<input type="number" id="cost-ground" min="0" step="0.01" data-cost-item data-cost-label="Ground Transportation" required />
+												<input type="number" id="cost-ground" min="0" step="0.001" data-cost-item data-cost-label="Ground Transportation" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-tolls">Tolls <span class="grant-required">*</span></label>
-												<input type="number" id="cost-tolls" min="0" step="0.01" data-cost-item data-cost-label="Tolls" required />
+												<input type="number" id="cost-tolls" min="0" step="0.001" data-cost-item data-cost-label="Tolls" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-parking">Parking <span class="grant-required">*</span></label>
-												<input type="number" id="cost-parking" min="0" step="0.01" data-cost-item data-cost-label="Parking" required />
+												<input type="number" id="cost-parking" min="0" step="0.001" data-cost-item data-cost-label="Parking" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-other">Other <span class="grant-required">*</span></label>
-												<input type="number" id="cost-other" min="0" step="0.01" data-cost-item data-cost-label="Other" required />
+												<input type="number" id="cost-other" min="0" step="0.001" data-cost-item data-cost-label="Other" required />
 											</div>
 										</div>
 										<div class="grant-vehicle-grid">
@@ -2330,15 +2568,15 @@
 											</div>
 											<div class="grant-cost-card">
 												<label for="rental-daily-rate">Rental Car Per Day <span class="grant-required">*</span></label>
-												<input type="number" id="rental-daily-rate" min="0" step="0.01" value="42.00" required />
+												<input type="number" id="rental-daily-rate" min="0" step="0.001" value="42.00" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="cost-mileage-miles">Personal Vehicle Miles <span class="grant-required">*</span></label>
-												<input type="number" id="cost-mileage-miles" min="0" step="0.1" required />
+												<input type="number" id="cost-mileage-miles" min="0" step="0.001" required />
 											</div>
 											<div class="grant-cost-card">
 												<label for="mileage-rate">Mileage Rate <span class="grant-required">*</span></label>
-												<input type="number" id="mileage-rate" min="0" step="0.01" value="0.725" required />
+												<input type="number" id="mileage-rate" min="0" step="0.001" value="0.725" required />
 											</div>
 											<div class="grant-vehicle-result">
 												<strong>Vehicle Cost Used in Total</strong>
@@ -2444,11 +2682,11 @@
 										<div class="grant-funding-grid">
 											<div class="grant-cost-card">
 												<label data-course-label="tuition-amount">Tuition Amount <span class="grant-required">*</span></label>
-												<input type="number" min="0" step="0.01" data-course-field="tuition-amount" data-tuition-cost required />
+												<input type="number" min="0" step="0.001" data-course-field="tuition-amount" data-tuition-cost required />
 											</div>
 											<div class="grant-cost-card">
 												<label data-course-label="tuition-fees">Required Fees <span class="grant-required">*</span></label>
-												<input type="number" min="0" step="0.01" data-course-field="tuition-fees" data-tuition-cost required />
+												<input type="number" min="0" step="0.001" data-course-field="tuition-fees" data-tuition-cost required />
 											</div>
 											<div class="grant-vehicle-result">
 												<strong>Course Total</strong>
@@ -2487,7 +2725,7 @@
 									<div class="grant-funding-grid">
 										<div class="grant-cost-card">
 											<label for="already-sought-fdf">Already Sought from Faculty Development This Academic Year <span class="grant-required">*</span></label>
-											<input type="number" id="already-sought-fdf" name="already-sought-fdf" min="0" step="0.01" required />
+											<input type="number" id="already-sought-fdf" name="already-sought-fdf" min="0" step="0.001" required />
 										</div>
 										<div class="grant-vehicle-result">
 											<strong>Remaining Faculty Development Eligibility</strong>
@@ -2496,11 +2734,11 @@
 										</div>
 										<div class="grant-cost-card">
 											<label for="faculty-development-request">Total Requested from Faculty Development on This Application <span class="grant-required">*</span></label>
-											<input type="number" id="faculty-development-request" name="faculty-development-request" min="0" step="0.01" required />
+											<input type="number" id="faculty-development-request" name="faculty-development-request" min="0" step="0.001" required />
 										</div>
 										<div class="grant-cost-card">
 											<label for="other-funding-amount">Planned from Other Funding Sources <span class="grant-required">*</span></label>
-											<input type="number" id="other-funding-amount" name="other-funding-amount" min="0" step="0.01" required />
+											<input type="number" id="other-funding-amount" name="other-funding-amount" min="0" step="0.001" required />
 										</div>
 										<div class="grant-cost-card">
 											<label for="other-funding-source">Other Funding Source(s)</label>
@@ -2634,8 +2872,12 @@
 									<div class="grant-actions">
 										<button type="button" id="generate-pdf" class="button primary large">Generate PDF Packet</button>
 										<button type="button" id="reset-form" class="button large">Clear Form</button>
+										<button type="button" id="save-draft-file" class="button large">Save Draft File</button>
+										<button type="button" id="load-draft-file" class="button large">Load Draft File</button>
+										<input type="file" id="draft-file-input" class="grant-hidden-input" accept="application/json,.json" />
 									</div>
 									<p id="pdf-status" class="grant-status" aria-live="polite"></p>
+									<p id="draft-status" class="grant-small-note" aria-live="polite"></p>
 								</div>
 							</form>
 						</section>
