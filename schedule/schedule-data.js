@@ -56,7 +56,7 @@ window.SCHEDULE_DATA = {
       description: "Mindfulness Based Stress Reduction",
       location: "Online Forum",
       start: "11:30",
-      end: "12:50",
+      end: "12:30",
       days: "MW",
       type: "online"
     },
