@@ -82,8 +82,8 @@ window.SCHEDULE_DATA = {
     {
       title: "Student Hours",
       location: "WebEx / Room 3239",
-      start: "13:00",
-      end: "14:50",
+      start: "12:30",
+      end: "14:20",
       days: "MW",
       type: "office",
       url: "https://flcc.webex.com/join/sean.maley"
