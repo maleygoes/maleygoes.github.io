@@ -1238,9 +1238,31 @@
 						.concat(".pdf");
 				}
 
+				function sanitizeForPdf(value) {
+					const replacements = {
+						"\u00a0": " ", "\u2007": " ", "\u2009": " ", "\u202f": " ", "\u205f": " ", "\u3000": " ",
+						"\u2010": "-", "\u2011": "-", "\u2012": "-", "\u2013": "-", "\u2014": "-", "\u2212": "-",
+						"\u2018": "'", "\u2019": "'", "\u201a": "'", "\u201b": "'",
+						"\u201c": '"', "\u201d": '"', "\u201e": '"',
+						"\u2026": "...", "\u2022": "-", "\u00ad": ""
+					};
+
+					return String(value === null || value === undefined ? "" : value)
+						.normalize("NFC")
+						.replace(/[\u00a0\u2007\u2009\u202f\u205f\u3000\u2010-\u2014\u2212\u2018-\u201e\u2026\u2022\u00ad]/g, (char) => replacements[char])
+						// pdf-lib's standard fonts are WinAnsi-only; drop anything it cannot encode.
+						.replace(/[^\u0020-\u007e\u00a1-\u00ff]/g, "");
+				}
+
+				function withSafeText(page) {
+					const drawTextOriginal = page.drawText.bind(page);
+					page.drawText = (text, options) => drawTextOriginal(sanitizeForPdf(text), options);
+					return page;
+				}
+
 				function wrapText(text, font, fontSize, maxWidth) {
 					const lines = [];
-					const paragraphs = String(text || "")
+					const paragraphs = sanitizeForPdf(text)
 						.replace(/\r/g, "")
 						.split("\n");
 
@@ -1325,7 +1347,7 @@
 					const pageHeight = 792;
 					const margin = 48;
 					const titleSpace = 28;
-					const page = pdfDoc.addPage([pageWidth, pageHeight]);
+					const page = withSafeText(pdfDoc.addPage([pageWidth, pageHeight]));
 					const image = normalizedImage.kind === "png"
 						? await pdfDoc.embedPng(normalizedImage.bytes)
 						: await pdfDoc.embedJpg(normalizedImage.bytes);
@@ -1387,11 +1409,11 @@
 						line: rgb(0.78, 0.73, 0.67)
 					};
 
-					let page = pdfDoc.addPage([pageWidth, pageHeight]);
+					let page = withSafeText(pdfDoc.addPage([pageWidth, pageHeight]));
 					let cursorY = pageHeight - margin;
 
 					function addPage() {
-						page = pdfDoc.addPage([pageWidth, pageHeight]);
+						page = withSafeText(pdfDoc.addPage([pageWidth, pageHeight]));
 						cursorY = pageHeight - margin;
 					}
 
