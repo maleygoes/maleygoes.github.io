@@ -65,26 +65,35 @@ window.SCHEDULE_DATA = {
       title: "MAT 271",
       description: "Single Variable Calculus",
       location: "Online Forum",
-      start: "09:30",
-      end: "10:50",
+      start: "14:00",
+      end: "15:20",
       days: "TR",
       type: "online"
     },
     {
       title: "Student Hours",
-      location: "WebEx / Room 3239",
-      start: "14:00",
-      end: "14:50",
-      days: "TR",
+      location: "WebEx",
+      start: "12:30",
+      end: "14:30",
+      days: "MW",
       type: "office",
       url: "https://flcc.webex.com/join/sean.maley"
     },
     {
       title: "Student Hours",
       location: "WebEx / Room 3239",
-      start: "12:30",
-      end: "14:20",
-      days: "MW",
+      start: "10:00",
+      end: "11:00",
+      days: "T",
+      type: "office",
+      url: "https://flcc.webex.com/join/sean.maley"
+    },
+    {
+      title: "Student Hours",
+      location: "WebEx / Room 3239",
+      start: "13:00",
+      end: "14:00",
+      days: "R",
       type: "office",
       url: "https://flcc.webex.com/join/sean.maley"
     },
@@ -94,14 +103,6 @@ window.SCHEDULE_DATA = {
       start: "13:00",
       end: "14:00",
       days: "T",
-      type: "meeting"
-    },
-{
-      title: "Standing Meeting",
-      location: "Remote",
-      start: "13:00",
-      end: "14:00",
-      days: "R",
       type: "meeting"
     },
     {
