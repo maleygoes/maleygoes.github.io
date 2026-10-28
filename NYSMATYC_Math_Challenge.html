@@ -45,6 +45,34 @@
     body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     .poster { width: 816px; max-width: none; box-shadow: none; break-inside: avoid; }
   }
+
+  /* QR images are embedded and need no external files or scripts. */
+  .links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 28px; font-size: 22px; }
+  .resource { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .qr-code { display: block; width: 184px; height: 184px; max-width: 100%; object-fit: contain; image-rendering: pixelated; background: white; }
+  @media (max-width: 480px) {
+    .links { gap: 18px; font-size: 18px; }
+    .qr-code { width: 148px; height: auto; aspect-ratio: 1; }
+  }
+  @page { size: letter portrait; margin: 0.3in; }
+  @media print {
+    html, body { width: auto; }
+    .poster { width: 100%; max-width: none; }
+    .masthead { min-height: 110px; padding: 8px 46px; }
+    .organization { font-size: 26px; }
+    .logo { width: 140px; }
+    h1 { padding: 14px 46px; font-size: 44px; line-height: 1.05; }
+    .content { padding: 22px 46px 24px; }
+    .date { font-size: 36px; margin-bottom: 8px; }
+    .event { font-size: 28px; line-height: 1.4; }
+    .details { margin-top: 16px; font-size: 22px; }
+    .details p { margin-bottom: 12px; }
+    .prize { font-size: 24px; margin: 16px 0; }
+    .refreshments { font-size: 24px; }
+    .links { margin-top: 22px; font-size: 20px; gap: 20px; break-inside: avoid; }
+    .resource { gap: 10px; }
+    .qr-code { width: 148px; height: 148px; }
+  }
 </style>
 </head>
 <body>
@@ -64,10 +92,14 @@
     <p class="prize">Top FLCC scorer over 24 points<br>wins a prize!</p>
     <p class="refreshments">Pizza and drinks at 2:00 PM</p>
     <nav class="links" aria-label="Exam resources">
-      <a href="https://nysmatyc.org/" target="_blank" rel="noopener noreferrer">nysmatyc.org</a>
-      <img src="images/mathleague.gif" width = "200" height = "200>
-      <a href="https://nysmatyc.org/wp-content/uploads/2026/09/Spring26-Contest-and-Solutions.pdf" target="_blank" rel="noopener noreferrer">Previous exams and answers</a>
-      <img src="images/oldexam.gif" width = "200" height = "200>
+      <a class="resource" href="https://nysmatyc.org/" target="_blank" rel="noopener noreferrer">
+        <img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYwAAAGMCAIAAABGWwIdAAAHAUlEQVR4nO3dQYobMRRF0Thk/1t2xsnACFrI96vOWYC7ym0umjz0er/fvwCqfn/7AQA+ESkgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIC0P99+gP+9Xq9vP8LXvN/vbz/CP1b+F7ue+eTfWuF32OEkBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSIFpIkUkCZSQFpuu7eiti1asWsLtutzVr7Dk7u8iZ78OzzJSQpIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIC0kdu9FSc3SjZcn618Pye3jbfe3zfxd7jCSQpIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIC0a7d7T1a7L2/Xnm7inXH8nJMUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBabZ7w+zauK18zsm/Vbsvjw4nKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtKu3e7ZeX128g67k7u82gbQ7/DnnKSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIG7ndO7k7q6ndc1f7nJOe/Ds8yUkKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSAtFdtD8VnJ/ditd/GxH0fP+ckBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSIFpIkUkCZSQFru3r1b91m199p1F95Eu95r1//ryXvMFU5SQJpIAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSIFpOW2exO3RRN3eSc/Z0VtJ/jkbWONkxSQJlJAmkgBaSIFpIkUkCZSQJpIAWkiBaSJFJAmUkCaSAFpr9pWrnYn2oraM9e2hLWN28R3P7klrDXBSQpIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIC03L17J03cOp3c5e36W7t2Zyffa6Jb7wp0kgLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBt5Havdi/YionbtNrmbpcn32E3kZMUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSO3exOd3HDV/taufd/JO+Nqz7Ni4o5yhZMUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaddu92p3z0108r1q99ztep6J71Xb9zlJAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSIFpIkUkHbtdm/FyTvjdll5ntr9dDUn7wHc9TkT7y7cxUkKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSAtGu3e7Xt1S63vteKifcA1v4XE7eWTlJAmkgBaSIFpIkUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWkvSZueZ6stuE6+Ty1d19Ru7dxIicpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0nL37tXuejtpZcP15N3ZyX1f7d13mfheTlJAmkgBaSIFpIkUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWk5bZ7K2rbohUnN4m33oV38jv0G+twkgLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBt5HZvxZN3XhN3cBO3jSdNfOZdnKSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIu3a792S1Xd6tTr57bf94kpMUkCZSQJpIAWkiBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBabZ7F9q189q1BVt5nl3PPHFLePJ7nrjvc5IC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykg7drt3sQN10S7vuddu7yJOzi/1c+cpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgbud2beHfYLifvnju5yzupdsffrfcJ7uIkBaSJFJAmUkCaSAFpIgWkiRSQJlJAmkgBaSIFpIkUkCZSQNrryZsgoM9JCkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgDSRAtJECkgTKSBNpIA0kQLSRApIEykgTaSANJEC0kQKSBMpIE2kgLS/hOBoQ0Zl0sUAAAAASUVORK5CYII=" width="184" height="184" alt="QR code for the NYSMATYC website">
+        <span>nysmatyc.org</span>
+      </a>
+      <a class="resource" href="https://nysmatyc.org/wp-content/uploads/2026/09/Spring26-Contest-and-Solutions.pdf" target="_blank" rel="noopener noreferrer">
+        <img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhwAAAIcCAIAAAAynOArAAALm0lEQVR4nO3cwW7jyBJFwaeH/v9f9qyngTEK0EEqi4pYGzZFUj6ozX39/Pz8DwAK///0BQDwHKICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYDMn09fwN9er9enL+Fjfn5+Pn0J/3LyLE6uedvvObHtPdx2fyqT78ZTbXumTioAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkFm3/XVi29bNicltoqduZG177tv2uCY3sm7c49r2/pzYdg9POKkAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQObK7a8TT92kmtySOjG5IbZta6t6x258V7e9h5Ubn8U2TioAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkHns9hf8l8mdsROTf2vbNT91/+qbOakAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQMb215ea3GWa3K2qNqmqaz4x+blu3DSzD3YXJxUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyDx2+8te0O+27TJt2+x66u5ZZXIbbZL/G+9zUgEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAzJXbX0/dHZpUbUn5Pe+rrufEtvsz+V32f2OGkwoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZF7VfhEzqv2i6rnfuKd047bVtu/pUz8X73NSASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYDMuu2vbZtLkyb3uCaf+43PdNv34sS2d37bO7bNje/YCScVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMis2/6qbNsCmtz1qlR7XJO7Xk+95hOTn+ub70/1t07c+P/ZSQWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMlduf01u+Jy4cedn29bWpG33eXKP68S253Vi2z7Yto2+SU4qAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJBZt/21bZNq2/3ZZttO1LYNqOpvndj2zt+4iXdi2z3cdn+cVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgs27768S27Z1J1b7TpBufxeR9ntzseuo9PPHN93mSkwoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZB67/bXNN29Jecd+99RttBM3vvP8zkkFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADJXbn9Vtu0OVbbtjJ248Vl883OvTP7/2fYsTty4V+akAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgCZK7e/qj2cbVtA266nsm1nrHLjjtbkltS2+1PZ9h5u46QCQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKAJl1219P3QuqbNtluvF6tm2sPfWzn3DN79v2P9xJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyV25/TV7zU69n2+85sW0DqvLUfbCn/m/Z9nu2cVIBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgMyfT1/Adk/drbpx42jyWdy4ubTtmrfd523358S2e3jCSQWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMo/d/prczNn2t6rfU13zjTtjlep5bdvImnxelW0bWdvuT8VJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyr217OCcm95S+eZNqcpto2zbatu/Ftnf+Rt/8fZ/kpAJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAmXXbX9s2jrb9nsqNO2OVbfd52/Wc2PbOb3t/vnkfzEkFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADJXbn9N7hedeOo+2Iltz6Ky7XuxzY3P65s31iY5qQCQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJAZt3214kbd4cq2z57ZdtWkq22923brZrc+vtmTioAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkPnz6Qv4243bTTaFfjf5uSbfjcq293nStuupbPs/NslJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyr227MTduAT31Hm7bJtq2gzT5rk7uem17nyvb9tOeep+dVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgc+X217YtqW17ZdueacW78bttu1Xbnldl2zVv+747qQCQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJA5rHbX9u2m7bd56ea3Js64f15343P9Jufl5MKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGQeu/1V/a1J2/aLTmy75slduBNPvWbet+25V5xUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASCzbvuL333zLtO2nbHKtp2xylP35U48ddfrhJMKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGT+fPoC/mbb6v2f2bZbVW0cbduS2rZJdeP1VM908v5se+e37YM5qQCQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJAZt3214ltWzcntm0cbdtYu3HjyD3c48bds6dyUgEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAzJXbXycmd5m27fxUn736XNUW2eTu2eR+2rattsmdusnfU5l8x27kpAJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAmcduf/G7yd2hbRtZN25t3bhFVr1j2z5XZdumWcVJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAytr8eyEbW+7Zto924tVX9rclnMfm3nspJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyj93+euqGz42fa3KTanLT7MZttBM+1/u/58YdtoqTCgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkrtz+unEPp7JtB+nEtue1bR/sxOQ1b7s/k/d50rbvRcVJBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyrxs3cwDYyUkFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEgIyoAZEQFgIyoAJARFQAyogJARlQAyIgKABlRASAjKgBkRAWAjKgAkBEVADKiAkBGVADIiAoAGVEBICMqAGREBYCMqACQERUAMqICQEZUAMiICgAZUQEg8w8No9xLMw23PAAAAABJRU5ErkJggg==" width="184" height="184" alt="QR code for the previous exam and answers PDF">
+        <span>Previous exams and answers</span>
+      </a>
     </nav>
   </section>
 </main>
