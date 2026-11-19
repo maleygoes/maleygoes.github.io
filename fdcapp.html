@@ -423,6 +423,30 @@
 				gap: 0.9rem;
 			}
 
+			.grant-transport-options {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				margin-bottom: 1.25rem;
+			}
+
+			.grant-transport-option {
+				display: inline-flex !important;
+				align-items: center;
+				gap: 0.55rem;
+				margin: 0 !important;
+				padding: 0.6rem 0.95rem;
+				border: 1px solid var(--grant-line);
+				border-radius: 1rem;
+				background: rgba(255, 255, 255, 0.9);
+				font-weight: 700;
+				cursor: pointer;
+			}
+
+			.grant-transport-option .grant-check-input {
+				margin: 0 !important;
+			}
+
 			.grant-check-item {
 				display: grid;
 				grid-template-columns: auto minmax(0, 1fr);
@@ -710,6 +734,9 @@
 				const remainingEligibilityDisplay = document.getElementById("remaining-fdf-eligibility");
 				const checklistInputs = Array.from(document.querySelectorAll("[data-checklist-item]"));
 				const travelTotalDisplay = document.getElementById("travel-total");
+				const travelAuthCostInputs = Array.from(document.querySelectorAll("[data-travel-auth-cost]"));
+				const travelAuthTotalDisplay = document.getElementById("travel-auth-total");
+				const transportInputs = Array.from(document.querySelectorAll("[data-transport-type]"));
 				const summaryTotalDisplay = document.getElementById("summary-total");
 				const summaryModeDisplay = document.getElementById("summary-mode");
 				const summaryChecklistCard = document.getElementById("summary-checklist-card");
@@ -764,7 +791,13 @@
 				}
 
 				function getModeLabel(mode = currentMode) {
-					return mode === "tuition" ? "Tuition Reimbursement" : "Conference Travel";
+					if (mode === "tuition") {
+						return "Tuition Reimbursement";
+					}
+					if (mode === "travel") {
+						return "Travel Authorization";
+					}
+					return "Conference Travel";
 				}
 
 				function getNumericValue(input) {
@@ -820,8 +853,75 @@
 					return baseTotal + computeVehicleCost();
 				}
 
+				function computeTravelAuthTotal() {
+					return travelAuthCostInputs.reduce((sum, input) => sum + getNumericValue(input), 0);
+				}
+
+				function updateTravelAuthTotal() {
+					travelAuthTotalDisplay.textContent = currencyFormatter.format(computeTravelAuthTotal());
+				}
+
+				// Cover sheet breakdown in the four categories Accounts Payable asks for.
+				function getCoverCostBreakdown(mode = currentMode) {
+					const amount = (id) => getNumericValue(document.getElementById(id));
+
+					if (mode === "travel") {
+						return {
+							rows: [
+								{ label: "Transportation", value: amount("travel-cost-transportation") },
+								{ label: "Registration", value: amount("travel-cost-registration") },
+								{ label: "Meals", value: amount("travel-cost-meals") },
+								{ label: "Lodging", value: amount("travel-cost-lodging") }
+							],
+							total: computeTravelAuthTotal(),
+							note: ""
+						};
+					}
+
+					const rows = [
+						{
+							label: "Transportation",
+							value: amount("cost-airfare") + amount("cost-ground") + amount("cost-tolls") + amount("cost-parking") + computeVehicleCost()
+						},
+						{ label: "Registration", value: amount("cost-registration") },
+						{ label: "Meals", value: amount("cost-meals") },
+						{ label: "Lodging", value: amount("cost-lodging") }
+					];
+					const other = amount("cost-other");
+					if (other > 0) {
+						rows.push({ label: "Other", value: other });
+					}
+
+					return {
+						rows,
+						total: computeTravelTotal(),
+						note: "Transportation combines airfare, ground transportation, tolls, parking, and the vehicle cost used."
+					};
+				}
+
+				function getSelectedTransportTypes() {
+					return transportInputs.filter((input) => input.checked).map((input) => input.dataset.transportType);
+				}
+
+				function getTransportSummary() {
+					const types = getSelectedTransportTypes();
+					const pickup = getValue("vehicle-pickup-date");
+					const dropoff = getValue("vehicle-return-date");
+					let summary = types.length > 0 ? types.join(", ") : "None selected";
+					if (pickup || dropoff) {
+						summary += ". Vehicle pickup: " + formatDate(pickup) + ". Return: " + formatDate(dropoff) + ".";
+					}
+					return summary;
+				}
+
 				function computeCurrentModeTotal() {
-					return currentMode === "tuition" ? computeTuitionTotal() : computeTravelTotal();
+					if (currentMode === "tuition") {
+						return computeTuitionTotal();
+					}
+					if (currentMode === "travel") {
+						return 0;
+					}
+					return computeTravelTotal();
 				}
 
 				function computeVehicleCost() {
@@ -873,6 +973,8 @@
 					summaryChecklistDisplay.textContent = completed + " / " + total;
 					summaryChecklistNote.textContent = currentMode === "tuition"
 						? "Tuition packets include a checklist for syllabus and cost documentation."
+						: currentMode === "travel"
+						? "Travel authorization packets include a checklist for funding and itinerary documentation."
 						: "Conference packets include a checklist for supporting materials.";
 				}
 
@@ -985,7 +1087,8 @@
 					});
 
 					modeSections.forEach((section) => {
-						syncPanelState(section, section.dataset.modeSection === mode);
+						const sectionModes = section.dataset.modeSection.split(/\s+/);
+						syncPanelState(section, sectionModes.includes(mode));
 					});
 
 					updateModeSummary();
@@ -1226,9 +1329,14 @@
 				function buildFileName() {
 					const applicant = getValue("applicant-name") || "faculty-development";
 					const firstTuitionCourse = getTuitionCourseData()[0];
-					const subject = currentMode === "tuition"
-						? ((firstTuitionCourse && firstTuitionCourse.title) || "tuition-reimbursement")
-						: (getValue("event-name") || "conference-travel");
+					let subject;
+					if (currentMode === "tuition") {
+						subject = (firstTuitionCourse && firstTuitionCourse.title) || "tuition-reimbursement";
+					} else if (currentMode === "travel") {
+						subject = getValue("travel-event-name") || "travel-authorization";
+					} else {
+						subject = getValue("event-name") || "conference-travel";
+					}
 					const rawName = applicant + "-" + subject + "-" + currentMode + "-application";
 
 					return rawName
@@ -1412,6 +1520,35 @@
 					let page = withSafeText(pdfDoc.addPage([pageWidth, pageHeight]));
 					let cursorY = pageHeight - margin;
 
+					// One PDF field can carry widgets on several pages, so a signature or budget
+					// code entered on the cover sheet also shows on the signature page.
+					const textFields = new Map();
+
+					function addTextFieldWidget(name, x, y, width, height, value) {
+						let field = textFields.get(name);
+						const isNewField = !field;
+						if (isNewField) {
+							field = form.createTextField(name);
+							textFields.set(name, field);
+						}
+						field.addToPage(page, {
+							x,
+							y,
+							width,
+							height,
+							borderColor: colors.line,
+							borderWidth: 1,
+							backgroundColor: rgb(1, 1, 1),
+							textColor: colors.ink,
+							font: regularFont
+						});
+						if (isNewField && value) {
+							field.setFontSize(10.5);
+							field.setText(sanitizeForPdf(value));
+						}
+						return field;
+					}
+
 					function addPage() {
 						page = withSafeText(pdfDoc.addPage([pageWidth, pageHeight]));
 						cursorY = pageHeight - margin;
@@ -1470,13 +1607,25 @@
 							font: regularFont,
 							color: colors.muted
 						});
-						page.drawText("Estimated total: " + currencyFormatter.format(computeCurrentModeTotal()), {
-							x: pageWidth - margin - 172,
-							y: pageHeight - 94,
-							size: 11,
-							font: boldFont,
-							color: colors.accent
-						});
+						if (currentPacketMode === "travel") {
+							// Too long to share the subtitle line, so it gets its own line.
+							page.drawText("No Faculty Development funds requested", {
+								x: margin + 18,
+								y: pageHeight - 109,
+								size: 10,
+								font: boldFont,
+								color: colors.accent
+							});
+						} else {
+							const totalLabel = "Estimated total: " + currencyFormatter.format(computeCurrentModeTotal());
+							page.drawText(totalLabel, {
+								x: pageWidth - margin - boldFont.widthOfTextAtSize(totalLabel, 11),
+								y: pageHeight - 94,
+								size: 11,
+								font: boldFont,
+								color: colors.accent
+							});
+						}
 						cursorY = pageHeight - 140;
 					}
 
@@ -1517,13 +1666,13 @@
 						cursorY -= 6;
 					}
 
-					function drawCostTable() {
-						const items = getCostItems();
+					function drawAmountTable(items, totalLabel, totalValue) {
 						const rowHeight = 16;
 						const tableHeight = 28 + items.length * rowHeight + 20;
 						ensureSpace(tableHeight);
 
 						items.forEach((item) => {
+							const amountText = currencyFormatter.format(item.value);
 							page.drawText(item.label, {
 								x: margin,
 								y: cursorY - 12,
@@ -1531,8 +1680,8 @@
 								font: regularFont,
 								color: colors.ink
 							});
-							page.drawText(currencyFormatter.format(item.value), {
-								x: pageWidth - margin - 90,
+							page.drawText(amountText, {
+								x: pageWidth - margin - boldFont.widthOfTextAtSize(amountText, 11),
 								y: cursorY - 12,
 								size: 11,
 								font: boldFont,
@@ -1541,27 +1690,32 @@
 							cursorY -= rowHeight;
 						});
 
+						const totalText = currencyFormatter.format(totalValue);
 						page.drawLine({
 							start: { x: margin, y: cursorY + 3 },
 							end: { x: pageWidth - margin, y: cursorY + 3 },
 							thickness: 1,
 							color: colors.line
 						});
-						page.drawText("Total Estimated Cost", {
+						page.drawText(totalLabel, {
 							x: margin,
 							y: cursorY - 13,
 							size: 12,
 							font: boldFont,
 							color: colors.accent
 						});
-						page.drawText(currencyFormatter.format(computeTravelTotal()), {
-							x: pageWidth - margin - 110,
+						page.drawText(totalText, {
+							x: pageWidth - margin - boldFont.widthOfTextAtSize(totalText, 12),
 							y: cursorY - 13,
 							size: 12,
 							font: boldFont,
 							color: colors.accent
 						});
 						cursorY -= 28;
+					}
+
+					function drawCostTable() {
+						drawAmountTable(getCostItems(), "Total Estimated Cost", computeTravelTotal());
 					}
 
 					function drawFundingCallout() {
@@ -1604,50 +1758,305 @@
 					}
 
 					function drawTuitionTable() {
-						const items = getTuitionItems();
-						const rowHeight = 16;
-						const tableHeight = 28 + items.length * rowHeight + 20;
-						ensureSpace(tableHeight);
+						drawAmountTable(getTuitionItems(), "Total Tuition Reimbursement Cost", computeTuitionTotal());
+					}
 
-						items.forEach((item) => {
-							page.drawText(item.label, {
-								x: margin,
-								y: cursorY - 12,
+					// Page one for travel packets: what Accounts Payable needs at a glance.
+					function drawCoverPage() {
+						const mode = currentPacketMode;
+						const isTravelMode = mode === "travel";
+						const left = margin;
+						const right = pageWidth - margin;
+						const gap = 14;
+						const half = (contentWidth - gap) / 2;
+						const fieldHeight = 20;
+						let y = pageHeight - 44;
+
+						function coverLabel(text, x, top) {
+							page.drawText(text.toUpperCase(), {
+								x,
+								y: top - 8,
+								size: 7.5,
+								font: boldFont,
+								color: colors.muted
+							});
+						}
+
+						// Draws a label and value, returns the y just below it.
+						function coverValue(label, value, x, top, width, maxLines = 1) {
+							coverLabel(label, x, top);
+							let lines = wrapText(value || "Not provided", regularFont, 11, width).filter((line) => line !== "");
+							if (lines.length > maxLines) {
+								lines = lines.slice(0, maxLines);
+								let last = lines[maxLines - 1];
+								while (last && regularFont.widthOfTextAtSize(last + "...", 11) > width) {
+									last = last.slice(0, -1);
+								}
+								lines[maxLines - 1] = last.trimEnd() + "...";
+							}
+							lines.forEach((line, index) => {
+								page.drawText(line, {
+									x,
+									y: top - 23 - index * 14,
+									size: 11,
+									font: regularFont,
+									color: colors.ink
+								});
+							});
+							return top - 23 - (lines.length - 1) * 14 - 13;
+						}
+
+						function coverHeading(text) {
+							page.drawText(text, {
+								x: left,
+								y: y - 12,
+								size: 12,
+								font: boldFont,
+								color: colors.accent
+							});
+							page.drawLine({
+								start: { x: left, y: y - 17 },
+								end: { x: right, y: y - 17 },
+								thickness: 1,
+								color: colors.line
+							});
+							y -= 27;
+						}
+
+						function coverSignatureRow(label, fieldName, dateFieldName) {
+							const dateWidth = 110;
+							coverLabel(label, left, y);
+							coverLabel("Date", right - dateWidth, y);
+							addTextFieldWidget(fieldName, left, y - 12 - fieldHeight, contentWidth - dateWidth - gap, fieldHeight);
+							addTextFieldWidget(dateFieldName, right - dateWidth, y - 12 - fieldHeight, dateWidth, fieldHeight);
+							y -= 12 + fieldHeight + 10;
+						}
+
+						// Title band
+						page.drawRectangle({
+							x: left,
+							y: y - 50,
+							width: contentWidth,
+							height: 50,
+							color: colors.soft
+						});
+						page.drawText("Travel Authorization Cover Sheet", {
+							x: left + 14,
+							y: y - 23,
+							size: 17,
+							font: boldFont,
+							color: colors.ink
+						});
+						page.drawText("At-a-glance summary for Accounts Payable. The full " + getModeLabel(mode).toLowerCase() + " packet follows.", {
+							x: left + 14,
+							y: y - 39,
+							size: 9.5,
+							font: regularFont,
+							color: colors.muted
+						});
+						y -= 62;
+
+						// Traveler and trip
+						const eventName = getValue(isTravelMode ? "travel-event-name" : "event-name");
+						const role = getValue(isTravelMode ? "travel-event-role" : "event-role");
+						const purpose = eventName
+							? (isTravelMode ? "" : "Conference: ") + eventName + (role ? " (" + role + ")" : "")
+							: "";
+						const startDate = getValue(isTravelMode ? "travel-start-date" : "event-start-date");
+						const endDate = getValue(isTravelMode ? "travel-end-date" : "event-end-date");
+						const dateWidth = (half - gap) / 2;
+
+						y = Math.min(
+							coverValue("Traveler Name", getValue("applicant-name"), left, y, half),
+							coverValue("Department", getValue("department"), left + half + gap, y, half)
+						);
+						y = coverValue("Purpose for Travel", purpose, left, y, contentWidth, 2);
+						y = Math.min(
+							coverValue("Destination", getValue(isTravelMode ? "travel-location" : "event-location"), left, y, half, 2),
+							coverValue("Travel Period From", formatDate(startDate), left + half + gap, y, dateWidth),
+							coverValue("Travel Period To", formatDate(endDate), left + half + gap * 2 + dateWidth, y, dateWidth)
+						);
+
+						// Estimated travel costs
+						y -= 4;
+						coverHeading("Estimated Travel Costs");
+
+						coverLabel("Type of Transportation", left, y);
+						const selectedTypes = getSelectedTransportTypes();
+						const boxSize = 11;
+						const boxY = y - 14 - boxSize;
+						let optionX = left;
+						["Air", "Train", "Rental", "Personal Vehicle", "College Car"].forEach((option) => {
+							const checkBox = form.createCheckBox("cover.transport-" + option.toLowerCase().replace(/\s+/g, "-"));
+							checkBox.addToPage(page, {
+								x: optionX,
+								y: boxY,
+								width: boxSize,
+								height: boxSize,
+								borderColor: colors.ink,
+								borderWidth: 1,
+								backgroundColor: rgb(1, 1, 1),
+								textColor: colors.ink
+							});
+							if (selectedTypes.includes(option)) {
+								checkBox.check();
+							}
+							page.drawText(option, {
+								x: optionX + boxSize + 5,
+								y: boxY + 2,
+								size: 10.5,
+								font: regularFont,
+								color: colors.ink
+							});
+							optionX += boxSize + 5 + regularFont.widthOfTextAtSize(option, 10.5) + 22;
+						});
+						y = boxY - 12;
+
+						const vehicleDateWidth = 130;
+						const pickupDate = getValue("vehicle-pickup-date");
+						const returnDate = getValue("vehicle-return-date");
+						coverLabel("Pickup Date", left, y);
+						coverLabel("Return Date", left + vehicleDateWidth + gap, y);
+						addTextFieldWidget("cover.vehicle-pickup-date", left, y - 12 - fieldHeight, vehicleDateWidth, fieldHeight, pickupDate ? formatDate(pickupDate) : "");
+						addTextFieldWidget("cover.vehicle-return-date", left + vehicleDateWidth + gap, y - 12 - fieldHeight, vehicleDateWidth, fieldHeight, returnDate ? formatDate(returnDate) : "");
+						page.drawText("Rental or college car", {
+							x: left + (vehicleDateWidth + gap) * 2,
+							y: y - 12 - fieldHeight + 6,
+							size: 9,
+							font: regularFont,
+							color: colors.muted
+						});
+						y -= 12 + fieldHeight + 14;
+
+						const breakdown = getCoverCostBreakdown(mode);
+						const tableWidth = 300;
+						const tableTop = y;
+						coverLabel("Cost Breakdown", left, y);
+						y -= 12;
+						breakdown.rows.forEach((row) => {
+							const amountText = currencyFormatter.format(row.value);
+							page.drawText(row.label, {
+								x: left,
+								y: y - 12,
 								size: 11,
 								font: regularFont,
 								color: colors.ink
 							});
-							page.drawText(currencyFormatter.format(item.value), {
-								x: pageWidth - margin - 90,
-								y: cursorY - 12,
+							page.drawText(amountText, {
+								x: left + tableWidth - regularFont.widthOfTextAtSize(amountText, 11),
+								y: y - 12,
 								size: 11,
+								font: regularFont,
+								color: colors.ink
+							});
+							page.drawLine({
+								start: { x: left, y: y - 16 },
+								end: { x: left + tableWidth, y: y - 16 },
+								thickness: 0.5,
+								color: colors.line
+							});
+							y -= 17;
+						});
+						const totalText = currencyFormatter.format(breakdown.total);
+						page.drawText("Total", {
+							x: left,
+							y: y - 14,
+							size: 11.5,
+							font: boldFont,
+							color: colors.ink
+						});
+						page.drawText(totalText, {
+							x: left + tableWidth - boldFont.widthOfTextAtSize(totalText, 11.5),
+							y: y - 14,
+							size: 11.5,
+							font: boldFont,
+							color: colors.ink
+						});
+						y -= 20;
+						if (breakdown.note) {
+							page.drawText(breakdown.note, {
+								x: left,
+								y: y - 9,
+								size: 8,
+								font: regularFont,
+								color: colors.muted
+							});
+							y -= 13;
+						}
+
+						// Total callout beside the table
+						const calloutX = left + tableWidth + 24;
+						const calloutWidth = right - calloutX;
+						const calloutHeight = 64;
+						const calloutY = tableTop - 12 - calloutHeight;
+						page.drawRectangle({
+							x: calloutX,
+							y: calloutY,
+							width: calloutWidth,
+							height: calloutHeight,
+							color: colors.soft,
+							borderColor: colors.line,
+							borderWidth: 1
+						});
+						page.drawText("TOTAL ESTIMATED COST", {
+							x: calloutX + 12,
+							y: calloutY + calloutHeight - 18,
+							size: 7.5,
+							font: boldFont,
+							color: colors.muted
+						});
+						page.drawText(totalText, {
+							x: calloutX + 12,
+							y: calloutY + 16,
+							size: 20,
+							font: boldFont,
+							color: colors.accent
+						});
+
+						// Traveler signature
+						y -= 8;
+						coverSignatureRow("Traveler's Signature", "signature.applicant", "signature-date.applicant");
+
+						// Account codes
+						y -= 2;
+						coverHeading("Account Codes to Be Charged");
+						const numberWidth = 16;
+						const codeX = left + numberWidth;
+						const codeWidth = 150;
+						const amountX = codeX + codeWidth + 10;
+						const amountWidth = 90;
+						const authorizerX = amountX + amountWidth + 10;
+						coverLabel("Account Code", codeX, y);
+						coverLabel("Amount", amountX, y);
+						coverLabel("Authorizing Signature for Budget Code", authorizerX, y);
+						y -= 12;
+						["1", "2"].forEach((key) => {
+							page.drawText(key + ")", {
+								x: left,
+								y: y - fieldHeight + 6,
+								size: 10.5,
 								font: boldFont,
 								color: colors.ink
 							});
-							cursorY -= rowHeight;
+							addTextFieldWidget("office.budget-code-" + key, codeX, y - fieldHeight, codeWidth, fieldHeight);
+							addTextFieldWidget("office.amount-to-be-charged-" + key, amountX, y - fieldHeight, amountWidth, fieldHeight);
+							addTextFieldWidget("office.budget-authorizer-" + key, authorizerX, y - fieldHeight, right - authorizerX, fieldHeight);
+							y -= fieldHeight + 8;
 						});
 
-						page.drawLine({
-							start: { x: margin, y: cursorY + 3 },
-							end: { x: pageWidth - margin, y: cursorY + 3 },
-							thickness: 1,
-							color: colors.line
+						// Approvals
+						y -= 6;
+						coverHeading("Approvals");
+						coverSignatureRow("Department Approval", "signature.department-chair", "signature-date.department-chair");
+						coverSignatureRow("Approving College Officer", "signature.cabinet-member", "signature-date.cabinet-member");
+
+						page.drawText("Signatures, dates, and account codes entered here also fill the matching fields on the signature page.", {
+							x: left,
+							y: 30,
+							size: 8,
+							font: regularFont,
+							color: colors.muted
 						});
-						page.drawText("Total Tuition Reimbursement Cost", {
-							x: margin,
-							y: cursorY - 13,
-							size: 12,
-							font: boldFont,
-							color: colors.accent
-						});
-						page.drawText(currencyFormatter.format(computeTuitionTotal()), {
-							x: pageWidth - margin - 132,
-							y: cursorY - 13,
-							size: 12,
-							font: boldFont,
-							color: colors.accent
-						});
-						cursorY -= 28;
 					}
 
 					function drawAttachmentSummary() {
@@ -1742,31 +2151,8 @@
 								color: colors.ink
 							});
 
-							const signatureField = form.createTextField("signature." + item.key);
-							signatureField.addToPage(page, {
-								x: margin,
-								y,
-								width: signatureWidth,
-								height: fieldHeight,
-								borderColor: colors.line,
-								borderWidth: 1,
-								backgroundColor: rgb(1, 1, 1),
-								textColor: colors.ink,
-								font: regularFont
-							});
-
-							const dateField = form.createTextField("signature-date." + item.key);
-							dateField.addToPage(page, {
-								x: pageWidth - margin - dateWidth,
-								y,
-								width: dateWidth,
-								height: fieldHeight,
-								borderColor: colors.line,
-								borderWidth: 1,
-								backgroundColor: rgb(1, 1, 1),
-								textColor: colors.ink,
-								font: regularFont
-							});
+							addTextFieldWidget("signature." + item.key, margin, y, signatureWidth, fieldHeight);
+							addTextFieldWidget("signature-date." + item.key, pageWidth - margin - dateWidth, y, dateWidth, fieldHeight);
 
 							y -= signatureBlockGap;
 						});
@@ -1827,32 +2213,14 @@
 								color: colors.ink
 							});
 
-							const budgetCodeField = form.createTextField("office.budget-code-" + item.key);
-							budgetCodeField.addToPage(page, {
-								x: margin,
-								y: item.rowY,
-								width: budgetFieldWidth,
-								height: fieldHeight,
-								borderColor: colors.line,
-								borderWidth: 1,
-								backgroundColor: rgb(1, 1, 1),
-								textColor: colors.ink,
-								font: regularFont
-							});
-
-							const amountField = form.createTextField("office.amount-to-be-charged-" + item.key);
-							amountField.addToPage(page, {
-								x: amountFieldX,
-								y: item.rowY,
-								width: budgetFieldWidth,
-								height: fieldHeight,
-								borderColor: colors.line,
-								borderWidth: 1,
-								backgroundColor: rgb(1, 1, 1),
-								textColor: colors.ink,
-								font: regularFont
-							});
+							addTextFieldWidget("office.budget-code-" + item.key, margin, item.rowY, budgetFieldWidth, fieldHeight);
+							addTextFieldWidget("office.amount-to-be-charged-" + item.key, amountFieldX, item.rowY, budgetFieldWidth, fieldHeight);
 						});
+					}
+
+					if (currentPacketMode !== "tuition") {
+						drawCoverPage();
+						addPage();
 					}
 
 					drawHeader();
@@ -1891,6 +2259,27 @@
 
 						drawSectionTitle("Total Tuition Reimbursement Cost");
 						drawTuitionTable();
+					} else if (currentPacketMode === "travel") {
+						drawSectionTitle("Trip Details");
+						drawField("Event / Program Name", getValue("travel-event-name"));
+						drawField("Event Sponsor / Host", getValue("travel-event-sponsor") || "Not provided");
+						drawField("Role", getValue("travel-event-role") || "Not provided");
+						drawField("Travel Origin", getValue("travel-auth-origin") || "Not provided");
+						drawField("Travel Dates", formatRange(getValue("travel-start-date"), getValue("travel-end-date"), formatDate));
+						drawField("Destination / Event Location", getValue("travel-location"));
+						drawField("Venue / Hotel", getValue("travel-venue") || "Not provided");
+						drawField("Transportation", getTransportSummary());
+
+						drawSectionTitle("Purpose and Funding Source");
+						drawField("Purpose of Travel / Brief Description", getValue("travel-rationale"));
+						drawField("Funding Source(s) for This Travel", getValue("travel-funding-source"));
+						drawField("Funding Notes", getValue("travel-funding-notes") || "No additional notes provided.");
+
+						drawSectionTitle("Estimated Travel Costs");
+						drawAmountTable(getCoverCostBreakdown("travel").rows, "Total Estimated Cost", computeTravelAuthTotal());
+
+						drawSectionTitle("Packet Checklist");
+						drawChecklist(currentPacketMode);
 					} else {
 						drawSectionTitle("Event Details");
 						drawField("Event Name", getValue("event-name"));
@@ -1902,6 +2291,7 @@
 						drawField("Event Location", getValue("event-location"));
 						drawField("Venue / Hotel", getValue("event-venue") || "Not provided");
 						drawField("Travel Origin", getValue("travel-origin") || "Not provided");
+						drawField("Transportation", getTransportSummary());
 						drawField("Travel Coordination / Town & Country Details", getValue("travel-coordination") || "Not provided");
 
 						drawSectionTitle("Rationale and Outcomes");
@@ -1916,11 +2306,13 @@
 						drawField("Vehicle Comparison", getVehicleComparisonSummary());
 					}
 
-					drawSectionTitle("Funding Request");
-					drawFundingCallout();
-					drawField("Faculty Development Funding Summary", getFundingRequestSummary());
-					drawField("Other Funding Source(s)", getValue("other-funding-source") || "No other funding sources listed.");
-					drawField("Additional Notes", getValue("other-cost-notes") || "No additional notes provided.");
+					if (currentPacketMode !== "travel") {
+						drawSectionTitle("Funding Request");
+						drawFundingCallout();
+						drawField("Faculty Development Funding Summary", getFundingRequestSummary());
+						drawField("Other Funding Source(s)", getValue("other-funding-source") || "No other funding sources listed.");
+						drawField("Additional Notes", getValue("other-cost-notes") || "No additional notes provided.");
+					}
 
 					drawSectionTitle("Attachments");
 					drawAttachmentSummary();
@@ -2058,7 +2450,8 @@
 
 						setDefaultDates();
 						previousDeliveryMode = deliveryModeInput.value;
-						setMode(draft.mode === "tuition" ? "tuition" : "conference");
+						setMode(["tuition", "travel"].includes(draft.mode) ? draft.mode : "conference");
+						updateTravelAuthTotal();
 						updateTravelTotals();
 						updateTuitionTotals();
 						updateFundingEligibility();
@@ -2196,6 +2589,10 @@
 					input.addEventListener("input", updateTravelTotals);
 				});
 
+				travelAuthCostInputs.forEach((input) => {
+					input.addEventListener("input", updateTravelAuthTotal);
+				});
+
 				[rentalDaysInput, mileageMilesInput, rentalDailyRateInput, mileageRateInput].forEach((input) => {
 					input.addEventListener("input", updateTravelTotals);
 				});
@@ -2273,6 +2670,7 @@
 					resetTuitionCourses();
 					setDefaultDates();
 					updateTravelTotals();
+					updateTravelAuthTotal();
 					updateTuitionTotals();
 					updateFundingEligibility();
 					updateChecklistSummary();
@@ -2313,9 +2711,9 @@
 							<div class="grant-hero-grid">
 								<div>
 									<h1> Faculty Development Application </h1>
-									<h3>An application builder for conference travel and tuition reimbursement.</h3>
+									<h3>An application builder for conference travel, tuition reimbursement, and travel authorization.</h3>
 									<p>
-										This page lets you build either a conference travel packet or a tuition reimbursement packet,
+										This page lets you build a conference travel packet, a tuition reimbursement packet, or a travel authorization packet for travel funded from elsewhere,
 										then generates a completed PDF application for you to forward to your department chair, and then the Faculty Development Committee for review.  Please note: For all cost estimates, documentation must be provided.
 									</p>
 									<!-- <ul class="grant-hero-points">
@@ -2416,11 +2814,12 @@
 								<div class="grant-tabs">
 									<div class="grant-section-header">
 										<h2>Application Type</h2>
-										<p>Choose whether you are building a conference travel packet or a tuition reimbursement packet.</p>
+										<p>Choose whether you are building a conference travel packet, a tuition reimbursement packet, or a travel authorization packet for travel funded from elsewhere.</p>
 									</div>
 									<div class="grant-tab-list" role="tablist" aria-label="Application Type Tabs">
 										<button type="button" class="button grant-tab is-active" id="conference-tab" data-tab-button data-mode="conference" role="tab" aria-controls="conference-panel" aria-selected="true">Conference Travel</button>
 										<button type="button" class="button grant-tab" id="tuition-tab" data-tab-button data-mode="tuition" role="tab" aria-controls="tuition-panel" aria-selected="false">Tuition Reimbursement</button>
+										<button type="button" class="button grant-tab" id="travel-tab" data-tab-button data-mode="travel" role="tab" aria-controls="travel-panel" aria-selected="false">Travel Authorization</button>
 									</div>
 								</div>
 
@@ -2636,6 +3035,166 @@
 									</div>
 								</div>
 
+								<div class="grant-mode-panel" id="travel-panel" data-mode-panel="travel" role="tabpanel" aria-labelledby="travel-tab" hidden>
+									<div class="grant-section">
+										<div class="grant-section-header">
+											<h2>Travel Details</h2>
+											<p>Use this tab when you are traveling on college business but the funding is coming from elsewhere, so you are not requesting any Faculty Development money. This still builds a signed travel authorization packet.</p>
+										</div>
+										<fieldset class="grant-fieldset">
+											<legend>Trip</legend>
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-event-name">Event / Program Name <span class="grant-required">*</span></label>
+													</div>
+													<input type="text" id="travel-event-name" name="travel-event-name" required />
+												</div>
+												<div class="col-6 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-event-sponsor">Event Sponsor / Host</label>
+													</div>
+													<input type="text" id="travel-event-sponsor" name="travel-event-sponsor" />
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-event-role">Your Role</label>
+													</div>
+													<select id="travel-event-role" name="travel-event-role">
+														<option value="">- Select role -</option>
+														<option>Attendee</option>
+														<option>Presenter</option>
+														<option>Panelist</option>
+														<option>Workshop Facilitator</option>
+														<option>Other</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-auth-origin">Travel Origin</label>
+													</div>
+													<input type="text" id="travel-auth-origin" name="travel-auth-origin" placeholder="Campus or departure city" />
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-venue">Venue / Hotel</label>
+													</div>
+													<input type="text" id="travel-venue" name="travel-venue" placeholder="Conference center, hotel, campus, etc." />
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-start-date">Start Date <span class="grant-required">*</span></label>
+													</div>
+													<input type="date" id="travel-start-date" name="travel-start-date" required />
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-end-date">End Date <span class="grant-required">*</span></label>
+													</div>
+													<input type="date" id="travel-end-date" name="travel-end-date" required />
+												</div>
+												<div class="col-4 col-12-small">
+													<div class="grant-label-row">
+														<label for="travel-location">Destination / Event Location <span class="grant-required">*</span></label>
+													</div>
+													<input type="text" id="travel-location" name="travel-location" placeholder="City, State / Country" required />
+												</div>
+											</div>
+										</fieldset>
+									</div>
+
+									<div class="grant-section">
+										<div class="grant-section-header">
+											<h2>Purpose and Funding Source</h2>
+											<p>Explain the purpose of the travel and where the funding is coming from, since no Faculty Development money is being requested on this packet.</p>
+										</div>
+										<div class="row gtr-uniform">
+											<div class="col-12">
+												<div class="grant-label-row">
+													<label for="travel-rationale">Purpose of Travel / Brief Description <span class="grant-required">*</span></label>
+													<span class="grant-help">This appears as a full narrative section on the PDF.</span>
+												</div>
+												<textarea id="travel-rationale" name="travel-rationale" rows="6" required placeholder="Describe the event or program and the purpose of this travel."></textarea>
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="travel-funding-source">Funding Source(s) for This Travel <span class="grant-required">*</span></label>
+												</div>
+												<input type="text" id="travel-funding-source" name="travel-funding-source" placeholder="Grant name, external sponsor, department account, etc." required />
+											</div>
+											<div class="col-6 col-12-small">
+												<div class="grant-label-row">
+													<label for="travel-funding-notes">Funding Notes</label>
+												</div>
+												<input type="text" id="travel-funding-notes" name="travel-funding-notes" placeholder="Optional notes about the funding arrangement" />
+											</div>
+										</div>
+									</div>
+
+									<div class="grant-section">
+										<div class="grant-section-header">
+											<h2>Estimated Travel Costs</h2>
+											<p>No Faculty Development money is requested here, but Accounts Payable still needs the estimate for the travel authorization cover sheet. Enter zero for anything that does not apply.</p>
+										</div>
+										<div class="grant-cost-grid">
+											<div class="grant-cost-card">
+												<label for="travel-cost-transportation">Transportation <span class="grant-required">*</span></label>
+												<input type="number" id="travel-cost-transportation" name="travel-cost-transportation" min="0" step="0.001" data-travel-auth-cost required />
+												<p class="grant-small-note">Airfare, train, rental, mileage, tolls, and parking combined.</p>
+											</div>
+											<div class="grant-cost-card">
+												<label for="travel-cost-registration">Registration <span class="grant-required">*</span></label>
+												<input type="number" id="travel-cost-registration" name="travel-cost-registration" min="0" step="0.001" data-travel-auth-cost required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="travel-cost-meals">Meals <span class="grant-required">*</span></label>
+												<input type="number" id="travel-cost-meals" name="travel-cost-meals" min="0" step="0.001" data-travel-auth-cost required />
+											</div>
+											<div class="grant-cost-card">
+												<label for="travel-cost-lodging">Lodging <span class="grant-required">*</span></label>
+												<input type="number" id="travel-cost-lodging" name="travel-cost-lodging" min="0" step="0.001" data-travel-auth-cost required />
+											</div>
+										</div>
+										<div class="grant-total-bar">
+											<div class="grant-total-label">
+												<strong>Total Estimated Travel Cost</strong>
+												<span>Charged to the funding source above, not to Faculty Development.</span>
+											</div>
+											<div class="grant-total-amount" id="travel-auth-total">$0.00</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="grant-section grant-mode-section" data-mode-section="conference travel">
+									<div class="grant-section-header">
+										<h2>Transportation</h2>
+										<p>These details go on the cover sheet that Accounts Payable reads first. Check every type of transportation you plan to use. Pickup and return dates apply to a rental or college car.</p>
+									</div>
+									<div class="grant-transport-options" role="group" aria-label="Type of transportation">
+										<label class="grant-transport-option" for="transport-air"><input class="grant-check-input" type="checkbox" id="transport-air" name="transport-air" data-transport-type="Air" /> Air</label>
+										<label class="grant-transport-option" for="transport-train"><input class="grant-check-input" type="checkbox" id="transport-train" name="transport-train" data-transport-type="Train" /> Train</label>
+										<label class="grant-transport-option" for="transport-rental"><input class="grant-check-input" type="checkbox" id="transport-rental" name="transport-rental" data-transport-type="Rental" /> Rental</label>
+										<label class="grant-transport-option" for="transport-personal"><input class="grant-check-input" type="checkbox" id="transport-personal" name="transport-personal" data-transport-type="Personal Vehicle" /> Personal Vehicle</label>
+										<label class="grant-transport-option" for="transport-college-car"><input class="grant-check-input" type="checkbox" id="transport-college-car" name="transport-college-car" data-transport-type="College Car" /> College Car</label>
+									</div>
+									<div class="row gtr-uniform">
+										<div class="col-6 col-12-small">
+											<div class="grant-label-row">
+												<label for="vehicle-pickup-date">Pickup Date</label>
+												<span class="grant-help">Rental or college car</span>
+											</div>
+											<input type="date" id="vehicle-pickup-date" name="vehicle-pickup-date" />
+										</div>
+										<div class="col-6 col-12-small">
+											<div class="grant-label-row">
+												<label for="vehicle-return-date">Return Date</label>
+												<span class="grant-help">Rental or college car</span>
+											</div>
+											<input type="date" id="vehicle-return-date" name="vehicle-return-date" />
+										</div>
+									</div>
+								</div>
+
 								<template id="tuition-course-template">
 									<fieldset class="grant-fieldset" data-tuition-course>
 										<legend data-course-legend>Course 1</legend>
@@ -2739,10 +3298,10 @@
 									</fieldset>
 								</template>
 
-								<div class="grant-section">
+								<div class="grant-section grant-mode-section" data-mode-section="conference tuition">
 									<div class="grant-section-header">
 										<h2>Funding Request</h2>
-										<p>Both application types use the same Faculty Development annual limit of $1,100 per academic year per faculty member.  Requests above that amount can still be noted in case a second round of funding becomes available.</p>
+										<p>Conference travel and tuition reimbursement both use the same Faculty Development annual limit of $1,100 per academic year per faculty member.  Requests above that amount can still be noted in case a second round of funding becomes available.  Travel authorization packets skip this section since no Faculty Development money is being requested.</p>
 									</div>
 									<div class="grant-funding-grid">
 										<div class="grant-cost-card">
@@ -2868,6 +3427,36 @@
 									</div>
 								</div>
 
+								<div class="grant-section grant-mode-section" data-mode-section="travel">
+									<div class="grant-section-header">
+										<h2>Packet Checklist</h2>
+										<p>Confirm that the required supporting materials for travel authorization are attached before generating the packet.</p>
+									</div>
+									<div class="grant-checklist">
+										<div class="grant-check-item">
+											<input class="grant-check-input" type="checkbox" id="check-travel-application" data-checklist-item data-checklist-label="Completed Travel Authorization Form ready for applicant and department chair signatures." required />
+											<div class="grant-check-copy">
+												<label for="check-travel-application">Completed Travel Authorization Form</label>
+												<p>Completing every field above on this page.</p>
+											</div>
+										</div>
+										<div class="grant-check-item">
+											<input class="grant-check-input" type="checkbox" id="check-travel-funding-docs" data-checklist-item data-checklist-label="Documentation of the funding source for this travel." required />
+											<div class="grant-check-copy">
+												<label for="check-travel-funding-docs">Documentation of the funding source for this travel</label>
+												<p>Attach the award letter, grant confirmation, sponsor letter, department approval, or other evidence of where the funding is coming from.</p>
+											</div>
+										</div>
+										<div class="grant-check-item">
+											<input class="grant-check-input" type="checkbox" id="check-travel-itinerary" data-checklist-item data-checklist-label="Event or program itinerary / agenda." required />
+											<div class="grant-check-copy">
+												<label for="check-travel-itinerary">Event or program itinerary / agenda</label>
+												<p>Attach the schedule, agenda, or program showing dates and activities for the trip.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
 								<div class="grant-section">
 									<div class="grant-section-header">
 										<h2>PDF Packet Preview</h2>
@@ -2904,7 +3493,7 @@
 							</form>
 						</section>
 					</section>
-			<p class="grant-footer">Created by Sean Maley, Chair of Faculty Development. Latest update: April 2, 2026.</p>
+			<p class="grant-footer">Created by Sean Maley, Chair of Faculty Development. Latest update: November 19, 2026.</p>
 		</main>
 	</body>
 </html>
